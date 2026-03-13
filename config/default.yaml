@@ -1,0 +1,38 @@
+# 大王量化交易系统 v3.0 - 默认配置
+
+system:
+  name: "大王量化交易系统"
+  version: "v3.0.0"
+  environment: "development"
+
+binance:
+  api_key: "${BINANCE_API_KEY}"  # 从环境变量读取
+  secret_key: "${BINANCE_SECRET_KEY}"
+  testnet: true
+  rate_limit_orders_per_second: 10
+  rate_limit_orders_per_day: 100000
+
+database:
+  type: "sqlite"
+  path: "data/lobster_v3.db"
+  redis_host: "localhost"
+  redis_port: 6379
+  redis_db: 0
+
+logging:
+  level: "INFO"
+  format: "json"
+  output_file: "logs/trading.log"
+  console_output: true
+
+strategy:
+  default_leverage: 5
+  default_amount: 100.0
+  max_positions: 10
+  max_total_exposure: 10000.0
+
+risk:
+  max_total_exposure: 10000.0
+  max_single_position: 1000.0
+  max_daily_loss: 500.0
+  stop_loss_percentage: 0.05

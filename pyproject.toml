@@ -1,0 +1,74 @@
+# Black 配置文件
+# 自动格式化 Python 代码
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+# Flake8 配置文件
+# 代码风格检查
+
+[tool.flake8]
+max-line-length = 100
+max-complexity = 18
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    ".venv",
+    ".tox"
+]
+ignore = [
+    "E203",  # whitespace before ':'
+    "W503",  # line break before binary operator
+]
+
+# Pytest 配置文件
+# 测试框架配置
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+python_files = "test_*.py"
+python_functions = "test_*"
+python_classes = "Test*"
+
+# Mypy 配置文件
+# 静态类型检查
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "tests.*",
+]
+disallow_untyped_defs = false

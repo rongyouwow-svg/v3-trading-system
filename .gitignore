@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日志文件
+logs/
+*.log
+
+# 数据库
+*.db
+*.sqlite
+*.sqlite3
+
+# 配置文件（包含敏感信息）
+config/api_keys.json
+.env
+*.env
+credentials/
+
+# 策略文件（核心策略不公开）
+core/strategy/strategies/
+strategies/*.py
+!strategies/__init__.py
+!strategies/README.md
+
+# 测试数据
+tests/data/
+*.csv
+!tests/data/.gitkeep
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+
+# Web Dashboard 缓存
+web/dashboard/__pycache__/
+web/dashboard/*.pyc

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大王量化 - 策略库</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f5f6fa; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f3f4f6; }
+        .card-header h3 { color: #333; font-size: 18px; }
+        .btn { background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        .btn:hover { background: #5568d3; }
+        .btn-success { background: #10b981; }
+        .btn-success:hover { background: #059669; }
+        .strategy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .strategy-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; transition: all 0.3s; cursor: pointer; }
+        .strategy-card:hover { box-shadow: 0 4px 6px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .strategy-card.selected { border: 2px solid #667eea; background: #f0f4ff; }
+        .strategy-card h4 { color: #333; font-size: 16px; margin-bottom: 10px; }
+        .strategy-card .description { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        .strategy-card .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
+        .tag { padding: 4px 8px; border-radius: 4px; font-size: 12px; background: #f3f4f6; color: #666; }
+        .tag.success { background: #d1fae5; color: #065f46; }
+        .tag.warning { background: #fef3c7; color: #92400e; }
+        .strategy-card .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+        .stat { text-align: center; }
+        .stat .value { font-size: 18px; font-weight: bold; color: #333; }
+        .stat .label { font-size: 12px; color: #666; }
+        .stat .positive { color: #10b981; }
+        .stat .negative { color: #ef4444; }
+        .filters { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .filters input, .filters select { padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 5px; font-size: 14px; }
+        .filters input { flex: 1; }
+        .alert { padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .alert-success { background: #d1fae5; color: #065f46; border-left: 4px solid #10b981; }
+        .alert-error { background: #fee2e2; color: #991b1b; border-left: 4px solid #ef4444; }
+        .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        .modal-content { background: white; border-radius: 10px; padding: 30px; width: 500px; max-width: 90%; max-height: 90vh; overflow-y: auto; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: #333; font-weight: 500; margin-bottom: 8px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #e5e7eb; border-radius: 5px; font-size: 14px; }
+        .form-group .help-text { color: #666; font-size: 12px; margin-top: 5px; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>📊 策略库</h3>
+                <button class="btn" onclick="location.href='/dashboard/index.html'">🏠 返回 Dashboard</button>
+            </div>
+            
+            <div id="alertContainer"></div>
+            
+            <!-- 筛选器 -->
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="搜索策略...">
+                <select id="categoryFilter">
+                    <option value="">所有分类</option>
+                    <option value="breakout">突破策略</option>
+                    <option value="rsi">RSI 策略</option>
+                    <option value="macd">MACD 策略</option>
+                    <option value="grid">网格策略</option>
+                </select>
+                <select id="riskFilter">
+                    <option value="">所有风险</option>
+                    <option value="low">低风险</option>
+                    <option value="medium">中风险</option>
+                    <option value="high">高风险</option>
+                </select>
+                <button class="btn" onclick="filterStrategies()">🔍 筛选</button>
+            </div>
+            
+            <!-- 策略列表 -->
+            <div class="strategy-grid" id="strategiesList">
+                <div style="text-align: center; padding: 40px; color: #666; grid-column: 1/-1;">
+                    <div style="font-size: 48px;">📊</div>
+                    <div>加载中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 策略详情/启动模态框 -->
+    <div id="strategyModal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle" style="margin-bottom: 20px; color: #333; font-size: 20px;">📊 策略详情</h3>
+            
+            <div id="modalContent">
+                <!-- 动态内容 -->
+            </div>
+            
+            <div class="btn-group">
+                <button id="startStrategyBtn" class="btn btn-success" onclick="startStrategy()">🚀 启动策略</button>
+                <button class="btn" onclick="closeModal()">取消</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 策略库数据
+        const strategies = [
+            {
+                id: 'breakout_v1',
+                name: '突破策略 v1.0',
+                category: 'breakout',
+                risk: 'medium',
+                description: '基于价格突破的趨勢跟踪策略，适合震荡市场',
+                winRate: 45.44,
+                totalReturn: 13.64,
+                maxDrawdown: 6.83,
+                avgHoldTime: '2.5 天',
+                suitable: ['ETHUSDT', 'BTCUSDT', 'AVAXUSDT'],
+                params: {
+                    threshold: { value: 0.02, label: '突破阈值', type: 'number', min: 0.01, max: 0.1, step: 0.01 },
+                    position_size: { value: 0.2, label: '仓位比例', type: 'number', min: 0.1, max: 1, step: 0.1 },
+                    stop_loss: { value: 0.05, label: '止损比例', type: 'number', min: 0.01, max: 0.2, step: 0.01 }
+                }
+            },
+            {
+                id: 'rsi_reversal_v1',
+                name: 'RSI 反转策略 v1.0',
+                category: 'rsi',
+                risk: 'low',
+                description: '基于 RSI 指标的均值回归策略，适合震荡市场',
+                winRate: 52.30,
+                totalReturn: 8.50,
+                maxDrawdown: 4.20,
+                avgHoldTime: '1.5 天',
+                suitable: ['ETHUSDT', 'BTCUSDT'],
+                params: {
+                    rsi_period: { value: 14, label: 'RSI 周期', type: 'number', min: 7, max: 21, step: 1 },
+                    oversold: { value: 30, label: '超卖线', type: 'number', min: 20, max: 40, step: 5 },
+                    overbought: { value: 70, label: '超买线', type: 'number', min: 60, max: 80, step: 5 }
+                }
+            },
+            {
+                id: 'macd_trend_v1',
+                name: 'MACD 趋势策略 v1.0',
+                category: 'macd',
+                risk: 'medium',
+                description: '基于 MACD 金叉死叉的趋势跟踪策略',
+                winRate: 48.20,
+                totalReturn: 11.30,
+                maxDrawdown: 5.50,
+                avgHoldTime: '3 天',
+                suitable: ['ETHUSDT', 'BTCUSDT', 'LINKUSDT'],
+                params: {
+                    fast_period: { value: 12, label: '快线周期', type: 'number', min: 8, max: 16, step: 1 },
+                    slow_period: { value: 26, label: '慢线周期', type: 'number', min: 20, max: 30, step: 1 },
+                    signal_period: { value: 9, label: '信号线周期', type: 'number', min: 7, max: 11, step: 1 }
+                }
+            },
+            {
+                id: 'grid_trading_v1',
+                name: '网格交易策略 v1.0',
+                category: 'grid',
+                risk: 'high',
+                description: '自动高抛低吸的网格交易策略，适合震荡行情',
+                winRate: 65.00,
+                totalReturn: 15.80,
+                maxDrawdown: 8.50,
+                avgHoldTime: '0.5 天',
+                suitable: ['ETHUSDT', 'BTCUSDT'],
+                params: {
+                    grid_count: { value: 10, label: '网格数量', type: 'number', min: 5, max: 20, step: 1 },
+                    grid_spacing: { value: 0.02, label: '网格间距', type: 'number', min: 0.01, max: 0.05, step: 0.01 },
+                    max_position: { value: 0.5, label: '最大仓位', type: 'number', min: 0.2, max: 1, step: 0.1 }
+                }
+            }
+        ];
+        
+        let selectedStrategy = null;
+        
+        // 加载策略列表
+        function loadStrategies() {
+            const container = document.getElementById('strategiesList');
+            const filtered = filterStrategiesData();
+            
+            if (filtered.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666; grid-column: 1/-1;"><div style="font-size: 48px;">📊</div><div>暂无策略</div></div>';
+                return;
+            }
+            
+            container.innerHTML = filtered.map(strategy => `
+                <div class="strategy-card" onclick="selectStrategy('${strategy.id}')">
+                    <h4>${strategy.name}</h4>
+                    <div class="description">${strategy.description}</div>
+                    <div class="tags">
+                        <span class="tag">${getCategoryName(strategy.category)}</span>
+                        <span class="tag ${getRiskClass(strategy.risk)}">${getRiskName(strategy.risk)}</span>
+                    </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="value ${strategy.totalReturn >= 0 ? 'positive' : 'negative'}">${strategy.totalReturn >= 0 ? '+' : ''}${strategy.totalReturn}%</div>
+                            <div class="label">总收益</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">${strategy.winRate}%</div>
+                            <div class="label">胜率</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value negative">-${strategy.maxDrawdown}%</div>
+                            <div class="label">最大回撤</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">${strategy.avgHoldTime}</div>
+                            <div class="label">平均持仓</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: #666; font-size: 12px;">
+                        适合：${strategy.suitable.join(', ')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // 筛选策略
+        function filterStrategiesData() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const risk = document.getElementById('riskFilter').value;
+            
+            return strategies.filter(s => {
+                const matchSearch = s.name.toLowerCase().includes(search) || s.description.toLowerCase().includes(search);
+                const matchCategory = !category || s.category === category;
+                const matchRisk = !risk || s.risk === risk;
+                return matchSearch && matchCategory && matchRisk;
+            });
+        }
+        
+        function filterStrategies() { loadStrategies(); }
+        
+        // 选择策略
+        function selectStrategy(strategyId) {
+            selectedStrategy = strategies.find(s => s.id === strategyId);
+            if (!selectedStrategy) return;
+            
+            // 显示模态框
+            document.getElementById('modalTitle').textContent = `📊 ${selectedStrategy.name}`;
+            document.getElementById('modalContent').innerHTML = `
+                <div style="margin-bottom: 20px;">
+                    <div style="color: #666; line-height: 1.8; margin-bottom: 15px;">${selectedStrategy.description}</div>
+                    
+                    <div class="tags">
+                        <span class="tag">${getCategoryName(selectedStrategy.category)}</span>
+                        <span class="tag ${getRiskClass(selectedStrategy.risk)}">${getRiskName(selectedStrategy.risk)}</span>
+                    </div>
+                    
+                    <div class="stats" style="margin: 20px 0;">
+                        <div class="stat">
+                            <div class="value ${selectedStrategy.totalReturn >= 0 ? 'positive' : 'negative'}">${selectedStrategy.totalReturn >= 0 ? '+' : ''}${selectedStrategy.totalReturn}%</div>
+                            <div class="label">总收益</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">${selectedStrategy.winRate}%</div>
+                            <div class="label">胜率</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value negative">-${selectedStrategy.maxDrawdown}%</div>
+                            <div class="label">最大回撤</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">${selectedStrategy.avgHoldTime}</div>
+                            <div class="label">平均持仓</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <strong style="color: #333;">适合交易对：</strong>
+                        <div style="color: #666; margin-top: 5px;">${selectedStrategy.suitable.join(', ')}</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <strong style="color: #333; display: block; margin-bottom: 10px;">策略参数配置：</strong>
+                        ${Object.entries(selectedStrategy.params).map(([key, param]) => `
+                            <div class="form-group">
+                                <label for="param_${key}">${param.label}</label>
+                                <input type="${param.type}" id="param_${key}" value="${param.value}" 
+                                       min="${param.min}" max="${param.max}" step="${param.step}">
+                                <div class="help-text">范围：${param.min} - ${param.max}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <strong style="color: #333; display: block; margin-bottom: 10px;">交易配置：</strong>
+                        <div class="form-group">
+                            <label for="apiConfig">API 配置</label>
+                            <select id="apiConfig">
+                                <option value="testnet_1">🧪 测试网主账号</option>
+                                <option value="mainnet_1">💰 实盘主账号</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="leverage">杠杆倍数</label>
+                            <input type="number" id="leverage" value="5" min="1" max="125">
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">保证金（USDT）</label>
+                            <input type="number" id="amount" value="100" min="10">
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('strategyModal').style.display = 'flex';
+        }
+        
+        // 启动策略
+        function startStrategy() {
+            if (!selectedStrategy) return;
+            
+            const apiConfig = document.getElementById('apiConfig').value;
+            const leverage = parseInt(document.getElementById('leverage').value);
+            const amount = parseFloat(document.getElementById('amount').value);
+            
+            // 收集策略参数
+            const strategyParams = {};
+            Object.keys(selectedStrategy.params).forEach(key => {
+                strategyParams[key] = parseFloat(document.getElementById(`param_${key}`).value);
+            });
+            
+            // TODO: 实际应调用 API 启动策略
+            alert(`启动策略：${selectedStrategy.name}\n\nAPI: ${apiConfig}\n杠杆：${leverage}x\n保证金：${amount} USDT\n\n策略参数：${JSON.stringify(strategyParams, null, 2)}`);
+            
+            closeModal();
+            showAlert('策略启动成功', 'success');
+        }
+        
+        // 关闭模态框
+        function closeModal() {
+            document.getElementById('strategyModal').style.display = 'none';
+            selectedStrategy = null;
+        }
+        
+        // 辅助函数
+        function getCategoryName(cat) {
+            const names = { breakout: '突破策略', rsi: 'RSI 策略', macd: 'MACD 策略', grid: '网格策略' };
+            return names[cat] || cat;
+        }
+        
+        function getRiskName(risk) {
+            const names = { low: '低风险', medium: '中风险', high: '高风险' };
+            return names[risk] || risk;
+        }
+        
+        function getRiskClass(risk) {
+            const classes = { low: 'success', medium: 'warning', high: '' };
+            return classes[risk] || '';
+        }
+        
+        // 提示信息
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            container.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(() => { container.innerHTML = ''; }, 3000);
+        }
+        
+        // 页面加载
+        document.addEventListener('DOMContentLoaded', () => { loadStrategies(); });
+        
+        // 点击模态框外部关闭
+        document.getElementById('strategyModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
+</body>
+</html>

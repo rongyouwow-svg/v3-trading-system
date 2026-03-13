@@ -1,0 +1,14 @@
+{
+  "local_state": {
+    "balance": {
+      "balances": []
+    },
+    "positions": [],
+    "sync_time": "2026-03-13T19:33:46.503542",
+    "source": "exchange"
+  },
+  "version": 18,
+  "sync_count": 0,
+  "last_full_sync": null,
+  "last_incremental_sync": "2026-03-13T19:33:46.503383"
+}

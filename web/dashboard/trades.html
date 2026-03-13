@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大王量化 - 交易记录</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            background: #f3f4f6;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .trades-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            color: #333;
+            font-size: 20px;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filters input,
+        .filters select {
+            padding: 8px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        th {
+            background: #f9fafb;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f9fafb;
+        }
+        
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .badge-error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>📊 交易记录</h1>
+            <div class="nav">
+                <a href="/dashboard/index.html">策略监控</a>
+                <a href="/dashboard/config.html">配置管理</a>
+                <a href="/dashboard/plugins.html">插件管理</a>
+                <a href="/dashboard/trades.html" style="background: #667eea; color: white;">交易记录</a>
+                <a href="/dashboard/login.html" style="background: #ef4444; color: white;">退出登录</a>
+            </div>
+        </div>
+        
+        <!-- 交易记录 -->
+        <div class="trades-section">
+            <div class="section-header">
+                <h2>交易记录列表</h2>
+                <button class="btn" onclick="refreshTrades()">🔄 刷新</button>
+            </div>
+            
+            <!-- 过滤器 -->
+            <div class="filters">
+                <input type="text" id="symbolFilter" placeholder="交易对（如 ETHUSDT）">
+                <select id="typeFilter">
+                    <option value="">所有类型</option>
+                    <option value="OPEN">开仓</option>
+                    <option value="CLOSE">平仓</option>
+                    <option value="STOP_LOSS">止损</option>
+                </select>
+                <input type="date" id="dateFilter">
+                <button class="btn" onclick="filterTrades()">🔍 筛选</button>
+            </div>
+            
+            <!-- 表格 -->
+            <div id="tradesTable">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <div>加载交易记录中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 模拟交易数据
+        const mockTrades = [
+            {
+                id: 1,
+                timestamp: '2026-03-13 10:30:00',
+                symbol: 'ETHUSDT',
+                type: 'OPEN',
+                side: 'BUY',
+                quantity: 0.1,
+                price: 2050.5,
+                pnl: 0,
+                status: 'FILLED'
+            },
+            {
+                id: 2,
+                timestamp: '2026-03-13 11:15:00',
+                symbol: 'ETHUSDT',
+                type: 'OPEN',
+                side: 'BUY',
+                quantity: 0.1,
+                price: 2080.0,
+                pnl: 0,
+                status: 'FILLED'
+            },
+            {
+                id: 3,
+                timestamp: '2026-03-13 12:00:00',
+                symbol: 'AVAXUSDT',
+                type: 'OPEN',
+                side: 'BUY',
+                quantity: 50,
+                price: 9.50,
+                pnl: 0,
+                status: 'FILLED'
+            },
+            {
+                id: 4,
+                timestamp: '2026-03-13 14:30:00',
+                symbol: 'ETHUSDT',
+                type: 'CLOSE',
+                side: 'SELL',
+                quantity: 0.2,
+                price: 2100.0,
+                pnl: 3.9,
+                status: 'FILLED'
+            }
+        ];
+        
+        // 刷新交易记录
+        async function refreshTrades() {
+            try {
+                await loadTrades();
+                showAlert('交易记录已刷新', 'success');
+            } catch (error) {
+                console.error('刷新交易记录失败:', error);
+                showAlert('刷新失败：' + error.message, 'error');
+            }
+        }
+        
+        // 加载交易记录
+        async function loadTrades() {
+            try {
+                // 实际应从 API 获取，这里使用模拟数据
+                const trades = mockTrades;
+                
+                const table = document.getElementById('tradesTable');
+                
+                if (trades.length === 0) {
+                    table.innerHTML = `
+                        <div class="empty-state">
+                            <div style="font-size: 48px;">📊</div>
+                            <div>暂无交易记录</div>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                table.innerHTML = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>交易对</th>
+                                <th>类型</th>
+                                <th>方向</th>
+                                <th>数量</th>
+                                <th>价格</th>
+                                <th>PnL</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${trades.map(trade => `
+                                <tr>
+                                    <td>${trade.timestamp}</td>
+                                    <td><strong>${trade.symbol}</strong></td>
+                                    <td>${getTypeBadge(trade.type)}</td>
+                                    <td>${getSideBadge(trade.side)}</td>
+                                    <td>${trade.quantity}</td>
+                                    <td>${trade.price}</td>
+                                    <td style="color: ${trade.pnl >= 0 ? '#10b981' : '#ef4444'}">
+                                        ${trade.pnl >= 0 ? '+' : ''}${trade.pnl}
+                                    </td>
+                                    <td>${getStatusBadge(trade.status)}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                `;
+            } catch (error) {
+                console.error('加载交易记录失败:', error);
+            }
+        }
+        
+        // 筛选交易记录
+        function filterTrades() {
+            const symbol = document.getElementById('symbolFilter').value;
+            const type = document.getElementById('typeFilter').value;
+            const date = document.getElementById('dateFilter').value;
+            
+            let filtered = mockTrades;
+            
+            if (symbol) {
+                filtered = filtered.filter(t => t.symbol.includes(symbol.toUpperCase()));
+            }
+            
+            if (type) {
+                filtered = filtered.filter(t => t.type === type);
+            }
+            
+            if (date) {
+                filtered = filtered.filter(t => t.timestamp.startsWith(date));
+            }
+            
+            // 重新渲染表格
+            const table = document.getElementById('tradesTable');
+            table.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>交易对</th>
+                            <th>类型</th>
+                            <th>方向</th>
+                            <th>数量</th>
+                            <th>价格</th>
+                            <th>PnL</th>
+                            <th>状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${filtered.map(trade => `
+                            <tr>
+                                <td>${trade.timestamp}</td>
+                                <td><strong>${trade.symbol}</strong></td>
+                                <td>${getTypeBadge(trade.type)}</td>
+                                <td>${getSideBadge(trade.side)}</td>
+                                <td>${trade.quantity}</td>
+                                <td>${trade.price}</td>
+                                <td style="color: ${trade.pnl >= 0 ? '#10b981' : '#ef4444'}">
+                                    ${trade.pnl >= 0 ? '+' : ''}${trade.pnl}
+                                </td>
+                                <td>${getStatusBadge(trade.status)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+        
+        // 获取类型徽章
+        function getTypeBadge(type) {
+            const badges = {
+                'OPEN': '<span class="badge badge-success">开仓</span>',
+                'CLOSE': '<span class="badge badge-error">平仓</span>',
+                'STOP_LOSS': '<span class="badge badge-warning">止损</span>'
+            };
+            return badges[type] || type;
+        }
+        
+        // 获取方向徽章
+        function getSideBadge(side) {
+            const badges = {
+                'BUY': '<span class="badge badge-success">买入</span>',
+                'SELL': '<span class="badge badge-error">卖出</span>'
+            };
+            return badges[side] || side;
+        }
+        
+        // 获取状态徽章
+        function getStatusBadge(status) {
+            const badges = {
+                'FILLED': '<span class="badge badge-success">已成交</span>',
+                'PENDING': '<span class="badge badge-warning">待成交</span>',
+                'CANCELED': '<span class="badge badge-error">已取消</span>'
+            };
+            return badges[status] || status;
+        }
+        
+        // 显示提示信息
+        function showAlert(message, type = 'info') {
+            // 简单实现，可以添加更完善的提示系统
+            console.log(message);
+        }
+        
+        // 页面加载时加载交易记录
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTrades();
+            
+            // 每 60 秒自动刷新
+            setInterval(refreshTrades, 60000);
+        });
+    </script>
+</body>
+</html>

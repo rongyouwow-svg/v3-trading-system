@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大王量化 - 插件管理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card .label {
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card .value {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .plugins-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+        
+        .section-header h2 {
+            color: #333;
+            font-size: 20px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+        }
+        
+        .btn-success {
+            background: #10b981;
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+        }
+        
+        .btn-danger {
+            background: #ef4444;
+        }
+        
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+        
+        .plugin-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .plugin-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .plugin-card.enabled {
+            border-left: 4px solid #10b981;
+        }
+        
+        .plugin-card.disabled {
+            border-left: 4px solid #9ca3af;
+        }
+        
+        .plugin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .plugin-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .plugin-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status-enabled {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-disabled {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .plugin-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .plugin-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 5px;
+        }
+        
+        .plugin-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #10b981;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .empty-state .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border-left: 4px solid #10b981;
+        }
+        
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>🔌 插件管理</h1>
+            <div class="subtitle">
+                管理通知插件、数据插件和分析插件
+                <button class="btn" style="margin-left: 10px;" onclick="refreshPlugins()">🔄 刷新</button>
+            </div>
+        </div>
+        
+        <!-- 统计卡片 -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="label">总插件数</div>
+                <div class="value" id="totalPlugins">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">已启用</div>
+                <div class="value" id="enabledPlugins">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">已禁用</div>
+                <div class="value" id="disabledPlugins">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">通知插件</div>
+                <div class="value" id="notificationPlugins">-</div>
+            </div>
+        </div>
+        
+        <!-- 通知插件 -->
+        <div class="plugins-section">
+            <div class="section-header">
+                <h2>📢 通知插件</h2>
+            </div>
+            
+            <div id="alertContainer"></div>
+            
+            <div id="notificationPluginsList">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <div>加载插件列表中...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 数据插件 -->
+        <div class="plugins-section">
+            <div class="section-header">
+                <h2>📊 数据插件</h2>
+            </div>
+            
+            <div id="dataPluginsList">
+                <div class="empty-state">
+                    <div class="icon">📊</div>
+                    <div>暂无数据插件</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 分析插件 -->
+        <div class="plugins-section">
+            <div class="section-header">
+                <h2>📈 分析插件</h2>
+            </div>
+            
+            <div id="analyticsPluginsList">
+                <div class="empty-state">
+                    <div class="icon">📈</div>
+                    <div>暂无分析插件</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // API 基础 URL
+        const API_BASE = '/api';
+        
+        // 模拟插件数据（实际应从 API 获取）
+        const mockPlugins = [
+            {
+                id: 'telegram',
+                name: 'Telegram 通知',
+                type: 'notification',
+                version: '1.0.0',
+                author: 'Lobster King',
+                description: '发送交易通知、告警消息到 Telegram',
+                enabled: true,
+                config: {
+                    bot_token: 'configured',
+                    chat_id: 'configured'
+                }
+            },
+            {
+                id: 'dingtalk',
+                name: '钉钉通知',
+                type: 'notification',
+                version: '1.0.0',
+                author: 'Lobster King',
+                description: '发送交易通知、告警消息到钉钉群',
+                enabled: true,
+                config: {
+                    webhook: 'configured',
+                    secret: 'configured'
+                }
+            },
+            {
+                id: 'email',
+                name: '邮件通知',
+                type: 'notification',
+                version: '1.0.0',
+                author: 'Lobster King',
+                description: '发送日报、周报和重要告警到邮箱',
+                enabled: false,
+                config: {}
+            }
+        ];
+        
+        // 刷新插件列表
+        async function refreshPlugins() {
+            try {
+                await loadPlugins();
+                await loadStatistics();
+                showAlert('插件列表已刷新', 'success');
+            } catch (error) {
+                console.error('刷新插件失败:', error);
+                showAlert('刷新插件失败：' + error.message, 'error');
+            }
+        }
+        
+        // 加载插件列表
+        async function loadPlugins() {
+            try {
+                // 实际应从 API 获取，这里使用模拟数据
+                const plugins = mockPlugins;
+                
+                renderPlugins('notification', plugins.filter(p => p.type === 'notification'));
+                renderPlugins('data', plugins.filter(p => p.type === 'data'));
+                renderPlugins('analytics', plugins.filter(p => p.type === 'analytics'));
+            } catch (error) {
+                console.error('加载插件失败:', error);
+            }
+        }
+        
+        // 渲染插件列表
+        function renderPlugins(category, plugins) {
+            const container = document.getElementById(`${category}PluginsList`);
+            
+            if (plugins.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">📦</div>
+                        <div>暂无${category === 'notification' ? '通知' : category === 'data' ? '数据' : '分析'}插件</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = plugins.map(plugin => `
+                <div class="plugin-card ${plugin.enabled ? 'enabled' : 'disabled'}">
+                    <div class="plugin-header">
+                        <div>
+                            <span class="plugin-name">${getPluginIcon(plugin.type)} ${plugin.name}</span>
+                            <span style="color: #666; margin-left: 10px; font-size: 12px;">v${plugin.version}</span>
+                        </div>
+                        <span class="plugin-status status-${plugin.enabled ? 'enabled' : 'disabled'}">
+                            ${plugin.enabled ? '✅ 已启用' : '⏸️ 已禁用'}
+                        </span>
+                    </div>
+                    
+                    <div class="plugin-description">
+                        ${plugin.description}
+                    </div>
+                    
+                    <div class="plugin-info">
+                        <div class="info-item">
+                            <span class="info-label">作者</span>
+                            <span class="info-value">${plugin.author}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">类型</span>
+                            <span class="info-value">${getPluginTypeText(plugin.type)}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">配置状态</span>
+                            <span class="info-value">
+                                ${Object.keys(plugin.config || {}).length > 0 ? '✅ 已配置' : '⚠️ 未配置'}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="plugin-actions">
+                        <label class="toggle-switch">
+                            <input type="checkbox" 
+                                   ${plugin.enabled ? 'checked' : ''} 
+                                   onchange="togglePlugin('${plugin.id}', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                        <button class="btn" onclick="configurePlugin('${plugin.id}')">⚙️ 配置</button>
+                        <button class="btn btn-danger" onclick="uninstallPlugin('${plugin.id}')" style="display: none;">🗑️ 卸载</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // 加载统计信息
+        async function loadStatistics() {
+            try {
+                const plugins = mockPlugins;
+                const total = plugins.length;
+                const enabled = plugins.filter(p => p.enabled).length;
+                const disabled = total - enabled;
+                const notifications = plugins.filter(p => p.type === 'notification').length;
+                
+                document.getElementById('totalPlugins').textContent = total;
+                document.getElementById('enabledPlugins').textContent = enabled;
+                document.getElementById('disabledPlugins').textContent = disabled;
+                document.getElementById('notificationPlugins').textContent = notifications;
+            } catch (error) {
+                console.error('加载统计失败:', error);
+            }
+        }
+        
+        // 切换插件状态
+        async function togglePlugin(pluginId, enabled) {
+            try {
+                // 实际应调用 API
+                const plugin = mockPlugins.find(p => p.id === pluginId);
+                if (plugin) {
+                    plugin.enabled = enabled;
+                    
+                    showAlert(
+                        `${plugin.name} 已${enabled ? '启用' : '禁用'}`,
+                        'success'
+                    );
+                    
+                    // 重新渲染
+                    await loadPlugins();
+                    await loadStatistics();
+                }
+            } catch (error) {
+                console.error('切换插件状态失败:', error);
+                showAlert('切换插件状态失败：' + error.message, 'error');
+            }
+        }
+        
+        // 配置插件
+        function configurePlugin(pluginId) {
+            const plugin = mockPlugins.find(p => p.id === pluginId);
+            if (plugin) {
+                alert(`配置 ${plugin.name}\n\n当前配置:\n${JSON.stringify(plugin.config, null, 2)}\n\n配置功能开发中...`);
+            }
+        }
+        
+        // 卸载插件
+        function uninstallPlugin(pluginId) {
+            if (confirm('确定要卸载这个插件吗？')) {
+                alert('卸载功能开发中...');
+            }
+        }
+        
+        // 获取插件图标
+        function getPluginIcon(type) {
+            const icons = {
+                notification: '📢',
+                data: '📊',
+                analytics: '📈'
+            };
+            return icons[type] || '🔌';
+        }
+        
+        // 获取插件类型文本
+        function getPluginTypeText(type) {
+            const texts = {
+                notification: '通知插件',
+                data: '数据插件',
+                analytics: '分析插件'
+            };
+            return texts[type] || '插件';
+        }
+        
+        // 显示提示信息
+        function showAlert(message, type = 'info') {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertClass = type === 'success' ? 'alert-success' : 
+                              type === 'error' ? 'alert-error' : 'alert-warning';
+            
+            alertContainer.innerHTML = `
+                <div class="alert ${alertClass}">
+                    ${message}
+                </div>
+            `;
+            
+            // 3 秒后自动隐藏
+            setTimeout(() => {
+                alertContainer.innerHTML = '';
+            }, 3000);
+        }
+        
+        // 页面加载时加载插件
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPlugins();
+            loadStatistics();
+        });
+    </script>
+</body>
+</html>

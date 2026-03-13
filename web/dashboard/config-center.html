@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大王量化 - 配置中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f5f6fa; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f3f4f6; }
+        .card-header h3 { color: #333; font-size: 18px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: #333; font-weight: 500; margin-bottom: 8px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #e5e7eb; border-radius: 5px; font-size: 14px; }
+        .form-group input:focus { outline: none; border-color: #667eea; }
+        .form-group .help-text { color: #666; font-size: 12px; margin-top: 5px; }
+        .btn { background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        .btn:hover { background: #5568d3; }
+        .btn-success { background: #10b981; }
+        .btn-success:hover { background: #059669; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .api-config-item { border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+        .api-config-item.enabled { border-left: 4px solid #10b981; }
+        .api-config-item.disabled { border-left: 4px solid #9ca3af; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .badge-success { background: #d1fae5; color: #065f46; }
+        .badge-error { background: #fee2e2; color: #991b1b; }
+        .toggle-switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #10b981; }
+        input:checked + .slider:before { transform: translateX(26px); }
+        .alert { padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .alert-success { background: #d1fae5; color: #065f46; border-left: 4px solid #10b981; }
+        .alert-error { background: #fee2e2; color: #991b1b; border-left: 4px solid #ef4444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>⚙️ 配置中心</h3>
+                <button class="btn" onclick="location.href='/dashboard/index.html'">🏠 返回 Dashboard</button>
+            </div>
+            
+            <div id="alertContainer"></div>
+            
+            <!-- API 配置 -->
+            <div class="card-header" style="margin-top: 20px;">
+                <h3>🔑 API 配置管理</h3>
+                <button class="btn btn-success" onclick="showAddApiModal()">➕ 添加 API</button>
+            </div>
+            
+            <div id="apiConfigsList">
+                <div style="text-align: center; padding: 40px; color: #666;">
+                    <div style="font-size: 48px;">🔑</div>
+                    <div>加载中...</div>
+                </div>
+            </div>
+            
+            <!-- 策略配置 -->
+            <div class="card-header" style="margin-top: 30px;">
+                <h3>📊 策略参数配置</h3>
+                <button class="btn btn-success" onclick="saveStrategyConfig()">💾 保存配置</button>
+            </div>
+            
+            <form id="strategyConfigForm">
+                <div class="form-group">
+                    <label for="defaultLeverage">默认杠杆</label>
+                    <input type="number" id="defaultLeverage" name="defaultLeverage" value="5" min="1" max="125">
+                    <div class="help-text">策略默认杠杆倍数（1-125）</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="defaultAmount">默认保证金</label>
+                    <input type="number" id="defaultAmount" name="defaultAmount" value="100" min="10">
+                    <div class="help-text">策略默认保证金（USDT）</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="stopLossPct">止损比例</label>
+                    <input type="number" id="stopLossPct" name="stopLossPct" value="5" min="1" max="50" step="0.1">
+                    <div class="help-text">止损百分比（%）</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // 模拟数据
+        const mockApiConfigs = [
+            { id: 'testnet_1', name: '测试网主账号', enabled: true, testnet: true, api_key: 'q3BX***TTOg' },
+            { id: 'mainnet_1', name: '实盘主账号', enabled: false, testnet: false, api_key: '' }
+        ];
+        
+        const mockStrategyConfig = {
+            default_leverage: 5,
+            default_amount: 100,
+            stop_loss_pct: 5
+        };
+        
+        // 加载 API 配置
+        function loadApiConfigs() {
+            const container = document.getElementById('apiConfigsList');
+            const configs = mockApiConfigs;
+            
+            if (configs.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><div style="font-size: 48px;">🔑</div><div>暂无 API 配置</div><div style="margin-top: 10px;"><button class="btn btn-success" onclick="showAddApiModal()">添加第一个 API 配置</button></div></div>';
+                return;
+            }
+            
+            container.innerHTML = configs.map(config => `
+                <div class="api-config-item ${config.enabled ? 'enabled' : 'disabled'}">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div>
+                            <strong style="font-size: 16px;">${config.name}</strong>
+                            <span style="color: #666; margin-left: 10px; font-size: 12px;">${config.id}</span>
+                        </div>
+                        <span class="badge ${config.enabled ? 'badge-success' : 'badge-error'}">${config.enabled ? '✅ 已启用' : '⏸️ 已禁用'}</span>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 15px;">
+                        <div>
+                            <div style="color: #666; font-size: 12px; margin-bottom: 5px;">环境</div>
+                            <div style="color: #333; font-weight: 500;">${config.testnet ? '🧪 测试网' : '💰 实盘'}</div>
+                        </div>
+                        <div>
+                            <div style="color: #666; font-size: 12px; margin-bottom: 5px;">API Key</div>
+                            <div style="color: #333; font-family: monospace;">${config.api_key || '未配置'}</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; justify-content: flex-end; align-items: center;">
+                        ${!config.enabled ? `<button class="btn btn-success" onclick="setDefaultApi('${config.id}')" style="font-size: 12px; padding: 6px 12px;">⭐ 设为默认</button>` : '<span style="color: #10b981; font-size: 12px;">⭐ 默认 API</span>'}
+                        <label class="toggle-switch">
+                            <input type="checkbox" ${config.enabled ? 'checked' : ''} onchange="toggleApiConfig('${config.id}', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                        <button class="btn" onclick="editApiConfig('${config.id}')">⚙️ 编辑</button>
+                        <button class="btn btn-danger" onclick="deleteApiConfig('${config.id}')" ${config.id === 'testnet_1' ? 'disabled' : ''}>🗑️ 删除</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // 加载策略配置
+        function loadStrategyConfig() {
+            document.getElementById('defaultLeverage').value = mockStrategyConfig.default_leverage;
+            document.getElementById('defaultAmount').value = mockStrategyConfig.default_amount;
+            document.getElementById('stopLossPct').value = mockStrategyConfig.stop_loss_pct;
+        }
+        
+        // 添加 API 配置
+        function showAddApiModal() {
+            const html = `
+                <div id="addApiModal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;">
+                    <div style="background: white; border-radius: 10px; padding: 30px; width: 500px; max-width: 90%;">
+                        <h3 style="margin-bottom: 20px; color: #333;">➕ 添加 API 配置</h3>
+                        <form id="addApiForm">
+                            <div class="form-group">
+                                <label>配置 ID</label>
+                                <input type="text" id="apiId" placeholder="如：testnet_2" required>
+                            </div>
+                            <div class="form-group">
+                                <label>配置名称</label>
+                                <input type="text" id="apiName" placeholder="如：测试网备用账号" required>
+                            </div>
+                            <div class="form-group">
+                                <label>环境</label>
+                                <select id="apiTestnet">
+                                    <option value="true">🧪 测试网</option>
+                                    <option value="false">💰 实盘</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>API Key</label>
+                                <input type="text" id="apiKey" placeholder="输入 API Key" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Secret Key</label>
+                                <input type="password" id="secretKey" placeholder="输入 Secret Key" required>
+                            </div>
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-success">💾 保存</button>
+                                <button type="button" class="btn" onclick="closeAddApiModal()">取消</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', html);
+            document.getElementById('addApiForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                mockApiConfigs.push({
+                    id: document.getElementById('apiId').value,
+                    name: document.getElementById('apiName').value,
+                    testnet: document.getElementById('apiTestnet').value === 'true',
+                    api_key: document.getElementById('apiKey').value,
+                    secret_key: document.getElementById('secretKey').value,
+                    enabled: true
+                });
+                loadApiConfigs();
+                closeAddApiModal();
+                showAlert('API 配置已添加', 'success');
+            });
+        }
+        
+        function closeAddApiModal() { const modal = document.getElementById('addApiModal'); if (modal) modal.remove(); }
+        function editApiConfig(apiId) { alert('编辑功能开发中...'); }
+        function deleteApiConfig(apiId) { if (confirm(`确定要删除 API 配置 ${apiId} 吗？`)) { alert('删除功能开发中...'); } }
+        function toggleApiConfig(apiId, enabled) { const config = mockApiConfigs.find(c => c.id === apiId); if (config) { config.enabled = enabled; loadApiConfigs(); showAlert(`API 配置已${enabled ? '启用' : '禁用'}`, 'success'); } }
+        function setDefaultApi(apiId) { mockApiConfigs.forEach(c => { c.enabled = (c.id === apiId); }); loadApiConfigs(); showAlert('默认 API 已设置', 'success'); }
+        function saveStrategyConfig() { mockStrategyConfig.default_leverage = parseInt(document.getElementById('defaultLeverage').value); mockStrategyConfig.default_amount = parseFloat(document.getElementById('defaultAmount').value); mockStrategyConfig.stop_loss_pct = parseFloat(document.getElementById('stopLossPct').value); showAlert('策略配置已保存', 'success'); }
+        function showAlert(message, type) { const container = document.getElementById('alertContainer'); container.innerHTML = `<div class="alert alert-${type}">${message}</div>`; setTimeout(() => { container.innerHTML = ''; }, 3000); }
+        
+        // 页面加载
+        document.addEventListener('DOMContentLoaded', () => { loadApiConfigs(); loadStrategyConfig(); });
+    </script>
+</body>
+</html>

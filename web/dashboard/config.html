@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大王量化 - 配置管理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .config-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+        
+        .section-header h2 {
+            color: #333;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-group .help-text {
+            color: #666;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+        }
+        
+        .btn-success {
+            background: #10b981;
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+        }
+        
+        .btn-warning {
+            background: #f59e0b;
+        }
+        
+        .btn-warning:hover {
+            background: #d97706;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border-left: 4px solid #10b981;
+        }
+        
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .alert-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .config-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .config-item:last-child {
+            border-bottom: none;
+        }
+        
+        .config-label {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .config-value {
+            color: #666;
+            font-family: monospace;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status-connected {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-disconnected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>⚙️ 配置管理</h1>
+            <div class="subtitle">
+                管理 API Key、策略参数和系统配置
+            </div>
+        </div>
+        
+        <!-- API 配置 -->
+        <div class="config-section">
+            <div class="section-header">
+                <h2>🔑 API 配置</h2>
+                <span class="status-badge status-connected" id="apiStatus">✅ 已连接</span>
+            </div>
+            
+            <div id="alertContainer"></div>
+            
+            <form id="apiConfigForm">
+                <div class="form-group">
+                    <label for="apiKey">API Key</label>
+                    <input type="text" id="apiKey" name="apiKey" placeholder="输入币安 API Key">
+                    <div class="help-text">币安 API Key，用于连接交易所</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="secretKey">Secret Key</label>
+                    <input type="password" id="secretKey" name="secretKey" placeholder="输入币安 Secret Key">
+                    <div class="help-text">币安 Secret Key，请妥善保管</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="testnet">网络环境</label>
+                    <select id="testnet" name="testnet">
+                        <option value="true">测试网 (Testnet)</option>
+                        <option value="false">生产环境 (Mainnet)</option>
+                    </select>
+                    <div class="help-text">测试网用于测试，生产环境用于真实交易</div>
+                </div>
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-success">💾 保存配置</button>
+                    <button type="button" class="btn" onclick="testConnection()">🔌 测试连接</button>
+                    <button type="button" class="btn btn-warning" onclick="showApiKey()">👁️ 显示 API Key</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- 策略配置 -->
+        <div class="config-section">
+            <div class="section-header">
+                <h2>📊 策略配置</h2>
+            </div>
+            
+            <form id="strategyConfigForm">
+                <div class="form-group">
+                    <label for="defaultLeverage">默认杠杆</label>
+                    <input type="number" id="defaultLeverage" name="defaultLeverage" value="5" min="1" max="125">
+                    <div class="help-text">策略默认杠杆倍数（1-125）</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="defaultAmount">默认保证金</label>
+                    <input type="number" id="defaultAmount" name="defaultAmount" value="100" min="10">
+                    <div class="help-text">策略默认保证金（USDT）</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="stopLossPct">止损比例</label>
+                    <input type="number" id="stopLossPct" name="stopLossPct" value="5" min="1" max="50" step="0.1">
+                    <div class="help-text">止损百分比（%）</div>
+                </div>
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-success">💾 保存配置</button>
+                    <button type="button" class="btn" onclick="resetStrategyConfig()">🔄 重置</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- 系统配置 -->
+        <div class="config-section">
+            <div class="section-header">
+                <h2>🔧 系统配置</h2>
+            </div>
+            
+            <div class="config-item">
+                <span class="config-label">系统版本</span>
+                <span class="config-value" id="systemVersion">v3.0.0</span>
+            </div>
+            
+            <div class="config-item">
+                <span class="config-label">运行时间</span>
+                <span class="config-value" id="uptime">-</span>
+            </div>
+            
+            <div class="config-item">
+                <span class="config-label">策略数量</span>
+                <span class="config-value" id="strategyCount">-</span>
+            </div>
+            
+            <div class="config-item">
+                <span class="config-label">最后同步</span>
+                <span class="config-value" id="lastSync">-</span>
+            </div>
+            
+            <div class="btn-group">
+                <button type="button" class="btn" onclick="refreshSystemInfo()">🔄 刷新</button>
+                <button type="button" class="btn btn-warning" onclick="exportConfig()">📥 导出配置</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // API 基础 URL
+        const API_BASE = '/api';
+        
+        // 显示警告信息
+        function showAlert(message, type = 'info') {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertClass = type === 'success' ? 'alert-success' : 
+                              type === 'error' ? 'alert-error' : 'alert-warning';
+            
+            alertContainer.innerHTML = `
+                <div class="alert ${alertClass}">
+                    ${message}
+                </div>
+            `;
+            
+            // 3 秒后自动隐藏
+            setTimeout(() => {
+                alertContainer.innerHTML = '';
+            }, 3000);
+        }
+        
+        // 加载配置
+        async function loadConfig() {
+            try {
+                const response = await fetch(`${API_BASE}/config`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    const config = data.config;
+                    
+                    // 填充 API 配置
+                    document.getElementById('apiKey').value = config.api_key || '';
+                    document.getElementById('secretKey').value = config.secret_key || '';
+                    document.getElementById('testnet').value = config.testnet.toString();
+                    
+                    // 填充策略配置
+                    document.getElementById('defaultLeverage').value = config.default_leverage || 5;
+                    document.getElementById('defaultAmount').value = config.default_amount || 100;
+                    document.getElementById('stopLossPct').value = config.stop_loss_pct || 5;
+                    
+                    // 更新系统信息
+                    document.getElementById('systemVersion').textContent = config.version || 'v3.0.0';
+                    document.getElementById('uptime').textContent = formatUptime(config.uptime);
+                    document.getElementById('strategyCount').textContent = config.strategy_count || 0;
+                    document.getElementById('lastSync').textContent = config.last_sync || '-';
+                    
+                    // 更新 API 状态
+                    const apiStatus = document.getElementById('apiStatus');
+                    if (config.api_connected) {
+                        apiStatus.textContent = '✅ 已连接';
+                        apiStatus.className = 'status-badge status-connected';
+                    } else {
+                        apiStatus.textContent = '❌ 未连接';
+                        apiStatus.className = 'status-badge status-disconnected';
+                    }
+                }
+            } catch (error) {
+                console.error('加载配置失败:', error);
+                showAlert('加载配置失败：' + error.message, 'error');
+            }
+        }
+        
+        // 保存 API 配置
+        document.getElementById('apiConfigForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                api_key: document.getElementById('apiKey').value,
+                secret_key: document.getElementById('secretKey').value,
+                testnet: document.getElementById('testnet').value === 'true'
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE}/config/api`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showAlert('API 配置保存成功', 'success');
+                } else {
+                    showAlert('API 配置保存失败：' + data.message, 'error');
+                }
+            } catch (error) {
+                console.error('保存配置失败:', error);
+                showAlert('保存配置失败：' + error.message, 'error');
+            }
+        });
+        
+        // 保存策略配置
+        document.getElementById('strategyConfigForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                default_leverage: parseInt(document.getElementById('defaultLeverage').value),
+                default_amount: parseFloat(document.getElementById('defaultAmount').value),
+                stop_loss_pct: parseFloat(document.getElementById('stopLossPct').value)
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE}/config/strategy`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showAlert('策略配置保存成功', 'success');
+                } else {
+                    showAlert('策略配置保存失败：' + data.message, 'error');
+                }
+            } catch (error) {
+                console.error('保存配置失败:', error);
+                showAlert('保存配置失败：' + error.message, 'error');
+            }
+        });
+        
+        // 测试连接
+        async function testConnection() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                
+                if (data.status === 'ok') {
+                    showAlert('连接测试成功！API 服务正常运行', 'success');
+                } else {
+                    showAlert('连接测试失败：' + data.message, 'error');
+                }
+            } catch (error) {
+                console.error('连接测试失败:', error);
+                showAlert('连接测试失败：' + error.message, 'error');
+            }
+        }
+        
+        // 显示 API Key
+        function showApiKey() {
+            const apiKey = document.getElementById('apiKey');
+            if (apiKey.type === 'password') {
+                apiKey.type = 'text';
+            } else {
+                apiKey.type = 'password';
+            }
+        }
+        
+        // 重置策略配置
+        function resetStrategyConfig() {
+            if (confirm('确定要重置策略配置为默认值吗？')) {
+                document.getElementById('defaultLeverage').value = 5;
+                document.getElementById('defaultAmount').value = 100;
+                document.getElementById('stopLossPct').value = 5;
+                showAlert('策略配置已重置', 'success');
+            }
+        }
+        
+        // 刷新系统信息
+        async function refreshSystemInfo() {
+            await loadConfig();
+            showAlert('系统信息已刷新', 'success');
+        }
+        
+        // 导出配置
+        function exportConfig() {
+            const config = {
+                api_key: document.getElementById('apiKey').value,
+                testnet: document.getElementById('testnet').value === 'true',
+                default_leverage: parseInt(document.getElementById('defaultLeverage').value),
+                default_amount: parseFloat(document.getElementById('defaultAmount').value),
+                stop_loss_pct: parseFloat(document.getElementById('stopLossPct').value)
+            };
+            
+            const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'config_' + new Date().toISOString().split('T')[0] + '.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showAlert('配置已导出', 'success');
+        }
+        
+        // 格式化运行时间
+        function formatUptime(seconds) {
+            if (!seconds) return '-';
+            
+            const days = Math.floor(seconds / 86400);
+            const hours = Math.floor((seconds % 86400) / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            
+            if (days > 0) {
+                return `${days}天 ${hours}小时 ${minutes}分钟`;
+            } else if (hours > 0) {
+                return `${hours}小时 ${minutes}分钟`;
+            } else {
+                return `${minutes}分钟`;
+            }
+        }
+        
+        // 页面加载时加载配置
+        document.addEventListener('DOMContentLoaded', () => {
+            loadConfig();
+            
+            // 每 60 秒刷新一次系统信息
+            setInterval(() => {
+                refreshSystemInfo();
+            }, 60000);
+        });
+    </script>
+</body>
+</html>

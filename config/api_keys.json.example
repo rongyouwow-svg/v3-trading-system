@@ -1,0 +1,26 @@
+{
+  "api_configs": [
+    {
+      "id": "testnet_1",
+      "name": "测试网主账号",
+      "enabled": true,
+      "testnet": true,
+      "api_key": "YOUR_TESTNET_API_KEY_HERE",
+      "secret_key": "YOUR_TESTNET_SECRET_KEY_HERE"
+    },
+    {
+      "id": "mainnet_1",
+      "name": "实盘主账号",
+      "enabled": false,
+      "testnet": false,
+      "api_key": "YOUR_MAINNET_API_KEY_HERE",
+      "secret_key": "YOUR_MAINNET_SECRET_KEY_HERE"
+    }
+  ],
+  "default_api_id": "testnet_1",
+  "strategy": {
+    "default_leverage": 5,
+    "default_amount": 100,
+    "stop_loss_pct": 5
+  }
+}
