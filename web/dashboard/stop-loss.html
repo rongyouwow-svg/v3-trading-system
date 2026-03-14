@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>止损单管理 - 大王量化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* 左侧导航 */
+        .sidebar {
+            width: 250px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            color: white;
+        }
+        
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .nav-item {
+            display: block;
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+        }
+        
+        .refresh-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* 统计卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+        
+        .stat-card h3 {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* 表格 */
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .badge-waiting {
+            background: #ffeeba;
+            color: #856404;
+        }
+        
+        .badge-triggered {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .badge-cancelled {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .cancel-btn {
+            padding: 6px 12px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .cancel-btn:hover {
+            background: #c82333;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧导航 -->
+        <div class="sidebar">
+            <h2>🦞 大王量化</h2>
+            <a href="index.html" class="nav-item">📊 策略监控</a>
+            <a href="account.html" class="nav-item">💰 账户详情</a>
+            <a href="trades.html" class="nav-item">📈 交易记录</a>
+            <a href="stop-loss.html" class="nav-item active">🛑 止损单管理</a>
+            <a href="strategies.html" class="nav-item">🤖 策略库</a>
+            <a href="config.html" class="nav-item">⚙️ 配置中心</a>
+            <a href="plugins.html" class="nav-item">🔌 插件管理</a>
+            <a href="../index.html" class="nav-item">🏠 返回首页</a>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <div class="header">
+                <h1>🛑 止损单管理</h1>
+                <button class="refresh-btn" onclick="loadStopLossOrders()">🔄 刷新</button>
+            </div>
+            
+            <!-- 统计卡片 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>活跃止损单</h3>
+                    <div class="value" id="activeCount">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>已触发</h3>
+                    <div class="value" id="triggeredCount">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>已取消</h3>
+                    <div class="value" id="cancelledCount">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>总止损金额</h3>
+                    <div class="value" id="totalAmount">-</div>
+                </div>
+            </div>
+            
+            <!-- 止损单列表 -->
+            <div class="table-container">
+                <table id="stopLossTable">
+                    <thead>
+                        <tr>
+                            <th>交易对</th>
+                            <th>方向</th>
+                            <th>触发价</th>
+                            <th>数量</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stopLossTableBody">
+                        <tr>
+                            <td colspan="7" class="loading">
+                                <div class="spinner"></div>
+                                <div>加载止损单列表中...</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // API 基础 URL
+        const API_BASE = '/api';
+        
+        // 加载止损单列表
+        async function loadStopLossOrders() {
+            const tbody = document.getElementById('stopLossTableBody');
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="7" class="loading">
+                        <div class="spinner"></div>
+                        <div>加载止损单列表中...</div>
+                    </td>
+                </tr>
+            `;
+            
+            try {
+                const response = await fetch(`${API_BASE}/binance/stop-loss`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderStopLossTable(data.orders || []);
+                    updateStats(data.orders || []);
+                } else {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: #dc3545; padding: 40px;">
+                                ❌ 加载失败：${data.error || '未知错误'}
+                            </td>
+                        </tr>
+                    `;
+                }
+            } catch (err) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; color: #dc3545; padding: 40px;">
+                            ❌ 加载失败：${err.message}
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+        
+        // 渲染止损单表格
+        function renderStopLossTable(orders) {
+            const tbody = document.getElementById('stopLossTableBody');
+            
+            if (!orders || orders.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="empty-state">
+                            <div class="empty-state-icon">📊</div>
+                            <div>暂无止损单</div>
+                            <div style="margin-top: 10px; font-size: 14px; color: #999;">
+                                策略开仓时会自动创建止损单
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            tbody.innerHTML = orders.map(order => `
+                <tr>
+                    <td><strong>${order.symbol}</strong></td>
+                    <td>
+                        <span class="badge badge-${order.side === 'SELL' ? 'waiting' : 'triggered'}">
+                            ${order.side}
+                        </span>
+                    </td>
+                    <td style="font-family: monospace;">${order.trigger_price}</td>
+                    <td>${order.quantity}</td>
+                    <td>
+                        <span class="badge badge-${getStatusClass(order.status)}">
+                            ${order.status || 'WAITING'}
+                        </span>
+                    </td>
+                    <td>${order.create_time || '-'}</td>
+                    <td>
+                        ${order.status === 'WAITING' ? `
+                            <button class="cancel-btn" onclick="cancelStopLoss('${order.order_id}')">
+                                取消
+                            </button>
+                        ` : '-'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // 获取状态样式
+        function getStatusClass(status) {
+            switch (status) {
+                case 'WAITING': return 'waiting';
+                case 'TRIGGERED': return 'triggered';
+                case 'CANCELLED': return 'cancelled';
+                default: return 'waiting';
+            }
+        }
+        
+        // 更新统计
+        function updateStats(orders) {
+            const active = orders.filter(o => o.status === 'WAITING').length;
+            const triggered = orders.filter(o => o.status === 'TRIGGERED').length;
+            const cancelled = orders.filter(o => o.status === 'CANCELLED').length;
+            
+            document.getElementById('activeCount').textContent = active;
+            document.getElementById('triggeredCount').textContent = triggered;
+            document.getElementById('cancelledCount').textContent = cancelled;
+            document.getElementById('totalAmount').textContent = orders.length + ' 单';
+        }
+        
+        // 取消止损单
+        async function cancelStopLoss(orderId) {
+            if (!confirm('确定取消这个止损单吗？')) return;
+            
+            try {
+                const response = await fetch(`${API_BASE}/binance/stop-loss/cancel`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({order_id: orderId})
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('✅ 止损单已取消');
+                    loadStopLossOrders(); // 刷新列表
+                } else {
+                    alert(`❌ 取消失败：${result.error || '未知错误'}`);
+                }
+            } catch (err) {
+                alert(`❌ 请求失败：${err.message}`);
+            }
+        }
+        
+        // 页面加载时获取数据
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStopLossOrders();
+            
+            // 每 30 秒自动刷新
+            setInterval(loadStopLossOrders, 30000);
+        });
+    </script>
+</body>
+</html>

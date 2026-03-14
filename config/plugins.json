@@ -1,0 +1,12 @@
+{
+  "dingtalk": {
+    "webhook": "https://oapi.dingtalk.com/robot/send?access_token=47454599854007bb35c2a047948872f369be99e7b053db70b2b0492955317013",
+    "secret": "",
+    "enabled": true
+  },
+  "telegram": {
+    "bot_token": "",
+    "chat_id": "",
+    "enabled": false
+  }
+}

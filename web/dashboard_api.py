@@ -30,6 +30,36 @@ from modules.utils.logger import setup_logger
 
 logger = setup_logger("dashboard_api", log_file="logs/dashboard_api.log")
 
+# 导入测试策略 API
+try:
+    from test_strategy_api import router as test_strategy_router
+except ImportError:
+    test_strategy_router = None
+
+# 导入币安测试网 API
+try:
+    from .binance_testnet_api import router as binance_router
+    print(f"✅ 币安 API 导入成功：{binance_router}")
+except ImportError as e:
+    print(f"❌ 币安 API 导入失败：{e}")
+    binance_router = None
+
+# 导入策略状态 API
+try:
+    from strategies.strategy_status_api import router as strategy_status_router
+    print(f"✅ 策略状态 API 导入成功")
+except ImportError as e:
+    print(f"❌ 策略状态 API 导入失败：{e}")
+    strategy_status_router = None
+
+# 导入交易记录刷新 API
+try:
+    from strategies.trades_refresh_api import router as trades_refresh_router
+    print(f"✅ 交易记录刷新 API 导入成功")
+except ImportError as e:
+    print(f"❌ 交易记录刷新 API 导入失败：{e}")
+    trades_refresh_router = None
+
 
 def create_app() -> FastAPI:
     """
@@ -54,6 +84,26 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    
+    # 注册币安测试网 API
+    if binance_router:
+        app.include_router(binance_router)
+        logger.info("✅ 币安测试网 API 已注册")
+    
+    # 注册策略状态 API
+    if strategy_status_router:
+        app.include_router(strategy_status_router)
+        logger.info("✅ 策略状态 API 已注册")
+    
+    # 注册交易记录刷新 API
+    if trades_refresh_router:
+        app.include_router(trades_refresh_router)
+        logger.info("✅ 交易记录刷新 API 已注册")
+    
+    # 注册测试策略 API
+    if test_strategy_router:
+        app.include_router(test_strategy_router)
+        logger.info("✅ 测试策略 API 已注册")
     
     # 注册路由
     register_routes(app)
@@ -244,6 +294,29 @@ def register_routes(app: FastAPI):
             "strategies_count": 0,
             "orders_count": 0
         }
+    
+    @app.post("/api/strategy/start")
+    async def start_strategy(request: Request):
+        """启动策略"""
+        try:
+            data = await request.json()
+            logger.info(f"🚀 启动策略请求：{data}")
+            
+            strategy_id = f"test_{data.get('symbol', 'ETHUSDT')}_{datetime.now().strftime('%H%M%S')}"
+            
+            return {
+                'success': True,
+                'message': f'策略已启动：{strategy_id}',
+                'strategy_id': strategy_id,
+                'config': data
+            }
+            
+        except Exception as e:
+            logger.error(f"❌ 启动策略失败：{e}")
+            return {
+                'success': False,
+                'message': f'启动失败：{str(e)}'
+            }
     
     @app.get("/api/plugins")
     async def get_plugins():
