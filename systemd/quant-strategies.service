@@ -1,0 +1,24 @@
+[Unit]
+Description=大王量化策略服务
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=admin
+Group=admin
+WorkingDirectory=/home/admin/.openclaw/workspace/quant/v3-architecture
+Environment="PYTHONPATH=/home/admin/.openclaw/workspace/quant/v3-architecture"
+Environment="PATH=/home/admin/.pyenv/versions/3.10.0/bin:/home/admin/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/admin/.pyenv/versions/3.10.0/bin/python3 scripts/start_all_strategies.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/admin/.openclaw/workspace/quant/v3-architecture/logs/strategies_service.log
+StandardError=append:/home/admin/.openclaw/workspace/quant/v3-architecture/logs/strategies_service_err.log
+
+# 安全限制
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

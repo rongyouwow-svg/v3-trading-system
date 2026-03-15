@@ -581,7 +581,11 @@ class BinanceUSDTFuturesConnector:
         """
         获取 Algo 订单列表（止损单/止盈单）
         参考：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
-        注意：币安测试网 Algo Order API 端点可能不可用，使用普通订单 API 替代
+        
+        测试网 vs 实盘:
+        - 测试网：https://demo-fapi.binance.com/fapi/v1/openAlgoOrders
+        - 实盘：https://fapi.binance.com/fapi/v1/openAlgoOrders
+        - API 端点完全相同，只需切换 base_url
 
         Args:
             symbol: 交易对（可选）
@@ -591,23 +595,27 @@ class BinanceUSDTFuturesConnector:
             Result: Algo 订单列表
         """
         try:
-            # 获取所有挂单（包含止损单）
-            params = {}
+            # 使用 Algo Order API 查询止损单/止盈单
+            params = {
+                'limit': limit,
+                'timestamp': int(time.time() * 1000)
+            }
             if symbol:
-                params["symbol"] = symbol
+                params['symbol'] = symbol
 
-            # 使用普通订单 API 获取挂单
-            data = self._request("GET", "/fapi/v1/openOrders", params=params, signed=True)
+            # 使用正确的 API 端点：/fapi/v1/openAlgoOrders
+            data = self._request("GET", "/fapi/v1/openAlgoOrders", params=params, signed=True)
 
             # 筛选止损单和止盈单
             orders = []
-            for order in data:
-                order_type = order.get("type", "")
-                if order_type in ["STOP_MARKET", "TAKE_PROFIT_MARKET", "STOP", "TAKE_PROFIT"]:
-                    orders.append({
-                        "algo_id": str(order.get("orderId", "")),
-                        "symbol": order.get("symbol", ""),
-                        "side": order.get("side", ""),
+            if isinstance(data, list):
+                for order in data:
+                    order_type = order.get("orderType", "")
+                    if order_type in ["STOP_MARKET", "TAKE_PROFIT_MARKET", "STOP", "TAKE_PROFIT"]:
+                        orders.append({
+                            "algo_id": str(order.get("algoId", order.get("orderId", ""))),
+                            "symbol": order.get("symbol", ""),
+                            "side": order.get("side", ""),
                         "type": order_type,
                         "trigger_price": order.get("stopPrice", ""),
                         "quantity": order.get("origQty", ""),

@@ -46,6 +46,7 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s;
+            cursor: pointer;
         }
         
         .nav-item:hover {
@@ -295,8 +296,9 @@
     </div>
     
     <script>
-        // API 基础 URL
-        const API_BASE = '/api';
+        // API 基础 URL（使用绝对路径）
+        const API_BASE = window.location.origin + '/api';
+        console.log('🔌 API 地址:', API_BASE);
         
         // 加载止损单列表
         async function loadStopLossOrders() {
@@ -431,11 +433,21 @@
         
         // 页面加载时获取数据
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('🛑 止损单页面加载完成');
             loadStopLossOrders();
             
             // 每 30 秒自动刷新
             setInterval(loadStopLossOrders, 30000);
         });
+        
+        // 调试函数
+        window.debugStopLoss = function() {
+            console.log('API_BASE:', API_BASE);
+            fetch(`${API_BASE}/binance/stop-loss`)
+                .then(r => r.json())
+                .then(d => console.log('止损单数据:', d))
+                .catch(e => console.error('API 错误:', e));
+        };
     </script>
 </body>
 </html>

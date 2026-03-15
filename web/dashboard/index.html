@@ -506,6 +506,7 @@
                 <li><a href="#" class="active" data-section="dashboard"><span class="icon">📊</span>策略监控</a></li>
                 <li><a href="#" data-section="account"><span class="icon">💰</span>账户详情</a></li>
                 <li><a href="#" data-section="trades"><span class="icon">📈</span>交易记录</a></li>
+                <li><a href="#" data-section="stop-loss"><span class="icon">🛑</span>止损单管理</a></li>
                 <li><a href="#" data-section="api-config"><span class="icon">🔑</span>配置中心</a></li>
                 <li><a href="#" data-section="strategies"><span class="icon">📚</span>策略库</a></li>
                 <li><a href="#" data-section="plugins"><span class="icon">🔌</span>插件管理</a></li>
@@ -663,6 +664,44 @@
                 </div>
             </div>
             
+            <!-- 止损单管理 -->
+            <div id="stop-loss" class="content-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>🛑 止损单管理</h3>
+                        <button class="btn" onclick="loadStopLossOrders()">🔄 刷新</button>
+                    </div>
+                    
+                    <!-- 统计卡片 -->
+                    <div class="stats-grid" style="margin-bottom: 20px;">
+                        <div class="stat-card">
+                            <h3>活跃止损单</h3>
+                            <div class="value" id="activeStopCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>已触发</h3>
+                            <div class="value" id="triggeredStopCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>已取消</h3>
+                            <div class="value" id="cancelledStopCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>总止损金额</h3>
+                            <div class="value" id="totalStopAmount">-</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 止损单表格 -->
+                    <div id="stopLossTable">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <div>加载止损单列表中...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- API 配置 -->
             <div id="api-config" class="content-section">
                 <div class="card">
@@ -733,11 +772,17 @@
                         
                         <!-- 止损设置 -->
                         <div class="form-group">
-                            <label>止损设置</label>
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <input type="checkbox" id="stopLossCheckbox" checked style="width: 18px; height: 18px;">
-                                <input type="number" id="stopLossInput" value="5" min="1" max="50" step="0.1" style="flex: 1; padding: 10px; border: 1px solid #dfe6e9; border-radius: 5px;">
-                                <span style="white-space: nowrap;">%</span>
+                            <label>止损配置</label>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="checkbox" id="useCustomStopLoss" style="width: 18px; height: 18px;">
+                                    <label for="useCustomStopLoss" style="margin: 0; cursor: pointer;">启用策略止损（不勾选则使用 5% 硬止损兜底）</label>
+                                </div>
+                                <div id="customStopLossDiv" style="display: none; align-items: center; gap: 10px;">
+                                    <input type="number" id="stopLossInput" value="0.2" min="0.1" max="5" step="0.1" style="flex: 1; padding: 10px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                                    <span style="white-space: nowrap;">%</span>
+                                    <small style="color: #666;">ETH/LINK: 0.2%, AVAX: 0.5%</small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1284,6 +1329,119 @@
             loadTrades();
         }
         
+        // 加载止损单列表
+        async function loadStopLossOrders() {
+            const container = document.getElementById('stopLossTable');
+            container.innerHTML = '<div class="loading"><div class="spinner"></div><div>加载止损单列表中...</div></div>';
+            
+            try {
+                const response = await fetch('/api/binance/stop-loss');
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderStopLossTable(data.orders || []);
+                    updateStopLossStats(data.orders || []);
+                } else {
+                    container.innerHTML = `<div style="text-align: center; padding: 40px; color: #d63031;">❌ 加载失败：${data.error || '未知错误'}</div>`;
+                }
+            } catch (err) {
+                container.innerHTML = `<div style="text-align: center; padding: 40px; color: #d63031;">❌ 加载失败：${err.message}</div>`;
+            }
+        }
+        
+        // 渲染止损单表格
+        function renderStopLossTable(orders) {
+            const container = document.getElementById('stopLossTable');
+            
+            if (!orders || orders.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; color: #666;">
+                        <div style="font-size: 64px;">📊</div>
+                        <div style="font-size: 18px; margin-top: 20px;">暂无止损单</div>
+                        <div style="margin-top: 10px; font-size: 14px; color: #999;">策略开仓时会自动创建止损单</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>交易对</th>
+                            <th>方向</th>
+                            <th>触发价</th>
+                            <th>数量</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${orders.map(order => `
+                            <tr>
+                                <td><strong>${order.symbol}</strong></td>
+                                <td><span class="badge badge-${order.side === 'SELL' ? 'success' : 'danger'}">${order.side}</span></td>
+                                <td style="font-family: monospace;">${order.trigger_price}</td>
+                                <td>${order.quantity}</td>
+                                <td><span class="badge badge-${getStatusClass(order.status)}">${order.status || 'WAITING'}</span></td>
+                                <td>${order.create_time || '-'}</td>
+                                <td>
+                                    ${order.status === 'WAITING' ? `<button class="btn btn-danger" onclick="cancelStopLoss('${order.order_id}')" style="padding: 4px 8px; font-size: 12px;">取消</button>` : '-'}
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+        
+        // 获取状态样式
+        function getStatusClass(status) {
+            switch (status) {
+                case 'WAITING': return 'warning';
+                case 'TRIGGERED': return 'danger';
+                case 'CANCELLED': return 'secondary';
+                default: return 'warning';
+            }
+        }
+        
+        // 更新止损单统计
+        function updateStopLossStats(orders) {
+            const active = orders.filter(o => o.status === 'WAITING').length;
+            const triggered = orders.filter(o => o.status === 'TRIGGERED').length;
+            const cancelled = orders.filter(o => o.status === 'CANCELLED').length;
+            
+            document.getElementById('activeStopCount').textContent = active;
+            document.getElementById('triggeredStopCount').textContent = triggered;
+            document.getElementById('cancelledStopCount').textContent = cancelled;
+            document.getElementById('totalStopAmount').textContent = orders.length + ' 单';
+        }
+        
+        // 取消止损单
+        async function cancelStopLoss(orderId) {
+            if (!confirm('确定取消这个止损单吗？')) return;
+            
+            try {
+                const response = await fetch('/api/binance/stop-loss/cancel', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({order_id: orderId})
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('✅ 止损单已取消');
+                    loadStopLossOrders();
+                } else {
+                    alert(`❌ 取消失败：${result.error || '未知错误'}`);
+                }
+            } catch (err) {
+                alert(`❌ 请求失败：${err.message}`);
+            }
+        }
+        
         // 加载 API 配置
         async function loadApiConfigs() {
             const container = document.getElementById('apiConfigsList');
@@ -1755,6 +1913,21 @@
             setInterval(() => {
                 loadSectionData('dashboard');
             }, 60000);
+            
+            // 止损配置显示/隐藏逻辑
+            const useCustomStopLoss = document.getElementById('useCustomStopLoss');
+            const customStopLossDiv = document.getElementById('customStopLossDiv');
+            if (useCustomStopLoss && customStopLossDiv) {
+                useCustomStopLoss.addEventListener('change', function(e) {
+                    customStopLossDiv.style.display = e.target.checked ? 'flex' : 'none';
+                });
+            }
+            
+            // 页面加载时初始化止损单列表（如果当前是止损单页面）
+            const currentSection = document.querySelector('.content-section.active');
+            if (currentSection && currentSection.id === 'stop-loss') {
+                loadStopLossOrders();
+            }
         });
     </script>
 </body>

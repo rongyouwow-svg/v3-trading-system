@@ -5,7 +5,7 @@
 提供真实的币安测试网交易功能
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 from typing import Optional, List, Dict
 from datetime import datetime
@@ -330,13 +330,80 @@ async def close_position(symbol: str, quantity: float = None):
 
 
 @router.get("/stop-loss")
-async def get_stop_loss_orders(symbol: str = None):
-    """获取止损单列表（从本地策略状态文件读取）"""
+async def get_stop_loss_orders(symbol: str = None, limit: int = 50):
+    """获取止损单列表（从币安 Algo Order API 查询）
+    
+    参考：
+    - 币安官方文档：https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-Algo-Order
+    - 历史实现：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+    
+    测试网 vs 实盘:
+    - 测试网：https://demo-fapi.binance.com/fapi/v1/openAlgoOrders
+    - 实盘：https://fapi.binance.com/fapi/v1/openAlgoOrders
+    - API 端点完全相同，只需切换 base_url（连接器自动处理）
+    """
+    try:
+        # 从币安 Algo Order API 查询
+        params = {
+            'limit': limit,
+            'timestamp': int(time.time() * 1000)
+        }
+        
+        if symbol:
+            params['symbol'] = symbol
+        
+        # 使用正确的 API 端点：/fapi/v1/openAlgoOrders
+        result = binance_request('GET', '/fapi/v1/openAlgoOrders', params, signed=True)
+        
+        if result.get('success'):
+            orders = result.get('data', [])
+            
+            # 筛选止损单和止盈单
+            stop_orders = []
+            for order in orders:
+                order_type = order.get('orderType', '')
+                if order_type in ['STOP_MARKET', 'TAKE_PROFIT_MARKET', 'STOP', 'TAKE_PROFIT']:
+                    stop_orders.append({
+                        'algo_id': str(order.get('algoId', order.get('orderId', ''))),
+                        'symbol': order.get('symbol', ''),
+                        'side': order.get('side', ''),
+                        'algo_type': order.get('algoType', 'CONDITIONAL'),
+                        'order_type': order_type,
+                        'trigger_price': str(order.get('triggerPrice', order.get('stopPrice', '0'))),
+                        'quantity': str(order.get('quantity', '0')),
+                        'status': order.get('algoStatus', order.get('status', '')),
+                        'create_time': order.get('createTime', order.get('time', 0)),
+                        'reduce_only': order.get('reduceOnly', False),
+                        'close_position': order.get('closePosition', False)
+                    })
+            
+            return {
+                'success': True,
+                'orders': stop_orders,
+                'count': len(stop_orders)
+            }
+        else:
+            return {
+                'success': False,
+                'error': result.get('error', 'Unknown error'),
+                'orders': [],
+                'count': 0
+            }
+    except Exception as e:
+        return {
+            'success': False,
+            'error': str(e),
+            'orders': [],
+            'count': 0
+        }
+
+
+def get_stop_loss_from_local_state(symbol: str = None):
+    """从本地策略状态文件估算止损单（回退方案）"""
     import json
     import os
     
     try:
-        # 从策略状态文件读取止损单信息
         state_file = os.path.join(os.path.dirname(__file__), '..', 'logs', 'strategy_pids.json')
         
         if not os.path.exists(state_file):
@@ -354,22 +421,28 @@ async def get_stop_loss_orders(symbol: str = None):
             if symbol and sym != symbol:
                 continue
             
-            # 如果有持仓且有入场价，认为有止损单
             if data.get('position') and data.get('entry_price', 0) > 0:
-                # 估算止损价（假设 0.5% 止损）
                 entry = data['entry_price']
-                stop_price = entry * 0.995 if data['position'] == 'LONG' else entry * 1.005
+                stop_loss_pct = data.get('stop_loss_pct', 0.005)
+                
+                if data['position'] == 'LONG':
+                    stop_price = entry * (1 - stop_loss_pct)
+                    side = 'SELL'
+                else:
+                    stop_price = entry * (1 + stop_loss_pct)
+                    side = 'BUY'
                 
                 orders.append({
                     'order_id': f"stop_{sym}_{data.get('entry_price', 0)}",
                     'symbol': sym,
-                    'side': 'SELL' if data['position'] == 'LONG' else 'BUY',
+                    'side': side,
                     'algo_type': 'CONDITIONAL',
-                    'trigger_price': stop_price,
-                    'quantity': data.get('quantity', 0),
-                    'status': 'WAITING',
+                    'trigger_price': str(stop_price),
+                    'quantity': str(data.get('size', 0)),
+                    'status': 'ESTIMATED',  # 标记为估算
                     'create_time': data.get('start_time', '-'),
-                    'entry_price': entry
+                    'entry_price': str(entry),
+                    'stop_loss_pct': str(stop_loss_pct)
                 })
         
         return {
@@ -380,26 +453,54 @@ async def get_stop_loss_orders(symbol: str = None):
     except Exception as e:
         return {
             'success': False,
-            'error': str(e)
+            'error': str(e),
+            'orders': [],
+            'count': 0
         }
 
 
 @router.post("/stop-loss")
-async def create_stop_loss(symbol: str, side: str, trigger_price: float, quantity: float, algo_type: str = "CONDITIONAL"):
+async def create_stop_loss(request: Request):
     """创建止损单"""
-    params = {
-        'symbol': symbol,
-        'side': side,
-        'type': 'MARKET',
-        'algoType': algo_type,
-        'triggerPrice': trigger_price,
-        'quantity': quantity,
-        'timestamp': int(time.time() * 1000)
-    }
-    
-    result = binance_request('POST', '/fapi/v1/algoOrder', params, signed=True)
-    
-    return result
+    try:
+        # 从 JSON body 获取参数
+        body = await request.json()
+        symbol = body.get('symbol')
+        side = body.get('side', 'SELL')
+        trigger_price = body.get('trigger_price')
+        quantity = body.get('quantity')
+        algo_type = body.get('algo_type', 'CONDITIONAL')
+        
+        # 根据币种精度处理数量和价格
+        # ETHUSDT: quantityPrecision=3, pricePrecision=2
+        # BTCUSDT: quantityPrecision=3, pricePrecision=1
+        # 通用处理：数量 3 位小数，价格 2 位小数
+        quantity_rounded = round(float(quantity), 3)
+        trigger_price_rounded = round(float(trigger_price), 2)
+        
+        # 参考历史文档：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+        # 关键参数：algoType=CONDITIONAL, type=STOP_MARKET, triggerPrice（不是 stopPrice）
+        params = {
+            'symbol': symbol,
+            'side': side,
+            'algoType': 'CONDITIONAL',  # 只支持 CONDITIONAL
+            'type': 'STOP_MARKET',  # 止损单类型
+            'triggerPrice': str(trigger_price_rounded),  # 使用 triggerPrice（不是 stopPrice）
+            'quantity': str(quantity_rounded),  # 精度处理
+            'reduceOnly': 'false',
+            'newOrderRespType': 'ACK',
+            'timestamp': int(time.time() * 1000)
+        }
+        
+        # 发送到 Algo Order API 专用端点
+        result = binance_request('POST', '/fapi/v1/algoOrder', params, signed=True)
+        
+        return result
+    except Exception as e:
+        return {
+            'success': False,
+            'error': str(e)
+        }
 
 
 @router.post("/stop-loss/cancel")

@@ -60,6 +60,15 @@ except ImportError as e:
     print(f"❌ 交易记录刷新 API 导入失败：{e}")
     trades_refresh_router = None
 
+# 导入策略管理 API
+try:
+    from .strategy_management_api import router as strategy_management_router, initialize_strategy_api
+    print(f"✅ 策略管理 API 导入成功")
+except ImportError as e:
+    print(f"❌ 策略管理 API 导入失败：{e}")
+    strategy_management_router = None
+    initialize_strategy_api = None
+
 
 def create_app() -> FastAPI:
     """
@@ -99,6 +108,11 @@ def create_app() -> FastAPI:
     if trades_refresh_router:
         app.include_router(trades_refresh_router)
         logger.info("✅ 交易记录刷新 API 已注册")
+    
+    # 注册策略管理 API
+    if strategy_management_router:
+        app.include_router(strategy_management_router)
+        logger.info("✅ 策略管理 API 已注册")
     
     # 注册测试策略 API
     if test_strategy_router:
