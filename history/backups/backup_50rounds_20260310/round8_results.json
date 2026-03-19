@@ -1,0 +1,89 @@
+[
+  {
+    "annual_return": 77.95509567592134,
+    "max_drawdown": 72.13056586400359,
+    "win_rate": 16.116504854368934,
+    "profit_factor": 6.16851492568741,
+    "total_trades": 515,
+    "total_return": 2231.728028221374,
+    "final_capital": 233172.80282213746,
+    "config": {
+      "name": "BTC+ETH+LINK+UNI 各 25% + 止盈 40%",
+      "coins": [
+        "BTC",
+        "ETH",
+        "LINK",
+        "UNI"
+      ],
+      "take_profit": 0.4
+    }
+  },
+  {
+    "annual_return": 60.265008775621084,
+    "max_drawdown": 60.90637031643682,
+    "win_rate": 16.666666666666664,
+    "profit_factor": 6.219076009090137,
+    "total_trades": 420,
+    "total_return": 2269.030446463335,
+    "final_capital": 236903.0446463335,
+    "config": {
+      "name": "BTC+ETH+LINK 各 33% + 止盈 40%",
+      "coins": [
+        "BTC",
+        "ETH",
+        "LINK"
+      ],
+      "take_profit": 0.4
+    }
+  },
+  {
+    "annual_return": 59.61075870897656,
+    "max_drawdown": 63.556999562476655,
+    "win_rate": 14.441416893732969,
+    "profit_factor": 7.7677454425136165,
+    "total_trades": 367,
+    "total_return": 2204.8841522652315,
+    "final_capital": 230488.41522652312,
+    "config": {
+      "name": "BTC+ETH+LINK 各 33% + 止盈 50%",
+      "coins": [
+        "BTC",
+        "ETH",
+        "LINK"
+      ],
+      "take_profit": 0.5
+    }
+  },
+  {
+    "annual_return": 23.202450442140798,
+    "max_drawdown": 39.452098376948506,
+    "win_rate": 15.131578947368421,
+    "profit_factor": 8.147931941660401,
+    "total_trades": 152,
+    "total_return": 494.6162785451815,
+    "final_capital": 59461.62785451815,
+    "config": {
+      "name": "ETH 只做多 + 止盈 50%",
+      "coins": [
+        "ETH"
+      ],
+      "take_profit": 0.5
+    }
+  },
+  {
+    "annual_return": 20.024970299797197,
+    "max_drawdown": 37.227076305825314,
+    "win_rate": 16.50485436893204,
+    "profit_factor": 8.506973218804928,
+    "total_trades": 103,
+    "total_return": 375.64570637858577,
+    "final_capital": 47564.570637858575,
+    "config": {
+      "name": "BTC 只做多 + 止盈 50%",
+      "coins": [
+        "BTC"
+      ],
+      "take_profit": 0.5
+    }
+  }
+]

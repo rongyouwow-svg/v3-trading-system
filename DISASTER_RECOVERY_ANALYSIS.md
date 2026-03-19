@@ -199,8 +199,8 @@ After=network.target
 [Service]
 Type=simple
 User=admin
-WorkingDirectory=/home/admin/.openclaw/workspace/quant/v3-architecture
-ExecStart=/home/admin/.pyenv/versions/3.10.0/bin/python3 scripts/start_all_strategies.py
+WorkingDirectory=/root/.openclaw/workspace/quant/v3-architecture
+ExecStart=/root/.pyenv/versions/3.10.0/bin/python3 scripts/start_all_strategies.py
 Restart=always
 RestartSec=10
 

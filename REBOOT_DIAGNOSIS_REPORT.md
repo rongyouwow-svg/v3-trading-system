@@ -53,7 +53,7 @@ sudo cp v3-architecture/supervisor/*.conf /etc/supervisor/conf.d/
 sudo cp v3-architecture/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 
 # 启动 supervisord
-/home/admin/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
+/root/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
 ```
 
 ### 2. 开机自启配置
@@ -63,7 +63,7 @@ sudo cp v3-architecture/supervisor/supervisord.conf /etc/supervisor/supervisord.
 sudo bash -c 'cat >> /etc/rc.local << EOF
 # 🦞 大王量化系统自动启动 (添加于 2026-03-16)
 sleep 10
-/home/admin/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
+/root/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
 EOF'
 
 sudo chmod +x /etc/rc.local
@@ -136,16 +136,16 @@ curl http://localhost:3000/api/health
 ### Supervisor 管理
 ```bash
 # 查看所有服务状态
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 
 # 重启单个服务
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-eth
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-eth
 
 # 重启所有服务
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart all
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart all
 
 # 查看日志
-tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_eth_out.log
+tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/supervisor_eth_out.log
 ```
 
 ### Web API 访问
@@ -155,7 +155,7 @@ tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_et
 
 ### 日志位置
 ```
-/home/admin/.openclaw/workspace/quant/v3-architecture/logs/
+/root/.openclaw/workspace/quant/v3-architecture/logs/
 ├── supervisord.log           # Supervisor 主日志
 ├── supervisor_eth_out.log    # ETH 策略日志
 ├── supervisor_link_out.log   # LINK 策略日志

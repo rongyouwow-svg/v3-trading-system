@@ -2,7 +2,7 @@
 # 🦞 大王量化系统自动检查和重启脚本
 
 LOG_FILE="/home/admin/.openclaw/workspace/quant/v3-architecture/logs/auto_restart.log"
-HEALTH_URL="http://localhost:3000/api/strategy/health"
+HEALTH_URL="http://localhost:8000/api/strategy/health"
 MAX_RESTART_ATTEMPTS=3
 RESTART_ATTEMPTS=0
 

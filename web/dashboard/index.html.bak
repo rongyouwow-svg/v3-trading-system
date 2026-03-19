@@ -146,6 +146,93 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
+        /* 策略库样式 */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .strategy-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .strategy-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .strategy-card h4 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .strategy-card .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .strategy-card .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .strategy-card .tag {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            background: #f3f4f6;
+            color: #666;
+        }
+        
+        .strategy-card .tag.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .strategy-card .tag.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .strategy-card .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .strategy-card .stat {
+            text-align: center;
+        }
+        
+        .strategy-card .stat .value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .strategy-card .stat .value.positive {
+            color: #10b981;
+        }
+        
+        .strategy-card .stat .value.negative {
+            color: #ef4444;
+        }
+        
+        .strategy-card .stat .label {
+            font-size: 12px;
+            color: #666;
+        }
+        
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -419,6 +506,7 @@
                 <li><a href="#" class="active" data-section="dashboard"><span class="icon">📊</span>策略监控</a></li>
                 <li><a href="#" data-section="account"><span class="icon">💰</span>账户详情</a></li>
                 <li><a href="#" data-section="trades"><span class="icon">📈</span>交易记录</a></li>
+                <li><a href="#" data-section="stop-loss"><span class="icon">🛑</span>止损单管理</a></li>
                 <li><a href="#" data-section="api-config"><span class="icon">🔑</span>配置中心</a></li>
                 <li><a href="#" data-section="strategies"><span class="icon">📚</span>策略库</a></li>
                 <li><a href="#" data-section="plugins"><span class="icon">🔌</span>插件管理</a></li>
@@ -476,27 +564,139 @@
                 </div>
             </div>
             
+            <!-- 账户详情 -->
+            <div id="account" class="content-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>💰 账户总览</h3>
+                        <button class="btn" onclick="loadAccount()">🔄 刷新</button>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="label">账户余额</div>
+                            <div class="value" id="accountBalance">-</div>
+                            <div class="change">USDT</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">可用余额</div>
+                            <div class="value" id="availableBalance">-</div>
+                            <div class="change">USDT</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">持仓盈亏</div>
+                            <div class="value" id="unrealizedPnl">-</div>
+                            <div class="change" id="unrealizedPnlChange">USDT</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">已实现盈亏</div>
+                            <div class="value" id="realizedPnl">-</div>
+                            <div class="change" id="realizedPnlChange">USDT</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📊 当前持仓</h3>
+                    </div>
+                    <div id="accountPositionsTable">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <div>加载持仓中...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- 交易记录 -->
             <div id="trades" class="content-section">
                 <div class="card">
                     <div class="card-header">
-                        <h3>交易记录</h3>
-                        <button class="btn" onclick="refreshTrades()">🔄 刷新</button>
+                        <h3>📈 交易记录（30 天内）</h3>
+                        <button class="btn" onclick="loadTrades()">🔄 刷新</button>
                     </div>
-                    <div class="filters" style="display: flex; gap: 10px; margin-bottom: 20px;">
-                        <input type="text" id="symbolFilter" placeholder="交易对" style="flex: 1;">
-                        <select id="typeFilter" style="flex: 1;">
+                    
+                    <!-- 交易统计 -->
+                    <div class="stats-grid" style="margin-bottom: 20px;">
+                        <div class="stat-card">
+                            <div class="label">总交易次数</div>
+                            <div class="value" id="totalTrades">-</div>
+                            <div class="unit">笔</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">总盈亏</div>
+                            <div class="value" id="totalPnl">-</div>
+                            <div class="unit">USDT</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">胜率</div>
+                            <div class="value" id="winRate">-</div>
+                            <div class="unit">%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">总手续费</div>
+                            <div class="value" id="totalCommission">-</div>
+                            <div class="unit">USDT</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 筛选器 -->
+                    <div class="filters" style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                        <input type="text" id="symbolFilter" placeholder="交易对（如 ETHUSDT）" style="flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                        <select id="typeFilter" style="min-width: 150px; padding: 8px 12px; border: 1px solid #dfe6e9; border-radius: 5px;">
                             <option value="">所有类型</option>
                             <option value="OPEN">开仓</option>
                             <option value="CLOSE">平仓</option>
                             <option value="STOP_LOSS">止损</option>
                         </select>
+                        <input type="date" id="startDate" style="min-width: 180px; padding: 8px 12px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                        <input type="date" id="endDate" style="min-width: 180px; padding: 8px 12px; border: 1px solid #dfe6e9; border-radius: 5px;">
                         <button class="btn" onclick="filterTrades()">🔍 筛选</button>
+                        <button class="btn btn-secondary" onclick="resetFilters()" style="background: #6c757d;">🔄 重置</button>
                     </div>
+                    
+                    <!-- 交易记录表格 -->
                     <div id="tradesTable">
                         <div class="loading">
                             <div class="spinner"></div>
                             <div>加载交易记录中...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 止损单管理 -->
+            <div id="stop-loss" class="content-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>🛑 止损单管理</h3>
+                        <button class="btn" onclick="loadStopLossOrders()">🔄 刷新</button>
+                    </div>
+                    
+                    <!-- 统计卡片 -->
+                    <div class="stats-grid" style="margin-bottom: 20px;">
+                        <div class="stat-card">
+                            <h3>活跃止损单</h3>
+                            <div class="value" id="activeStopCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>已触发</h3>
+                            <div class="value" id="triggeredStopCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>已取消</h3>
+                            <div class="value" id="cancelledStopCount">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>总止损金额</h3>
+                            <div class="value" id="totalStopAmount">-</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 止损单表格 -->
+                    <div id="stopLossTable">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <div>加载止损单列表中...</div>
                         </div>
                     </div>
                 </div>
@@ -517,6 +717,78 @@
                             <div class="spinner"></div>
                             <div>加载 API 配置中...</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 策略库 -->
+            <div id="strategies" class="content-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📚 策略配置</h3>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px;">
+                        <!-- 策略选择 -->
+                        <div class="form-group">
+                            <label>策略选择</label>
+                            <select id="strategySelect" style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                                <option value="">-- 请选择策略 --</option>
+                                <option value="breakout">突破策略 v1.0</option>
+                                <option value="rsi">RSI 反转 v1.0</option>
+                                <option value="macd">MACD 趋势 v1.0</option>
+                                <option value="grid">网格交易 v1.0</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 币种选择 -->
+                        <div class="form-group">
+                            <label>币种选择</label>
+                            <div style="display: flex; gap: 10px;">
+                                <select id="symbolSelect" style="flex: 1; padding: 10px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                                    <option value="ETHUSDT">ETHUSDT</option>
+                                    <option value="BTCUSDT">BTCUSDT</option>
+                                    <option value="AVAXUSDT">AVAXUSDT</option>
+                                    <option value="LINKUSDT">LINKUSDT</option>
+                                    <option value="UNIUSDT">UNIUSDT</option>
+                                </select>
+                                <button class="btn" onclick="addSymbol()" style="white-space: nowrap;">➕ 添加币种</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px;">
+                        <!-- 杠杆倍数 -->
+                        <div class="form-group">
+                            <label>杠杆倍数</label>
+                            <input type="number" id="leverageInput" value="5" min="1" max="125" style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                        </div>
+                        
+                        <!-- 投资金额 -->
+                        <div class="form-group">
+                            <label>投资金额 (USDT)</label>
+                            <input type="number" id="amountInput" value="100" min="10" style="width: 100%; padding: 10px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                        </div>
+                        
+                        <!-- 止损设置 -->
+                        <div class="form-group">
+                            <label>止损配置</label>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="checkbox" id="useCustomStopLoss" style="width: 18px; height: 18px;">
+                                    <label for="useCustomStopLoss" style="margin: 0; cursor: pointer;">启用策略止损（不勾选则使用 5% 硬止损兜底）</label>
+                                </div>
+                                <div id="customStopLossDiv" style="display: none; align-items: center; gap: 10px;">
+                                    <input type="number" id="stopLossInput" value="0.2" min="0.1" max="5" step="0.1" style="flex: 1; padding: 10px; border: 1px solid #dfe6e9; border-radius: 5px;">
+                                    <span style="white-space: nowrap;">%</span>
+                                    <small style="color: #666;">ETH/LINK: 0.2%, AVAX: 0.5%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group" style="justify-content: center; margin-top: 30px;">
+                        <button class="btn btn-success" onclick="startStrategy()" style="padding: 12px 40px; font-size: 16px;">🚀 启动策略</button>
                     </div>
                 </div>
             </div>
@@ -674,11 +946,17 @@
                     loadStrategies();
                     loadStatistics();
                     break;
+                case 'account':
+                    loadAccount();
+                    break;
                 case 'trades':
                     loadTrades();
                     break;
                 case 'api-config':
                     loadApiConfigs();
+                    break;
+                case 'strategies':
+                    loadStrategiesLibrary();
                     break;
                 case 'strategy-config':
                     loadStrategyConfig();
@@ -697,26 +975,267 @@
             const container = document.getElementById('strategiesList');
             container.innerHTML = '<div class="loading"><div class="spinner"></div><div>加载策略列表中...</div></div>';
             
-            // TODO: 实际应从 API 获取
-            setTimeout(() => {
-                container.innerHTML = `
-                    <div class="empty-state" style="text-align: center; padding: 40px; color: #666;">
-                        <div style="font-size: 48px;">📊</div>
-                        <div>暂无活跃策略</div>
-                        <div style="margin-top: 10px;">
-                            <button class="btn" onclick="startNewStrategy()">创建第一个策略</button>
-                        </div>
-                    </div>
-                `;
-            }, 500);
+            try {
+                const response = await fetch('/api/strategy/active');
+                const data = await response.json();
+                
+                if (data.success && data.active_strategies.length > 0) {
+                    const strategies = data.active_strategies;
+                    container.innerHTML = `
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>交易对</th>
+                                    <th>状态</th>
+                                    <th>RSI</th>
+                                    <th>持仓</th>
+                                    <th>入场价</th>
+                                    <th>信号</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${strategies.map(s => `
+                                    <tr>
+                                        <td><strong>${s.symbol}</strong></td>
+                                        <td><span class="badge badge-success">${s.status}</span></td>
+                                        <td>${s.rsi.toFixed(2)}</td>
+                                        <td>${s.position || '-'}</td>
+                                        <td>${s.entry_price > 0 ? s.entry_price : '-'}</td>
+                                        <td>${s.signals_sent}/${s.signals_executed}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+                } else {
+                    container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><div style="font-size: 48px;">📊</div><div>暂无活跃策略</div></div>';
+                }
+            } catch (e) {
+                container.innerHTML = `<div style="text-align: center; padding: 40px; color: #d63031;">❌ 加载失败：${e.message}</div>`;
+            }
         }
         
         // 加载统计信息
         async function loadStatistics() {
-            document.getElementById('activeStrategies').textContent = '0';
-            document.getElementById('totalPnL').textContent = '0.00';
-            document.getElementById('healthyStrategies').textContent = '0';
-            document.getElementById('warningStrategies').textContent = '0';
+            try {
+                const response = await fetch('/api/strategy/active');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const strategies = data.active_strategies || [];
+                    document.getElementById('activeStrategies').textContent = strategies.length;
+                    
+                    // 计算总 PNL（这里简化，实际应该从账户 API 获取）
+                    document.getElementById('totalPnL').textContent = '0.00';
+                    
+                    // 健康策略（RSI 在正常范围）
+                    const healthy = strategies.filter(s => s.rsi >= 30 && s.rsi <= 70).length;
+                    document.getElementById('healthyStrategies').textContent = healthy;
+                    
+                    // 警告策略（RSI 超买或超卖）
+                    const warning = strategies.filter(s => s.rsi < 30 || s.rsi > 70).length;
+                    document.getElementById('warningStrategies').textContent = warning;
+                }
+            } catch (err) {
+                console.error('加载统计信息失败:', err);
+                document.getElementById('activeStrategies').textContent = '-';
+                document.getElementById('totalPnL').textContent = '-';
+                document.getElementById('healthyStrategies').textContent = '-';
+                document.getElementById('warningStrategies').textContent = '-';
+            }
+        }
+        
+        // 加载账户信息
+        async function loadAccount() {
+            try {
+                // 获取账户信息
+                const accountResponse = await fetch('/api/binance/account-info');
+                const accountData = await accountResponse.json();
+                
+                if (accountData.success) {
+                    const account = accountData.account;
+                    document.getElementById('accountBalance').textContent = account.balance.toFixed(2);
+                    document.getElementById('availableBalance').textContent = account.available.toFixed(2);
+                    document.getElementById('unrealizedPnl').textContent = '+0.00';
+                    document.getElementById('realizedPnl').textContent = '+0.00';
+                }
+                
+                // 获取持仓
+                const positionsResponse = await fetch('/api/binance/positions');
+                const positionsData = await positionsResponse.json();
+                
+                const positionsContainer = document.getElementById('accountPositionsTable');
+                
+                if (!positionsData.success || !positionsData.positions || positionsData.positions.length === 0) {
+                    positionsContainer.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><div style="font-size: 48px;">📊</div><div>暂无持仓</div></div>';
+                } else {
+                    positionsContainer.innerHTML = `
+                        <table>
+                            <thead>
+                                <tr><th>交易对</th><th>方向</th><th>持仓</th><th>开仓价</th><th>当前价</th><th>盈亏</th><th>盈亏率</th><th>杠杆</th><th>操作</th></tr>
+                            </thead>
+                            <tbody>
+                                ${positionsData.positions.map(p => `
+                                    <tr>
+                                        <td><strong>${p.symbol}</strong></td>
+                                        <td><span class="badge badge-${p.side.toLowerCase()}">${p.side}</span></td>
+                                        <td>${p.size}</td>
+                                        <td>${p.entry_price}</td>
+                                        <td>${p.current_price}</td>
+                                        <td class="${p.unrealized_pnl >= 0 ? 'positive' : 'negative'}">${p.unrealized_pnl >= 0 ? '+' : ''}${p.unrealized_pnl}</td>
+                                        <td class="${p.unrealized_pnl_pct >= 0 ? 'positive' : 'negative'}">${p.unrealized_pnl_pct >= 0 ? '+' : ''}${p.unrealized_pnl_pct}%</td>
+                                        <td>${p.leverage}x</td>
+                                        <td><button class="btn btn-danger" onclick="closePosition('${p.symbol}', ${p.size})" style="padding: 4px 8px; font-size: 12px;">平仓</button></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+                }
+            } catch (err) {
+                console.error('加载账户信息失败:', err);
+            }
+        }
+        
+        // 平仓函数
+        async function closePosition(symbol, quantity) {
+            if (!confirm(`确定要平仓 ${symbol} 吗？`)) return;
+            
+            try {
+                const response = await fetch(`/api/binance/position/close?symbol=${symbol}&quantity=${quantity}`, {
+                    method: 'POST'
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert(`✅ 平仓成功！`);
+                    loadAccount(); // 刷新持仓
+                } else {
+                    alert(`❌ 平仓失败：${result.error || '未知错误'}`);
+                }
+            } catch (err) {
+                alert(`❌ 请求失败：${err.message}`);
+            }
+        }
+        
+        // 加载策略库
+        async function loadStrategiesLibrary() {
+            const container = document.getElementById('strategiesLibrary');
+            const mockStrategies = [
+                { id: 'breakout', name: '突破策略 v1.0', winRate: 45.44, totalReturn: 13.64, maxDrawdown: 6.83, risk: 'medium' },
+                { id: 'rsi', name: 'RSI 反转 v1.0', winRate: 52.30, totalReturn: 8.50, maxDrawdown: 4.20, risk: 'low' },
+                { id: 'macd', name: 'MACD 趋势 v1.0', winRate: 48.20, totalReturn: 11.30, maxDrawdown: 5.50, risk: 'medium' },
+                { id: 'grid', name: '网格交易 v1.0', winRate: 65.00, totalReturn: 15.80, maxDrawdown: 8.50, risk: 'high' }
+            ];
+            
+            container.innerHTML = `
+                <div class="strategy-grid">
+                    ${mockStrategies.map(s => `
+                        <div class="strategy-card">
+                            <h4>${s.name}</h4>
+                            <div class="description">策略描述...</div>
+                            <div class="tags">
+                                <span class="tag ${s.risk === 'low' ? 'success' : s.risk === 'high' ? 'warning' : ''}">${s.risk === 'low' ? '低风险' : s.risk === 'high' ? '高风险' : '中风险'}</span>
+                            </div>
+                            <div class="stats">
+                                <div class="stat"><div class="value positive">+${s.totalReturn}%</div><div class="label">总收益</div></div>
+                                <div class="stat"><div class="value">${s.winRate}%</div><div class="label">胜率</div></div>
+                                <div class="stat"><div class="value negative">-${s.maxDrawdown}%</div><div class="label">最大回撤</div></div>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-success" onclick="startStrategy('${s.id}')">🚀 启动策略</button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        // 添加币种
+        function addSymbol() {
+            const customSymbol = prompt('请输入币种（如：SOLUSDT）:', '');
+            if (customSymbol) {
+                // 验证币种格式
+                if (!/^[A-Z]+USDT$/.test(customSymbol.toUpperCase())) {
+                    alert('❌ 币种格式错误！请输入如 SOLUSDT 的格式');
+                    return;
+                }
+                
+                // API 验证币种是否存在
+                fetch(`/api/binance/symbol-info?symbol=${customSymbol.toUpperCase()}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            const select = document.getElementById('symbolSelect');
+                            const option = document.createElement('option');
+                            option.value = customSymbol.toUpperCase();
+                            option.textContent = customSymbol.toUpperCase();
+                            select.appendChild(option);
+                            select.value = customSymbol.toUpperCase();
+                            alert(`✅ ${customSymbol.toUpperCase()} 添加成功！`);
+                        } else {
+                            alert(`❌ 币种不存在：${customSymbol}`);
+                        }
+                    })
+                    .catch(err => {
+                        alert(`⚠️ 验证失败：${err.message}`);
+                    });
+            }
+        }
+        
+        // 启动策略
+        async function startStrategy() {
+            const strategy = document.getElementById('strategySelect').value;
+            const symbol = document.getElementById('symbolSelect').value;
+            const leverage = document.getElementById('leverageInput').value;
+            const amount = document.getElementById('amountInput').value;
+            const useStopLoss = document.getElementById('stopLossCheckbox').checked;
+            const stopLossPct = document.getElementById('stopLossInput').value;
+            
+            if (!strategy) {
+                alert('❌ 请选择策略！');
+                return;
+            }
+            
+            // 1. 先创建真实订单（开仓 50%）
+            const openAmount = parseFloat(amount) * 0.5;
+            const quantity = (openAmount * leverage) / 2000; // 假设价格 2000
+            
+            try {
+                // 创建买单
+                const orderResponse = await fetch('/api/binance/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        symbol: symbol,
+                        side: 'BUY',
+                        type: 'MARKET',
+                        quantity: quantity,
+                        leverage: parseInt(leverage)
+                    })
+                });
+                
+                const orderResult = await orderResponse.json();
+                
+                if (!orderResult.success) {
+                    alert(`❌ 开仓失败：${orderResult.error || '未知错误'}`);
+                    return;
+                }
+                
+                // 2. 创建止损单
+                if (useStopLoss) {
+                    // 止损价格 = 入场价 * (1 - 止损百分比/100)
+                    // 这里简化处理，实际应该从订单获取入场价
+                }
+                
+                alert(`✅ 策略启动成功！\n\n策略：${strategy}\n币种：${symbol}\n杠杆：${leverage}x\n金额：${amount} USDT\n开仓数量：${quantity.toFixed(4)}\n止损：${useStopLoss ? stopLossPct + '%' : '关闭'}\n\n订单 ID: ${orderResult.order?.order_id || '-'}`);
+                
+                // 刷新策略监控
+                loadStrategyStatus();
+                
+            } catch (err) {
+                alert(`❌ 请求失败：${err.message}`);
+            }
         }
         
         // 加载交易记录
@@ -724,15 +1243,203 @@
             const container = document.getElementById('tradesTable');
             container.innerHTML = '<div class="loading"><div class="spinner"></div><div>加载交易记录中...</div></div>';
             
-            // TODO: 实际应从 API 获取
-            setTimeout(() => {
+            try {
+                // 从币安 API 获取真实交易记录
+                const response = await fetch('/api/binance/trades?limit=50');
+                const data = await response.json();
+                
+                if (!data.success) {
+                    container.innerHTML = `<div style="text-align: center; padding: 40px; color: #d63031;">❌ 加载失败：${data.error || '未知错误'}</div>`;
+                    return;
+                }
+                
+                const trades = data.trades || [];
+                
+                if (trades.length === 0) {
+                    container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><div style="font-size: 48px;">📈</div><div>暂无交易记录</div></div>';
+                    updateTradeStats([]);
+                    return;
+                }
+                
                 container.innerHTML = `
-                    <div class="empty-state" style="text-align: center; padding: 40px; color: #666;">
-                        <div style="font-size: 48px;">📈</div>
-                        <div>暂无交易记录</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>成交 ID</th>
+                                <th>交易对</th>
+                                <th>方向</th>
+                                <th>订单类型</th>
+                                <th>数量</th>
+                                <th>价格</th>
+                                <th>手续费</th>
+                                <th>盈亏</th>
+                                <th>成交时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${trades.map(trade => `
+                                <tr>
+                                    <td style="font-family: monospace;">${trade.trade_id}</td>
+                                    <td><strong>${trade.symbol}</strong></td>
+                                    <td><span class="badge badge-${trade.side.toLowerCase()}">${trade.side}</span></td>
+                                    <td><span class="badge badge-${trade.order_type === '开多' || trade.order_type === '开空' ? 'success' : 'warning'}">${trade.order_type}</span></td>
+                                    <td>${trade.quantity}</td>
+                                    <td>${trade.price}</td>
+                                    <td>${trade.commission} ${trade.commission_asset}</td>
+                                    <td class="${trade.realized_pnl >= 0 ? 'positive' : 'negative'}">
+                                        ${trade.realized_pnl >= 0 ? '+' : ''}${trade.realized_pnl}
+                                    </td>
+                                    <td>${trade.trade_time}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                `;
+                
+                updateTradeStats(trades);
+            } catch (err) {
+                container.innerHTML = `<div style="text-align: center; padding: 40px; color: #d63031;">❌ 加载失败：${err.message}</div>`;
+            }
+        }
+        
+        // 更新交易统计
+        function updateTradeStats(trades) {
+            const total = trades.length;
+            const totalPnl = trades.reduce((sum, t) => sum + (parseFloat(t.realized_pnl) || 0), 0);
+            const winTrades = trades.filter(t => (parseFloat(t.realized_pnl) || 0) > 0).length;
+            const winRate = total > 0 ? ((winTrades / total) * 100).toFixed(2) : 0;
+            const totalCommission = trades.reduce((sum, t) => sum + (parseFloat(t.commission) || 0), 0);
+            
+            document.getElementById('totalTrades').textContent = total;
+            document.getElementById('totalPnl').textContent = (totalPnl >= 0 ? '+' : '') + totalPnl.toFixed(2);
+            document.getElementById('totalPnl').className = 'value ' + (totalPnl >= 0 ? 'positive' : 'negative');
+            document.getElementById('winRate').textContent = winRate;
+            document.getElementById('totalCommission').textContent = totalCommission.toFixed(2);
+        }
+        
+        function filterTrades() {
+            loadTrades();
+        }
+        
+        function resetFilters() {
+            document.getElementById('symbolFilter').value = '';
+            document.getElementById('typeFilter').value = '';
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
+            loadTrades();
+        }
+        
+        // 加载止损单列表
+        async function loadStopLossOrders() {
+            const container = document.getElementById('stopLossTable');
+            container.innerHTML = '<div class="loading"><div class="spinner"></div><div>加载止损单列表中...</div></div>';
+            
+            try {
+                const response = await fetch('/api/binance/stop-loss');
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderStopLossTable(data.orders || []);
+                    updateStopLossStats(data.orders || []);
+                } else {
+                    container.innerHTML = `<div style="text-align: center; padding: 40px; color: #d63031;">❌ 加载失败：${data.error || '未知错误'}</div>`;
+                }
+            } catch (err) {
+                container.innerHTML = `<div style="text-align: center; padding: 40px; color: #d63031;">❌ 加载失败：${err.message}</div>`;
+            }
+        }
+        
+        // 渲染止损单表格
+        function renderStopLossTable(orders) {
+            const container = document.getElementById('stopLossTable');
+            
+            if (!orders || orders.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; color: #666;">
+                        <div style="font-size: 64px;">📊</div>
+                        <div style="font-size: 18px; margin-top: 20px;">暂无止损单</div>
+                        <div style="margin-top: 10px; font-size: 14px; color: #999;">策略开仓时会自动创建止损单</div>
                     </div>
                 `;
-            }, 500);
+                return;
+            }
+            
+            container.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>交易对</th>
+                            <th>方向</th>
+                            <th>触发价</th>
+                            <th>数量</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${orders.map(order => `
+                            <tr>
+                                <td><strong>${order.symbol}</strong></td>
+                                <td><span class="badge badge-${order.side === 'SELL' ? 'success' : 'danger'}">${order.side}</span></td>
+                                <td style="font-family: monospace;">${order.trigger_price}</td>
+                                <td>${order.quantity}</td>
+                                <td><span class="badge badge-${getStatusClass(order.status)}">${order.status || 'WAITING'}</span></td>
+                                <td>${order.create_time || '-'}</td>
+                                <td>
+                                    ${order.status === 'WAITING' ? `<button class="btn btn-danger" onclick="cancelStopLoss('${order.order_id}')" style="padding: 4px 8px; font-size: 12px;">取消</button>` : '-'}
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+        
+        // 获取状态样式
+        function getStatusClass(status) {
+            switch (status) {
+                case 'WAITING': return 'warning';
+                case 'TRIGGERED': return 'danger';
+                case 'CANCELLED': return 'secondary';
+                default: return 'warning';
+            }
+        }
+        
+        // 更新止损单统计
+        function updateStopLossStats(orders) {
+            const active = orders.filter(o => o.status === 'WAITING').length;
+            const triggered = orders.filter(o => o.status === 'TRIGGERED').length;
+            const cancelled = orders.filter(o => o.status === 'CANCELLED').length;
+            
+            document.getElementById('activeStopCount').textContent = active;
+            document.getElementById('triggeredStopCount').textContent = triggered;
+            document.getElementById('cancelledStopCount').textContent = cancelled;
+            document.getElementById('totalStopAmount').textContent = orders.length + ' 单';
+        }
+        
+        // 取消止损单
+        async function cancelStopLoss(orderId) {
+            if (!confirm('确定取消这个止损单吗？')) return;
+            
+            try {
+                const response = await fetch('/api/binance/stop-loss/cancel', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({order_id: orderId})
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('✅ 止损单已取消');
+                    loadStopLossOrders();
+                } else {
+                    alert(`❌ 取消失败：${result.error || '未知错误'}`);
+                }
+            } catch (err) {
+                alert(`❌ 请求失败：${err.message}`);
+            }
         }
         
         // 加载 API 配置
@@ -1176,6 +1883,12 @@
             alert('新建策略功能开发中...');
         }
         
+        // 加载策略状态
+        async function loadStrategyStatus() {
+            console.log('加载策略状态...');
+            // TODO: 从 API 获取真实策略状态
+        }
+        
         // 退出登录
         function logout() {
             if (confirm('确定要退出登录吗？')) {
@@ -1200,6 +1913,21 @@
             setInterval(() => {
                 loadSectionData('dashboard');
             }, 60000);
+            
+            // 止损配置显示/隐藏逻辑
+            const useCustomStopLoss = document.getElementById('useCustomStopLoss');
+            const customStopLossDiv = document.getElementById('customStopLossDiv');
+            if (useCustomStopLoss && customStopLossDiv) {
+                useCustomStopLoss.addEventListener('change', function(e) {
+                    customStopLossDiv.style.display = e.target.checked ? 'flex' : 'none';
+                });
+            }
+            
+            // 页面加载时初始化止损单列表（如果当前是止损单页面）
+            const currentSection = document.querySelector('.content-section.active');
+            if (currentSection && currentSection.id === 'stop-loss') {
+                loadStopLossOrders();
+            }
         });
     </script>
 </body>

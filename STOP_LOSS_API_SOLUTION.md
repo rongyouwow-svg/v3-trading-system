@@ -46,7 +46,7 @@
 
 ### 查找到的历史文档
 
-**位置**: `/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
+**位置**: `/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
 
 **历史成功实现** (2026-03-10):
 ```python

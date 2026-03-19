@@ -135,7 +135,7 @@
 ```ini
 [program:quant-deep-monitor]
 command=python3 scripts/deep_monitor.py
-directory=/home/admin/.openclaw/workspace/quant/v3-architecture
+directory=/root/.openclaw/workspace/quant/v3-architecture
 autostart=true
 autorestart=true
 ```

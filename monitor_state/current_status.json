@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-03-18T23:50:00+08:00",
+  "strategies": {
+    "ETHUSDT": {
+      "status": "running",
+      "rsi": 53.00,
+      "signals_sent": 0,
+      "signals_executed": 0
+    },
+    "LINKUSDT": {
+      "status": "running",
+      "rsi": 63.64,
+      "signals_sent": 0,
+      "signals_executed": 0
+    },
+    "AVAXUSDT": {
+      "status": "running",
+      "rsi": 43.82,
+      "signals_sent": 2,
+      "signals_executed": 2
+    }
+  },
+  "positions": {
+    "ETHUSDT": {
+      "size": 0.017,
+      "entry_price": 2259.98,
+      "leverage": 3,
+      "pnl": -1.33,
+      "stop_loss": 2146.99
+    },
+    "AVAXUSDT": {
+      "size": 49.0,
+      "entry_price": 9.54,
+      "leverage": 8,
+      "pnl": -0.08,
+      "stop_loss": 9.07
+    }
+  },
+  "fixes_applied": [
+    "策略代码修复 - 开单后立即设置止损",
+    "手动设置现有持仓止损",
+    "停止误报源 (enhanced_monitor.py)"
+  ],
+  "monitoring_scripts": [
+    "smart_monitor_v2.sh - 每 10 分钟检查策略共性",
+    "v3_full_monitor.sh - 每 10 分钟检查完整流程"
+  ],
+  "next_check": "10 分钟"
+}

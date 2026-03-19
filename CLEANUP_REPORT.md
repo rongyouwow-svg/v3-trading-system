@@ -10,7 +10,7 @@
 
 ### 1. Supervisor 配置禁用
 
-**文件**: `/home/admin/.openclaw/supervisor/conf.d/quant-gateway.conf`
+**文件**: `/root/.openclaw/supervisor/conf.d/quant-gateway.conf`
 
 **操作**:
 ```bash
@@ -40,9 +40,9 @@ admin     191095  check_processes.sh  (检查脚本，无害)
 ### 3. 自动重启脚本检查
 
 **脚本清单**:
-- `/home/admin/.openclaw/workspace/quant/restart_gateway.sh` - 手动脚本，无自动执行
-- `/home/admin/.openclaw/workspace/quant/stop_gateway.sh` - 手动脚本，无自动执行
-- `/home/admin/.openclaw/workspace/quant/start_gateway_safe.sh` - 手动脚本，无自动执行
+- `/root/.openclaw/workspace/quant/restart_gateway.sh` - 手动脚本，无自动执行
+- `/root/.openclaw/workspace/quant/stop_gateway.sh` - 手动脚本，无自动执行
+- `/root/.openclaw/workspace/quant/start_gateway_safe.sh` - 手动脚本，无自动执行
 
 **结论**: ✅ 所有重启脚本均为手动执行，无自动触发
 
@@ -53,7 +53,7 @@ admin     191095  check_processes.sh  (检查脚本，无害)
 **当前 cron 任务**:
 ```bash
 0 2 * * * /tmp/update_cron.sh >> /tmp/data_update.log 2>&1
-*/30 * * * * cd /home/admin/.openclaw/workspace && python3 scripts/save_session_memory.py >> logs/session_backup.log 2>&1
+*/30 * * * * cd /root/.openclaw/workspace && python3 scripts/save_session_memory.py >> logs/session_backup.log 2>&1
 ```
 
 **结论**: ✅ 无网关自动重启 cron 任务
@@ -110,7 +110,7 @@ admin     191095  check_processes.sh  (检查脚本，无害)
 
 ### 2. 手动重启脚本
 
-**位置**: `/home/admin/.openclaw/workspace/quant/`
+**位置**: `/root/.openclaw/workspace/quant/`
 
 **脚本**:
 - `restart_gateway.sh`
@@ -125,7 +125,7 @@ admin     191095  check_processes.sh  (检查脚本，无害)
 
 ### 3. 配置文件
 
-**已禁用**: `/home/admin/.openclaw/supervisor/conf.d/quant-gateway.conf.disabled`
+**已禁用**: `/root/.openclaw/supervisor/conf.d/quant-gateway.conf.disabled`
 
 **建议**: 保留配置文件（disabled 状态），v3 完成后可能需要参考
 
@@ -135,12 +135,12 @@ admin     191095  check_processes.sh  (检查脚本，无害)
 
 ### v3 项目路径
 ```
-/home/admin/.openclaw/workspace/quant/v3-architecture/
+/root/.openclaw/workspace/quant/v3-architecture/
 ```
 
 ### 旧系统路径
 ```
-/home/admin/.openclaw/workspace/quant/
+/root/.openclaw/workspace/quant/
 ├── gateway.py (旧网关，已停止)
 ├── api/ (旧 API 模块)
 ├── strategies/ (旧策略)
@@ -173,8 +173,8 @@ admin     191095  check_processes.sh  (检查脚本，无害)
    - 在 `config/default.yaml` 中配置
 
 3. **v3 项目使用独立数据库**
-   - 旧数据库：`/home/admin/.openclaw/workspace/quant/data/*.db`
-   - v3 数据库：`/home/admin/.openclaw/workspace/quant/v3-architecture/data/lobster_v3.db`
+   - 旧数据库：`/root/.openclaw/workspace/quant/data/*.db`
+   - v3 数据库：`/root/.openclaw/workspace/quant/v3-architecture/data/lobster_v3.db`
 
 ---
 

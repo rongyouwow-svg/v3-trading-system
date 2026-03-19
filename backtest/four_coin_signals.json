@@ -1,0 +1,290 @@
+{
+  "BTCUSDT": [
+    {
+      "strategy": "TrendStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 EMA 交叉"
+      ],
+      "timestamp": "2026-03-04T10:16:19.398545"
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无有效突破"
+      ],
+      "timestamp": "2026-03-04T10:16:19.423729"
+    },
+    {
+      "strategy": "MeanReversionStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无均值回归信号"
+      ],
+      "timestamp": "2026-03-04T10:16:19.451334"
+    },
+    {
+      "strategy": "MultiIndicatorStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "确认不足 (2/4)"
+      ],
+      "timestamp": "2026-03-04T10:16:19.505495"
+    },
+    {
+      "strategy": "SmartMoneyStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 Smart Money 信号"
+      ],
+      "timestamp": "2026-03-04T10:16:38.799073"
+    }
+  ],
+  "ETHUSDT": [
+    {
+      "strategy": "TrendStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 EMA 交叉"
+      ],
+      "timestamp": "2026-03-04T10:16:38.847507"
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无有效突破"
+      ],
+      "timestamp": "2026-03-04T10:16:38.864373"
+    },
+    {
+      "strategy": "MeanReversionStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无均值回归信号"
+      ],
+      "timestamp": "2026-03-04T10:16:38.889795"
+    },
+    {
+      "strategy": "MultiIndicatorStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "确认不足 (1/4)"
+      ],
+      "timestamp": "2026-03-04T10:16:38.941141"
+    },
+    {
+      "strategy": "SmartMoneyStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 Smart Money 信号"
+      ],
+      "timestamp": "2026-03-04T10:16:57.474697"
+    }
+  ],
+  "SOLUSDT": [
+    {
+      "strategy": "TrendStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 EMA 交叉"
+      ],
+      "timestamp": "2026-03-04T10:16:57.494807"
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无有效突破"
+      ],
+      "timestamp": "2026-03-04T10:16:57.501402"
+    },
+    {
+      "strategy": "MeanReversionStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无均值回归信号"
+      ],
+      "timestamp": "2026-03-04T10:16:57.512818"
+    },
+    {
+      "strategy": "MultiIndicatorStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "确认不足 (2/4)"
+      ],
+      "timestamp": "2026-03-04T10:16:57.529059"
+    },
+    {
+      "strategy": "SmartMoneyStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 Smart Money 信号"
+      ],
+      "timestamp": "2026-03-04T10:16:57.783123"
+    }
+  ],
+  "BNBUSDT": [
+    {
+      "strategy": "TrendStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 EMA 交叉"
+      ],
+      "timestamp": "2026-03-04T10:16:57.801762"
+    },
+    {
+      "strategy": "BreakoutStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无有效突破"
+      ],
+      "timestamp": "2026-03-04T10:16:57.808572"
+    },
+    {
+      "strategy": "MeanReversionStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无均值回归信号"
+      ],
+      "timestamp": "2026-03-04T10:16:57.820082"
+    },
+    {
+      "strategy": "MultiIndicatorStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "确认不足 (2/4)"
+      ],
+      "timestamp": "2026-03-04T10:16:57.836399"
+    },
+    {
+      "strategy": "SmartMoneyStrategy",
+      "type": "HOLD",
+      "score": 0,
+      "confidence": 0,
+      "entry": 0,
+      "stop_loss": 0,
+      "take_profit": 0,
+      "position_size": 0,
+      "reasons": [
+        "无 Smart Money 信号"
+      ],
+      "timestamp": "2026-03-04T10:16:58.091650"
+    }
+  ]
+}

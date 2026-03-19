@@ -26,7 +26,7 @@ from core.strategy.manager import StrategyManager
 from modules.utils.result import Result
 
 # 持久化文件路径
-PERSISTENCE_FILE = "/home/admin/.openclaw/workspace/quant/v3-architecture/data/plugin_strategies.json"
+PERSISTENCE_FILE = "/root/.openclaw/workspace/quant/v3-architecture/data/plugin_strategies.json"
 
 
 def cleanup():

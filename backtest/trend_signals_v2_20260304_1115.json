@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-03-04T11:15:49.649881",
+  "version": "2.0",
+  "signals": {
+    "BTCUSDT": {
+      "market_state": "sideways",
+      "total_score": 44.0,
+      "daily_state": "sideways",
+      "daily_score": 39.0,
+      "h4_confirmed": true,
+      "h4_state": "sideways",
+      "h4_score": 44.0,
+      "m15_entry_signal": "wait",
+      "m15_state": "sideways",
+      "m15_score": 34.0,
+      "is_fake_breakout": false,
+      "breakout_day_count": 122,
+      "is_sideways": 

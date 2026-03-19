@@ -1,0 +1,1946 @@
+[
+  {
+    "annual_return": 20.83480421966435,
+    "win_rate": 40.909090909090914,
+    "max_drawdown": 56.95327900000002,
+    "total_trades": 22,
+    "profit_factor": 1.6940834353412662,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 20.83480421966435,
+    "win_rate": 40.909090909090914,
+    "max_drawdown": 56.95327900000002,
+    "total_trades": 22,
+    "profit_factor": 1.6940834353412662,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 19.015574220799802,
+    "win_rate": 29.411764705882355,
+    "max_drawdown": 58.158587188000055,
+    "total_trades": 17,
+    "profit_factor": 2.972753427561647,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 19.015574220799802,
+    "win_rate": 29.411764705882355,
+    "max_drawdown": 58.158587188000055,
+    "total_trades": 17,
+    "profit_factor": 2.972753427561647,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 17.737266081422387,
+    "win_rate": 37.03703703703704,
+    "max_drawdown": 39.2064762851649,
+    "total_trades": 27,
+    "profit_factor": 1.8312232283657848,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": 17.737266081422387,
+    "win_rate": 37.03703703703704,
+    "max_drawdown": 39.2064762851649,
+    "total_trades": 27,
+    "profit_factor": 1.8312232283657848,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": 10.766609023037343,
+    "win_rate": 64.65863453815261,
+    "max_drawdown": 67.12517816022572,
+    "total_trades": 249,
+    "profit_factor": 0.5542562044186138,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": 10.766609023037343,
+    "win_rate": 64.65863453815261,
+    "max_drawdown": 67.12517816022572,
+    "total_trades": 249,
+    "profit_factor": 0.5542562044186138,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": 10.199605759999898,
+    "win_rate": 28.57142857142857,
+    "max_drawdown": 46.85590000000004,
+    "total_trades": 14,
+    "profit_factor": 2.8406258829965245,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 10.199605759999898,
+    "win_rate": 28.57142857142857,
+    "max_drawdown": 46.85590000000004,
+    "total_trades": 14,
+    "profit_factor": 2.8406258829965245,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -2.389616722248067,
+    "win_rate": 30.0,
+    "max_drawdown": 52.170310000000065,
+    "total_trades": 10,
+    "profit_factor": 2.22645698255236,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -2.389616722248067,
+    "win_rate": 30.0,
+    "max_drawdown": 52.170310000000065,
+    "total_trades": 10,
+    "profit_factor": 2.22645698255236,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -7.809825960777705,
+    "win_rate": 33.33333333333333,
+    "max_drawdown": 34.39000000000003,
+    "total_trades": 6,
+    "profit_factor": 1.6767603866268919,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -7.809825960777705,
+    "win_rate": 33.33333333333333,
+    "max_drawdown": 34.39000000000003,
+    "total_trades": 6,
+    "profit_factor": 1.6767603866268919,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -9.398673939643631,
+    "win_rate": 27.27272727272727,
+    "max_drawdown": 52.17031000000003,
+    "total_trades": 11,
+    "profit_factor": 2.237416518314845,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -9.398673939643631,
+    "win_rate": 27.27272727272727,
+    "max_drawdown": 52.17031000000003,
+    "total_trades": 11,
+    "profit_factor": 2.237416518314845,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -13.830939618821814,
+    "win_rate": 31.03448275862069,
+    "max_drawdown": 65.13215599000006,
+    "total_trades": 29,
+    "profit_factor": 2.032557606381353,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -13.830939618821814,
+    "win_rate": 31.03448275862069,
+    "max_drawdown": 65.13215599000006,
+    "total_trades": 29,
+    "profit_factor": 2.032557606381353,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -14.24770048515558,
+    "win_rate": 26.666666666666668,
+    "max_drawdown": 38.012721760000055,
+    "total_trades": 15,
+    "profit_factor": 2.354861739315075,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -14.24770048515558,
+    "win_rate": 26.666666666666668,
+    "max_drawdown": 38.012721760000055,
+    "total_trades": 15,
+    "profit_factor": 2.354861739315075,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -15.031910019315342,
+    "win_rate": 34.83670295489891,
+    "max_drawdown": 65.40563274009725,
+    "total_trades": 643,
+    "profit_factor": 1.8435601538861621,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -15.031910019315342,
+    "win_rate": 34.83670295489891,
+    "max_drawdown": 65.40563274009725,
+    "total_trades": 643,
+    "profit_factor": 1.8435601538861621,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -18.80718514405818,
+    "win_rate": 34.57943925233645,
+    "max_drawdown": 61.2279484931766,
+    "total_trades": 642,
+    "profit_factor": 1.8469926602783562,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -18.80718514405818,
+    "win_rate": 34.57943925233645,
+    "max_drawdown": 61.2279484931766,
+    "total_trades": 642,
+    "profit_factor": 1.8469926602783562,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -21.602559396491394,
+    "win_rate": 28.888888888888886,
+    "max_drawdown": 64.42201237404473,
+    "total_trades": 45,
+    "profit_factor": 2.2478494030260996,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -21.602559396491394,
+    "win_rate": 28.888888888888886,
+    "max_drawdown": 64.42201237404473,
+    "total_trades": 45,
+    "profit_factor": 2.2478494030260996,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -22.49523027638981,
+    "win_rate": 20.0,
+    "max_drawdown": 27.10000000000002,
+    "total_trades": 5,
+    "profit_factor": 1.6816083858154633,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -22.49523027638981,
+    "win_rate": 20.0,
+    "max_drawdown": 27.10000000000002,
+    "total_trades": 5,
+    "profit_factor": 1.6816083858154633,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -23.236300000000064,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 40.95100000000006,
+    "total_trades": 6,
+    "profit_factor": 2.162914214549091,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -23.236300000000064,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 40.95100000000006,
+    "total_trades": 6,
+    "profit_factor": 2.162914214549091,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -26.444541693822465,
+    "win_rate": 32.0,
+    "max_drawdown": 48.07305477476998,
+    "total_trades": 25,
+    "profit_factor": 1.8059200506508921,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -26.444541693822465,
+    "win_rate": 32.0,
+    "max_drawdown": 48.07305477476998,
+    "total_trades": 25,
+    "profit_factor": 1.8059200506508921,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -27.56938406093855,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 34.39000000000003,
+    "total_trades": 6,
+    "profit_factor": 2.126098381692311,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -27.56938406093855,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 34.39000000000003,
+    "total_trades": 6,
+    "profit_factor": 2.126098381692311,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -29.695796954325548,
+    "win_rate": 26.08695652173913,
+    "max_drawdown": 46.84016009179876,
+    "total_trades": 368,
+    "profit_factor": 2.6284638134039944,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -29.695796954325548,
+    "win_rate": 26.08695652173913,
+    "max_drawdown": 46.84016009179876,
+    "total_trades": 368,
+    "profit_factor": 2.6284638134039944,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -30.91267000000002,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 30.912670000000013,
+    "total_trades": 7,
+    "profit_factor": 2.4860432410865165,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -30.91267000000002,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 30.912670000000013,
+    "total_trades": 7,
+    "profit_factor": 2.4860432410865165,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -34.91082449241257,
+    "win_rate": 62.980769230769226,
+    "max_drawdown": 74.08839188651484,
+    "total_trades": 208,
+    "profit_factor": 0.5507483578458868,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -34.91082449241257,
+    "win_rate": 62.980769230769226,
+    "max_drawdown": 74.08839188651484,
+    "total_trades": 208,
+    "profit_factor": 0.5507483578458868,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -35.23536423584607,
+    "win_rate": 62.69230769230769,
+    "max_drawdown": 81.44096834453708,
+    "total_trades": 260,
+    "profit_factor": 0.5747014918253025,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -35.23536423584607,
+    "win_rate": 62.69230769230769,
+    "max_drawdown": 81.44096834453708,
+    "total_trades": 260,
+    "profit_factor": 0.5747014918253025,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -36.032337608107845,
+    "win_rate": 34.5679012345679,
+    "max_drawdown": 78.8237275605242,
+    "total_trades": 648,
+    "profit_factor": 1.8406683399785762,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -36.032337608107845,
+    "win_rate": 34.5679012345679,
+    "max_drawdown": 78.8237275605242,
+    "total_trades": 648,
+    "profit_factor": 1.8406683399785762,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -36.37473422956635,
+    "win_rate": 36.36363636363637,
+    "max_drawdown": 53.33175358858436,
+    "total_trades": 22,
+    "profit_factor": 1.2835646039776325,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -36.37473422956635,
+    "win_rate": 36.36363636363637,
+    "max_drawdown": 53.33175358858436,
+    "total_trades": 22,
+    "profit_factor": 1.2835646039776325,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -37.22113652387573,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 46.85590000000002,
+    "total_trades": 7,
+    "profit_factor": 1.965235382775766,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -37.22113652387573,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 46.85590000000002,
+    "total_trades": 7,
+    "profit_factor": 1.965235382775766,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -37.82140300000003,
+    "win_rate": 12.5,
+    "max_drawdown": 46.855900000000005,
+    "total_trades": 8,
+    "profit_factor": 2.91570362955581,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -37.82140300000003,
+    "win_rate": 12.5,
+    "max_drawdown": 46.855900000000005,
+    "total_trades": 8,
+    "profit_factor": 2.91570362955581,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -37.82140300000005,
+    "win_rate": 12.5,
+    "max_drawdown": 52.17031000000004,
+    "total_trades": 8,
+    "profit_factor": 1.9252779789884298,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -37.82140300000005,
+    "win_rate": 12.5,
+    "max_drawdown": 52.17031000000004,
+    "total_trades": 8,
+    "profit_factor": 1.9252779789884298,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -39.342774478584516,
+    "win_rate": 33.04195804195804,
+    "max_drawdown": 65.13067019842616,
+    "total_trades": 572,
+    "profit_factor": 1.8769964260693048,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -39.342774478584516,
+    "win_rate": 33.04195804195804,
+    "max_drawdown": 65.13067019842616,
+    "total_trades": 572,
+    "profit_factor": 1.8769964260693048,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -41.54428128439673,
+    "win_rate": 33.1588132635253,
+    "max_drawdown": 70.28609286934775,
+    "total_trades": 573,
+    "profit_factor": 1.8840061657906426,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -41.54428128439673,
+    "win_rate": 33.1588132635253,
+    "max_drawdown": 70.28609286934775,
+    "total_trades": 573,
+    "profit_factor": 1.8840061657906426,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -46.5158601060014,
+    "win_rate": 26.216216216216214,
+    "max_drawdown": 57.24751715502335,
+    "total_trades": 370,
+    "profit_factor": 2.526966550559213,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -46.5158601060014,
+    "win_rate": 26.216216216216214,
+    "max_drawdown": 57.24751715502335,
+    "total_trades": 370,
+    "profit_factor": 2.526966550559213,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -49.95962134514805,
+    "win_rate": 15.384615384615385,
+    "max_drawdown": 54.671802787000054,
+    "total_trades": 13,
+    "profit_factor": 2.3121692498830657,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -49.95962134514805,
+    "win_rate": 15.384615384615385,
+    "max_drawdown": 54.671802787000054,
+    "total_trades": 13,
+    "profit_factor": 2.3121692498830657,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -51.58377676497753,
+    "win_rate": 30.165289256198346,
+    "max_drawdown": 59.4873565837057,
+    "total_trades": 484,
+    "profit_factor": 2.0393086072874564,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -51.58377676497753,
+    "win_rate": 30.165289256198346,
+    "max_drawdown": 59.4873565837057,
+    "total_trades": 484,
+    "profit_factor": 2.0393086072874564,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -52.16948482915329,
+    "win_rate": 38.095238095238095,
+    "max_drawdown": 76.59461403363558,
+    "total_trades": 42,
+    "profit_factor": 1.144228292832522,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -52.16948482915329,
+    "win_rate": 38.095238095238095,
+    "max_drawdown": 76.59461403363558,
+    "total_trades": 42,
+    "profit_factor": 1.144228292832522,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -55.44877423182366,
+    "win_rate": 18.51851851851852,
+    "max_drawdown": 68.32095600581515,
+    "total_trades": 27,
+    "profit_factor": 2.6550584813550007,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -55.44877423182366,
+    "win_rate": 18.51851851851852,
+    "max_drawdown": 68.32095600581515,
+    "total_trades": 27,
+    "profit_factor": 2.6550584813550007,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -55.895328150405454,
+    "win_rate": 30.515463917525775,
+    "max_drawdown": 64.07275872512199,
+    "total_trades": 485,
+    "profit_factor": 2.034965007240061,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -55.895328150405454,
+    "win_rate": 30.515463917525775,
+    "max_drawdown": 64.07275872512199,
+    "total_trades": 485,
+    "profit_factor": 2.034965007240061,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -56.83995515609843,
+    "win_rate": 62.27106227106227,
+    "max_drawdown": 79.7743376577421,
+    "total_trades": 273,
+    "profit_factor": 0.5581600416311349,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -56.83995515609843,
+    "win_rate": 62.27106227106227,
+    "max_drawdown": 79.7743376577421,
+    "total_trades": 273,
+    "profit_factor": 0.5581600416311349,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -57.82713867140602,
+    "win_rate": 33.04498269896194,
+    "max_drawdown": 82.79253476874199,
+    "total_trades": 578,
+    "profit_factor": 1.8709022088615561,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -57.82713867140602,
+    "win_rate": 33.04498269896194,
+    "max_drawdown": 82.79253476874199,
+    "total_trades": 578,
+    "profit_factor": 1.8709022088615561,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -62.108461274781575,
+    "win_rate": 62.5,
+    "max_drawdown": 79.86350362978291,
+    "total_trades": 256,
+    "profit_factor": 0.5324652487088355,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -62.108461274781575,
+    "win_rate": 62.5,
+    "max_drawdown": 79.86350362978291,
+    "total_trades": 256,
+    "profit_factor": 0.5324652487088355,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -62.23730375537533,
+    "win_rate": 26.57894736842105,
+    "max_drawdown": 70.16917817148187,
+    "total_trades": 380,
+    "profit_factor": 2.4446977045669165,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -62.23730375537533,
+    "win_rate": 26.57894736842105,
+    "max_drawdown": 70.16917817148187,
+    "total_trades": 380,
+    "profit_factor": 2.4446977045669165,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -62.97214424589448,
+    "win_rate": 59.54545454545455,
+    "max_drawdown": 86.23804092537377,
+    "total_trades": 220,
+    "profit_factor": 0.6120136875303956,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -62.97214424589448,
+    "win_rate": 59.54545454545455,
+    "max_drawdown": 86.23804092537377,
+    "total_trades": 220,
+    "profit_factor": 0.6120136875303956,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -63.09458071498189,
+    "win_rate": 39.473684210526315,
+    "max_drawdown": 74.13299302704854,
+    "total_trades": 38,
+    "profit_factor": 0.7151654149355683,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -63.09458071498189,
+    "win_rate": 39.473684210526315,
+    "max_drawdown": 74.13299302704854,
+    "total_trades": 38,
+    "profit_factor": 0.7151654149355683,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -63.928215087047626,
+    "win_rate": 58.68055555555556,
+    "max_drawdown": 92.9728681328222,
+    "total_trades": 288,
+    "profit_factor": 0.675086970595005,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -63.928215087047626,
+    "win_rate": 58.68055555555556,
+    "max_drawdown": 92.9728681328222,
+    "total_trades": 288,
+    "profit_factor": 0.675086970595005,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -70.1522842501547,
+    "win_rate": 31.372549019607842,
+    "max_drawdown": 79.28088809990051,
+    "total_trades": 51,
+    "profit_factor": 1.3658584080791636,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -70.1522842501547,
+    "win_rate": 31.372549019607842,
+    "max_drawdown": 79.28088809990051,
+    "total_trades": 51,
+    "profit_factor": 1.3658584080791636,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -70.27127176880232,
+    "win_rate": 57.41626794258373,
+    "max_drawdown": 83.36767137033719,
+    "total_trades": 209,
+    "profit_factor": 0.624755362395074,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -70.27127176880232,
+    "win_rate": 57.41626794258373,
+    "max_drawdown": 83.36767137033719,
+    "total_trades": 209,
+    "profit_factor": 0.624755362395074,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -72.80549898649812,
+    "win_rate": 23.52941176470588,
+    "max_drawdown": 76.7568367405967,
+    "total_trades": 34,
+    "profit_factor": 1.5854206477948232,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -72.80549898649812,
+    "win_rate": 23.52941176470588,
+    "max_drawdown": 76.7568367405967,
+    "total_trades": 34,
+    "profit_factor": 1.5854206477948232,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -73.17201514834063,
+    "win_rate": 59.03225806451613,
+    "max_drawdown": 88.47891318048107,
+    "total_trades": 310,
+    "profit_factor": 0.6392536741899079,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -73.17201514834063,
+    "win_rate": 59.03225806451613,
+    "max_drawdown": 88.47891318048107,
+    "total_trades": 310,
+    "profit_factor": 0.6392536741899079,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -73.76284346416213,
+    "win_rate": 30.223123732251523,
+    "max_drawdown": 79.82921697940608,
+    "total_trades": 493,
+    "profit_factor": 2.030753931567281,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -73.76284346416213,
+    "win_rate": 30.223123732251523,
+    "max_drawdown": 79.82921697940608,
+    "total_trades": 493,
+    "profit_factor": 2.030753931567281,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -74.79829217520721,
+    "win_rate": 22.22222222222222,
+    "max_drawdown": 74.79829217520722,
+    "total_trades": 27,
+    "profit_factor": 1.1982261297866448,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -74.79829217520721,
+    "win_rate": 22.22222222222222,
+    "max_drawdown": 74.79829217520722,
+    "total_trades": 27,
+    "profit_factor": 1.1982261297866448,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -75.8605909170775,
+    "win_rate": 22.916666666666664,
+    "max_drawdown": 84.47826062054881,
+    "total_trades": 48,
+    "profit_factor": 2.097230461832935,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -75.8605909170775,
+    "win_rate": 22.916666666666664,
+    "max_drawdown": 84.47826062054881,
+    "total_trades": 48,
+    "profit_factor": 2.097230461832935,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -77.58449603771679,
+    "win_rate": 35.41666666666667,
+    "max_drawdown": 84.16121225767603,
+    "total_trades": 48,
+    "profit_factor": 0.9205950937284714,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -77.58449603771679,
+    "win_rate": 35.41666666666667,
+    "max_drawdown": 84.16121225767603,
+    "total_trades": 48,
+    "profit_factor": 0.9205950937284714,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -78.53716429630325,
+    "win_rate": 57.02127659574469,
+    "max_drawdown": 90.53951177772504,
+    "total_trades": 235,
+    "profit_factor": 0.6587735192589742,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -78.53716429630325,
+    "win_rate": 57.02127659574469,
+    "max_drawdown": 90.53951177772504,
+    "total_trades": 235,
+    "profit_factor": 0.6587735192589742,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -78.97480163424378,
+    "win_rate": 31.48148148148148,
+    "max_drawdown": 90.14443826605178,
+    "total_trades": 54,
+    "profit_factor": 1.4012559392933766,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -78.97480163424378,
+    "win_rate": 31.48148148148148,
+    "max_drawdown": 90.14443826605178,
+    "total_trades": 54,
+    "profit_factor": 1.4012559392933766,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -83.07310318296042,
+    "win_rate": 54.19847328244275,
+    "max_drawdown": 93.5749420285444,
+    "total_trades": 262,
+    "profit_factor": 0.7610109821718171,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -83.07310318296042,
+    "win_rate": 54.19847328244275,
+    "max_drawdown": 93.5749420285444,
+    "total_trades": 262,
+    "profit_factor": 0.7610109821718171,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -84.36201340493558,
+    "win_rate": 31.818181818181817,
+    "max_drawdown": 86.1262617733333,
+    "total_trades": 44,
+    "profit_factor": 0.8066476809748175,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -84.36201340493558,
+    "win_rate": 31.818181818181817,
+    "max_drawdown": 86.1262617733333,
+    "total_trades": 44,
+    "profit_factor": 0.8066476809748175,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -85.78860830871962,
+    "win_rate": 55.24193548387096,
+    "max_drawdown": 94.28346533229563,
+    "total_trades": 248,
+    "profit_factor": 0.6984675904077012,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -85.78860830871962,
+    "win_rate": 55.24193548387096,
+    "max_drawdown": 94.28346533229563,
+    "total_trades": 248,
+    "profit_factor": 0.6984675904077012,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  }
+]

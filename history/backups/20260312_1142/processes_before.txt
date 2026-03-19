@@ -1,0 +1,2 @@
+admin     123870  0.0  0.0 222372  1744 ?        S    11:35   0:00 /bin/bash -c cd /home/admin/.openclaw/workspace/quant && nohup /home/admin/.pyenv/versions/3.10.0/bin/python3 gateway.py > /tmp/gateway.log 2>&1 & sleep 8 && echo "✅ 新网关已启动"
+admin     123872  0.6  8.3 2318640 159536 ?      Sl   11:35   0:02 /home/admin/.pyenv/versions/3.10.0/bin/python3 gateway.py

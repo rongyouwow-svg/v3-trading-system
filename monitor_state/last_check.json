@@ -1,0 +1,45 @@
+{
+  "strategies": {
+    "ETHUSDT": {
+      "symbol": "ETHUSDT",
+      "status": "running",
+      "rsi": 99.12280701754186,
+      "stable_count": 0,
+      "position": {
+        "symbol": "ETHUSDT",
+        "side": "LONG",
+        "size": 0.017,
+        "entry_price": 2259.985933333,
+        "current_price": 2178.7524031,
+        "unrealized_pnl": -1.38097001,
+        "unrealized_pnl_pct": -3.59,
+        "leverage": 3,
+        "liquidation_price": 0.0
+      },
+      "entry_price": 2259.985933333,
+      "signals_sent": 0,
+      "signals_executed": 0
+    },
+    "LINKUSDT": {
+      "symbol": "LINKUSDT",
+      "status": "running",
+      "rsi": 91.30434782608747,
+      "stable_count": 4,
+      "position": null,
+      "entry_price": 0,
+      "signals_sent": 0,
+      "signals_executed": 0
+    },
+    "AVAXUSDT": {
+      "symbol": "AVAXUSDT",
+      "status": "running",
+      "rsi": 82.25806451612824,
+      "stable_count": 0,
+      "position": "LONG",
+      "entry_price": 0.0,
+      "signals_sent": 1,
+      "signals_executed": 1
+    }
+  },
+  "check_time": "2026-03-19T11:17:18.254317"
+}

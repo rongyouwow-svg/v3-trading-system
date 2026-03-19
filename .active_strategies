@@ -1,0 +1,7 @@
+# 激活的策略列表
+# 每行一个策略文件名（不含 .py 扩展名）
+# 修改后等待 60 秒自动生效
+
+rsi_1min_strategy
+link_rsi_detailed_strategy
+rsi_scale_in_strategy

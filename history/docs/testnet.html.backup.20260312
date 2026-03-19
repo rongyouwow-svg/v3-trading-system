@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-version="20260310-1505">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 测试网交易 - 币安量化系统</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a1a2e, #163e2e, #0f3460);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .panel {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .panel h3 { color: #00ff88; margin-bottom: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .item {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid #00ff88;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover { background: #00cc6a; }
+        .empty { color: #666; text-align: center; padding: 40px; }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav" style="margin-bottom: 20px;">
+        <a href="/" style="padding: 10px 20px; background: rgba(255,255,255,0.1); color: #fff; text-decoration: none; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">🏠 首页</a>
+        <a href="testnet.html" class="active" style="padding: 10px 20px; background: #00ff88; color: #000; text-decoration: none; border-radius: 8px; border: 1px solid #00ff88; margin-left: 10px;">🧪 测试网</a>
+        <a href="real.html" style="padding: 10px 20px; background: rgba(255,255,255,0.1); color: #fff; text-decoration: none; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); margin-left: 10px;">🔴 实盘</a>
+    </div>
+    
+    <!-- 页面头部 -->
+    <div class="panel" style="text-align: center; margin-bottom: 20px;">
+        <h1 style="color: #00ff88; font-size: 28px; margin-bottom: 10px;">🧪 测试网交易</h1>
+        <p style="color: #aaa;">币安量化交易系统 - 测试环境</p>
+    </div>
+
+
+    <div class="container">
+        <div class="panel">
+            <h3>💰 账户资产</h3>
+            <div id="account-info">加载中...</div>
+        </div>
+        
+        <div class="panel">
+            <h3>📊 当前持仓</h3>
+            <div id="positions-list" class="grid">
+                <div class="empty">加载中...</div>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <h3>📋 委托单（含止损）</h3>
+            <div id="algo-orders-list">
+                <div class="empty">加载中...</div>
+            </div>
+            <button class="btn" onclick="loadAlgoOrders()" style="margin-top: 15px;">刷新委托单</button>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = '/api';
+        
+        async function loadAccount() {
+            try {
+                const resp = await fetch(`${API_BASE}/testnet/account?t=${Date.now()}`);
+                const data = await resp.json();
+                
+                if (data.success && data.account && data.account.balances) {
+                    const balances = data.account.balances;
+                    const usdt = balances.find(b => b.asset === 'USDT');
+                    const usdc = balances.find(b => b.asset === 'USDC');
+                    const total = (usdt?.total || 0) + (usdc?.total || 0);
+                    const available = (usdt?.free || 0) + (usdc?.free || 0);
+                    
+                    document.getElementById('account-info').innerHTML = `
+                        <div style="font-size: 24px; color: #00ff88; margin-bottom: 10px;">
+                            💰 总资产：$${total.toFixed(2)}
+                        </div>
+                        <div style="color: #aaa;">
+                            可用资金：$${available.toFixed(2)}<br>
+                            USDT: $${usdt?.total.toFixed(2) || '0.00'}<br>
+                            USDC: $${usdc?.total.toFixed(2) || '0.00'}
+                        </div>
+                    `;
+                }
+            } catch (e) {
+                console.error('加载账户失败:', e);
+                document.getElementById('account-info').innerHTML = '<div class="empty">加载失败</div>';
+            }
+        }
+        
+        async function loadPositions() {
+            try {
+                const resp = await fetch(`${API_BASE}/testnet/positions`);
+                const data = await resp.json();
+                
+                if (data.success && data.positions && data.positions.length > 0) {
+                    document.getElementById('positions-list').innerHTML = data.positions.map(p => `
+                        <div class="item" style="border-left-color: ${p.side === 'LONG' ? '#00ff88' : '#ff4757'};">
+                            <div style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">
+                                ${p.symbol} ${p.side}
+                            </div>
+                            <div style="color: #aaa; font-size: 14px;">
+                                数量：${p.size} | 入场：$${p.entry_price} | 盈亏：$${p.unrealized_pnl?.toFixed(2) || '0.00'}
+                            </div>
+                            <div style="color: #666; font-size: 12px; margin-top: 5px;">
+                                杠杆：${p.leverage || 1}x | 仓位：$${p.position_value?.toFixed(2) || '0.00'}
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    document.getElementById('positions-list').innerHTML = '<div class="empty">无持仓</div>';
+                }
+            } catch (e) {
+                console.error('加载持仓失败:', e);
+                document.getElementById('positions-list').innerHTML = '<div class="empty">加载失败</div>';
+            }
+        }
+        
+        async function loadAlgoOrders() {
+            try {
+                const symbol = 'ETHUSDT';
+                const resp = await fetch(`${API_BASE}/binance/algo-orders?symbol=${symbol}&limit=20`);
+                const data = await resp.json();
+                
+                if (data.success && data.orders && data.orders.length > 0) {
+                    document.getElementById('algo-orders-list').innerHTML = data.orders.map(o => {
+                        const typeLabel = o.orderType === 'STOP_MARKET' ? '🔴 止损' : 
+                                         o.orderType === 'TAKE_PROFIT_MARKET' ? '🟢 止盈' : '📋 条件单';
+                        return `
+                        <div class="item" style="border-left-color: ${o.orderType === 'STOP_MARKET' ? '#ff4757' : '#00ff88'};">
+                            <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">
+                                ${typeLabel} ${o.symbol}
+                            </div>
+                            <div style="color: #aaa; font-size: 14px;">
+                                方向：${o.side} | 触发价：$${o.triggerPrice} | 数量：${o.quantity}
+                            </div>
+                            <div style="color: #666; font-size: 12px; margin-top: 5px;">
+                                状态：${o.algoStatus} | Algo ID: ${o.algoId}
+                            </div>
+                        </div>
+                        `;
+                    }).join('');
+                } else {
+                    document.getElementById('algo-orders-list').innerHTML = '<div class="empty">无委托单</div>';
+                }
+            } catch (e) {
+                console.error('加载委托单失败:', e);
+                document.getElementById('algo-orders-list').innerHTML = '<div class="empty">加载失败</div>';
+            }
+        }
+        
+        // 页面加载时执行
+        loadAccount();
+        loadPositions();
+        loadAlgoOrders();
+        
+        // 每 30 秒刷新一次
+        setInterval(() => {
+            loadAccount();
+            loadPositions();
+        }, 30000);
+    </script>
+</body>
+</html>

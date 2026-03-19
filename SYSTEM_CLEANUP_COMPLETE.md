@@ -17,13 +17,13 @@
 **原因**:
 - 之前的 kill 命令只停止了当时的进程
 - 有后台脚本自动重启了旧网关
-- `/home/admin/.openclaw/workspace/quant/` 目录下的 gateway.py 被再次执行
+- `/root/.openclaw/workspace/quant/` 目录下的 gateway.py 被再次执行
 
 **解决**:
 ```bash
 ✅ sudo kill -9 628815
 ✅ sudo kill -9 191097 (8085 端口服务)
-✅ rm -f /home/admin/.openclaw/workspace/quant/gateway.pid
+✅ rm -f /root/.openclaw/workspace/quant/gateway.pid
 ```
 
 ---
@@ -96,7 +96,7 @@ find /home/admin -name "*.sh" -path "*/quant/*" | grep -v v3
 
 ```bash
 # 确认配置已禁用
-ls -la /home/admin/.openclaw/supervisor/conf.d/
+ls -la /root/.openclaw/supervisor/conf.d/
 # ✅ quant-gateway.conf.disabled
 ```
 
@@ -104,26 +104,26 @@ ls -la /home/admin/.openclaw/supervisor/conf.d/
 
 ```bash
 # 删除所有旧系统 PID 文件
-rm -f /home/admin/.openclaw/workspace/quant/*.pid
+rm -f /root/.openclaw/workspace/quant/*.pid
 ```
 
 ### 4. 添加监控脚本
 
 ```bash
 # 监控 8080 端口，如果发现立即停止
-cat > /home/admin/scripts/monitor_old_system.sh << 'EOF'
+cat > /root/scripts/monitor_old_system.sh << 'EOF'
 #!/bin/bash
 if sudo netstat -tlnp 2>/dev/null | grep -q ":8080"; then
     PID=$(sudo netstat -tlnp 2>/dev/null | grep ":8080" | awk '{print $7}' | cut -d'/' -f1)
     if [ -n "$PID" ]; then
         sudo kill -9 $PID
-        echo "$(date): 强制停止旧系统进程 $PID" >> /home/admin/logs/monitor.log
+        echo "$(date): 强制停止旧系统进程 $PID" >> /root/logs/monitor.log
     fi
 fi
 EOF
 
 # 添加到定时任务（每分钟检查）
-(crontab -l 2>/dev/null; echo "*/1 * * * * /home/admin/scripts/monitor_old_system.sh") | crontab -
+(crontab -l 2>/dev/null; echo "*/1 * * * * /root/scripts/monitor_old_system.sh") | crontab -
 ```
 
 ---
@@ -217,12 +217,12 @@ http://localhost:3000/dashboard/login.html
 
 2. **查看监控日志**
    ```bash
-   tail -f /home/admin/logs/monitor.log
+   tail -f /root/logs/monitor.log
    ```
 
 3. **检查新系统日志**
    ```bash
-   tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/web_dashboard.log
+   tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/web_dashboard.log
    ```
 
 ---

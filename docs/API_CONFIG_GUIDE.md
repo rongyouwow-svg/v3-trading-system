@@ -24,7 +24,7 @@ API 配置管理模块提供安全、统一的 API Key 管理方式：
 **步骤 1: 创建配置文件**
 
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 
 # 复制模板
 cp config/api_keys.json.example config/api_keys.json
@@ -296,7 +296,7 @@ api_key = get_binance_api_key()
 ## 🧪 测试
 
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 
 # 运行测试
 python -m pytest tests/unit/test_api_config.py -v
@@ -422,7 +422,7 @@ mainnet_config = config.get_binance_config('mainnet')
 
 **默认路径**: `config/api_keys.json`
 
-**相对于**: `/home/admin/.openclaw/workspace/quant/v3-architecture/`
+**相对于**: `/root/.openclaw/workspace/quant/v3-architecture/`
 
 ---
 

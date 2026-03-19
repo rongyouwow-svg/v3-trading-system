@@ -1,0 +1,20 @@
+[Unit]
+Description=🦞 龙虾王量化系统 - 轻量级 Web API
+After=network.target
+
+[Service]
+Type=simple
+User=admin
+Group=admin
+WorkingDirectory=/home/admin/.openclaw/workspace/quant/v3-architecture
+ExecStart=/home/admin/.openclaw/workspace/quant/.venv/bin/python -u scripts/lightweight_api.py
+Restart=always
+RestartSec=10
+StartLimitBurst=10
+StartLimitInterval=60
+Environment=PYTHONPATH=/home/admin/.openclaw/workspace/quant/v3-architecture
+StandardOutput=append:/home/admin/.openclaw/workspace/quant/v3-architecture/logs/systemd_lightweight_api.log
+StandardError=append:/home/admin/.openclaw/workspace/quant/v3-architecture/logs/systemd_lightweight_api_err.log
+
+[Install]
+WantedBy=multi-user.target

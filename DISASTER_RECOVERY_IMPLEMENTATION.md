@@ -175,8 +175,8 @@ tail -f logs/strategies_service.log
 **测试步骤**:
 ```bash
 # 1. 手动启动策略（带状态恢复）
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
-PYTHONPATH=/home/admin/.openclaw/workspace/quant/v3-architecture \
+cd /root/.openclaw/workspace/quant/v3-architecture
+PYTHONPATH=/root/.openclaw/workspace/quant/v3-architecture \
     python3 scripts/start_all_strategies.py
 
 # 2. 查看恢复日志
@@ -265,7 +265,7 @@ journalctl -u quant-strategies -f
 **备份建议**:
 ```bash
 # 每天备份状态文件
-0 2 * * * cp /home/admin/.openclaw/workspace/quant/v3-architecture/logs/strategy_*_state.json /backup/quant/
+0 2 * * * cp /root/.openclaw/workspace/quant/v3-architecture/logs/strategy_*_state.json /backup/quant/
 ```
 
 ### 2. 日志轮转
@@ -273,7 +273,7 @@ journalctl -u quant-strategies -f
 **配置日志轮转**:
 ```bash
 # /etc/logrotate.d/quant-strategies
-/home/admin/.openclaw/workspace/quant/v3-architecture/logs/*.log {
+/root/.openclaw/workspace/quant/v3-architecture/logs/*.log {
     daily
     rotate 7
     compress
@@ -288,10 +288,10 @@ journalctl -u quant-strategies -f
 **监控磁盘空间**:
 ```bash
 # 检查日志文件大小
-du -sh /home/admin/.openclaw/workspace/quant/v3-architecture/logs/
+du -sh /root/.openclaw/workspace/quant/v3-architecture/logs/
 
 # 清理旧日志
-find /home/admin/.openclaw/workspace/quant/v3-architecture/logs/ -name "*.log" -mtime +7 -delete
+find /root/.openclaw/workspace/quant/v3-architecture/logs/ -name "*.log" -mtime +7 -delete
 ```
 
 ---

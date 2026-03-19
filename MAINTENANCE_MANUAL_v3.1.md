@@ -399,10 +399,10 @@ export BINANCE_SECRET_KEY=your_real_secret_key
 ### 参考文档
 
 - 币安官方文档：https://developers.binance.com/docs/derivatives/usds-margined-futures
-- 历史实现：`/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
-- 问题诊断：`/home/admin/.openclaw/workspace/quant/v3-architecture/FRONTEND_ISSUE_DIAGNOSIS.md`
-- 止损单方案：`/home/admin/.openclaw/workspace/quant/v3-architecture/STOP_LOSS_API_SOLUTION.md`
-- 测试网切换：`/home/admin/.openclaw/workspace/quant/v3-architecture/TESTNET_TO_PROD_SWITCH_PLAN.md`
+- 历史实现：`/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
+- 问题诊断：`/root/.openclaw/workspace/quant/v3-architecture/FRONTEND_ISSUE_DIAGNOSIS.md`
+- 止损单方案：`/root/.openclaw/workspace/quant/v3-architecture/STOP_LOSS_API_SOLUTION.md`
+- 测试网切换：`/root/.openclaw/workspace/quant/v3-architecture/TESTNET_TO_PROD_SWITCH_PLAN.md`
 
 ### 文件位置记忆
 

@@ -1,0 +1,124 @@
+[
+  {
+    "annual_return": 18.168235561257173,
+    "max_drawdown": 56.33779026885598,
+    "win_rate": 28.90243902439024,
+    "profit_factor": 2.5652901672619866,
+    "total_trades": 1640,
+    "total_return": 315.79568941476,
+    "final_capital": 41579.568941476,
+    "long_win_rate": 30.808080808080806,
+    "short_win_rate": 27.122641509433965,
+    "long_trades": 792,
+    "short_trades": 848,
+    "config": {
+      "name": "MACD+EMA 趋势过滤",
+      "type": "macd_ema",
+      "stop_loss": 0.05,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": 16.817485169173672,
+    "max_drawdown": 42.821141706066676,
+    "win_rate": 30.07915567282322,
+    "profit_factor": 2.6995435487355666,
+    "total_trades": 379,
+    "total_return": 276.9291004319122,
+    "final_capital": 37692.91004319122,
+    "long_win_rate": 30.07915567282322,
+    "short_win_rate": 0,
+    "long_trades": 379,
+    "short_trades": 0,
+    "config": {
+      "name": "只做多（EMA20>EMA50+RSI<40）",
+      "type": "long_only",
+      "rsi_oversold": 40,
+      "stop_loss": 0.05,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": 11.460693288134195,
+    "max_drawdown": 56.88274744457238,
+    "win_rate": 31.11291632818847,
+    "profit_factor": 2.2908166118685522,
+    "total_trades": 1231,
+    "total_return": 152.48756555194174,
+    "final_capital": 25248.756555194173,
+    "long_win_rate": 34.42906574394463,
+    "short_win_rate": 28.177641653905056,
+    "long_trades": 578,
+    "short_trades": 653,
+    "config": {
+      "name": "EMA 交叉 + 动量 10",
+      "type": "ema_momentum",
+      "momentum_period": 10,
+      "momentum_threshold": 2,
+      "stop_loss": 0.05,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": 11.09027472307529,
+    "max_drawdown": 57.06810271789804,
+    "win_rate": 41.30808950086058,
+    "profit_factor": 1.5065530986065716,
+    "total_trades": 1162,
+    "total_return": 145.4139441466669,
+    "final_capital": 24541.39441466669,
+    "long_win_rate": 42.10526315789473,
+    "short_win_rate": 40.48865619546248,
+    "long_trades": 589,
+    "short_trades": 573,
+    "config": {
+      "name": "EMA 趋势+RSI 超卖",
+      "type": "ema_rsi",
+      "rsi_period": 14,
+      "rsi_oversold": 40,
+      "rsi_overbought": 60,
+      "stop_loss": 0.05,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": 9.75572938982754,
+    "max_drawdown": 49.76819796793673,
+    "win_rate": 34.33609958506224,
+    "profit_factor": 1.9803161082494458,
+    "total_trades": 2892,
+    "total_return": 121.35745336571999,
+    "final_capital": 22135.745336572,
+    "long_win_rate": 34.58100558659218,
+    "short_win_rate": 33.938294010889294,
+    "long_trades": 1790,
+    "short_trades": 1102,
+    "config": {
+      "name": "MACD 金叉死叉",
+      "type": "macd",
+      "stop_loss": 0.05,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": 7.795162442508152,
+    "max_drawdown": 82.63649919447556,
+    "win_rate": 34.4559585492228,
+    "profit_factor": 1.9277260340066882,
+    "total_trades": 1544,
+    "total_return": 89.7900687103497,
+    "final_capital": 18979.00687103497,
+    "long_win_rate": 35.751295336787564,
+    "short_win_rate": 33.160621761658035,
+    "long_trades": 772,
+    "short_trades": 772,
+    "config": {
+      "name": "动量突破 20",
+      "type": "momentum_breakout",
+      "momentum_period": 20,
+      "momentum_threshold": 3,
+      "stop_loss": 0.05,
+      "take_profit": 0.15
+    }
+  }
+]

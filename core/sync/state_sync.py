@@ -85,7 +85,7 @@ class StateSync:
         self.last_incremental_sync = None
         
         # 持久化文件
-        self.persistence_file = "/home/admin/.openclaw/workspace/quant/v3-architecture/data/state_sync.json"
+        self.persistence_file = "/root/.openclaw/workspace/quant/v3-architecture/data/state_sync.json"
         
         # 确保目录存在
         os.makedirs(os.path.dirname(self.persistence_file), exist_ok=True)

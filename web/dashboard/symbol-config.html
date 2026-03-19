@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦞 币种策略配置 - 大王量化 V3</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: white; border-radius: 15px; padding: 30px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .header h1 { color: #333; margin-bottom: 10px; }
+        .header p { color: #666; }
+        .config-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .config-card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .config-card h2 { color: #333; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #555; font-weight: 600; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #667eea; }
+        .help-text { font-size: 13px; color: #888; margin-top: 5px; }
+        .btn { padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); }
+        .btn-success { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; }
+        .status-badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .status-success { background: #d4edda; color: #155724; }
+        .status-warning { background: #fff3cd; color: #856404; }
+        .alert { padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦞 币种策略配置</h1>
+            <p>为每个币种单独设置杠杆倍数和投资金额</p>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <div class="config-grid">
+            <!-- ETH 配置 -->
+            <div class="config-card">
+                <h2><span style="font-size: 24px;">🔷</span> ETHUSDT 配置</h2>
+                <form id="ethConfigForm" onsubmit="saveConfig('ETHUSDT', event)">
+                    <div class="form-group">
+                        <label for="eth_leverage">📊 杠杆倍数</label>
+                        <input type="number" id="eth_leverage" name="leverage" value="3" min="1" max="125" required>
+                        <div class="help-text">建议：1-5x（稳健）| 5-10x（激进）</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eth_amount">💰 投资金额 (USDT)</label>
+                        <input type="number" id="eth_amount" name="amount" value="300" min="10" step="10" required>
+                        <div class="help-text">单笔交易保证金</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eth_strategy">📈 选择策略</label>
+                        <select id="eth_strategy" name="strategy" required>
+                            <option value="bb_rsi">BB+RSI (年化 2135%)</option>
+                            <option value="macd_rsi">MACD+RSI (年化 1764%)</option>
+                            <option value="breakout">突破策略 (年化 33.9%)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>⚙️ 止损设置</label>
+                        <input type="number" id="eth_stop_loss" name="stop_loss" value="5" min="1" max="20" step="0.5">
+                        <div class="help-text">止损百分比 (%)</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">💾 保存 ETH 配置</button>
+                </form>
+            </div>
+
+            <!-- AVAX 配置 -->
+            <div class="config-card">
+                <h2><span style="font-size: 24px;">🔺</span> AVAXUSDT 配置</h2>
+                <form id="avaxConfigForm" onsubmit="saveConfig('AVAXUSDT', event)">
+                    <div class="form-group">
+                        <label for="avax_leverage">📊 杠杆倍数</label>
+                        <input type="number" id="avax_leverage" name="leverage" value="8" min="1" max="125" required>
+                        <div class="help-text">建议：5-10x</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="avax_amount">💰 投资金额 (USDT)</label>
+                        <input type="number" id="avax_amount" name="amount" value="250" min="10" step="10" required>
+                        <div class="help-text">单笔交易保证金</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="avax_strategy">📈 选择策略</label>
+                        <select id="avax_strategy" name="strategy" required>
+                            <option value="breakout">突破策略 (年化 20.18%)</option>
+                            <option value="trend_following">趋势跟踪 (年化 8.6%)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>⚙️ 止损设置</label>
+                        <input type="number" id="avax_stop_loss" name="stop_loss" value="5" min="1" max="20" step="0.5">
+                        <div class="help-text">止损百分比 (%)</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">💾 保存 AVAX 配置</button>
+                </form>
+            </div>
+
+            <!-- UNI 配置 -->
+            <div class="config-card">
+                <h2><span style="font-size: 24px;">🦄</span> UNIUSDT 配置</h2>
+                <form id="uniConfigForm" onsubmit="saveConfig('UNIUSDT', event)">
+                    <div class="form-group">
+                        <label for="uni_leverage">📊 杠杆倍数</label>
+                        <input type="number" id="uni_leverage" name="leverage" value="5" min="1" max="125" required>
+                        <div class="help-text">建议：3-5x</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uni_amount">💰 投资金额 (USDT)</label>
+                        <input type="number" id="uni_amount" name="amount" value="200" min="10" step="10" required>
+                        <div class="help-text">单笔交易保证金</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uni_strategy">📈 选择策略</label>
+                        <select id="uni_strategy" name="strategy" required>
+                            <option value="rsi_reversal">RSI 反转 (待回测)</option>
+                            <option value="breakout">突破策略</option>
+                            <option value="mean_reversion">均值回归</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>⚙️ 止损设置</label>
+                        <input type="number" id="uni_stop_loss" name="stop_loss" value="5" min="1" max="20" step="0.5">
+                        <div class="help-text">止损百分比 (%)</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">💾 保存 UNI 配置</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 测试按钮 -->
+        <div style="margin-top: 30px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <h2 style="margin-bottom: 20px;">🧪 测试币安 API</h2>
+            <button onclick="testLeverage()" class="btn btn-success" style="margin-right: 10px;">🔍 测试杠杆设置</button>
+            <button onclick="testPosition()" class="btn btn-success">📊 测试仓位计算</button>
+            <div id="testResult" style="margin-top: 20px; white-space: pre-wrap; background: #f5f5f5; padding: 15px; border-radius: 8px; display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '/api';
+
+        // 加载配置
+        async function loadConfigs() {
+            try {
+                const response = await fetch(`${API_BASE}/config/symbol`);
+                if (response.ok) {
+                    const configs = await response.json();
+                    // 填充各币种配置
+                    ['ETHUSDT', 'AVAXUSDT', 'UNIUSDT'].forEach(symbol => {
+                        const config = configs[symbol];
+                        if (config) {
+                            document.getElementById(`${symbol.split('USDT')[0].toLowerCase()}_leverage`).value = config.leverage || 5;
+                            document.getElementById(`${symbol.split('USDT')[0].toLowerCase()}_amount`).value = config.amount || 100;
+                            document.getElementById(`${symbol.split('USDT')[0].toLowerCase()}_strategy`).value = config.strategy || 'breakout';
+                            document.getElementById(`${symbol.split('USDT')[0].toLowerCase()}_stop_loss`).value = config.stop_loss || 5;
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('加载配置失败:', error);
+            }
+        }
+
+        // 保存配置
+        async function saveConfig(symbol, event) {
+            event.preventDefault();
+            const prefix = symbol.split('USDT')[0].toLowerCase();
+            const formData = {
+                leverage: parseInt(document.getElementById(`${prefix}_leverage`).value),
+                amount: parseFloat(document.getElementById(`${prefix}_amount`).value),
+                strategy: document.getElementById(`${prefix}_strategy`).value,
+                stop_loss: parseFloat(document.getElementById(`${prefix}_stop_loss`).value)
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/config/symbol/${symbol}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    showAlert(`✅ ${symbol} 配置已保存`, 'success');
+                    // 同步到币安
+                    await syncToBinance(symbol, formData);
+                } else {
+                    showAlert(`❌ 保存失败`, 'error');
+                }
+            } catch (error) {
+                showAlert(`❌ 错误：${error.message}`, 'error');
+            }
+        }
+
+        // 同步到币安
+        async function syncToBinance(symbol, config) {
+            try {
+                const response = await fetch(`${API_BASE}/binance/set-leverage`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        symbol: symbol,
+                        leverage: config.leverage
+                    })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    console.log(`✅ ${symbol} 杠杆已同步到币安：${config.leverage}x`);
+                }
+            } catch (error) {
+                console.error('同步到币安失败:', error);
+            }
+        }
+
+        // 测试杠杆
+        async function testLeverage() {
+            const resultDiv = document.getElementById('testResult');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = '🔄 测试中...';
+
+            const configs = {
+                'ETHUSDT': { leverage: parseInt(document.getElementById('eth_leverage').value) },
+                'AVAXUSDT': { leverage: parseInt(document.getElementById('avax_leverage').value) },
+                'UNIUSDT': { leverage: parseInt(document.getElementById('uni_leverage').value) }
+            };
+
+            let output = '🧪 杠杆测试结果\n';
+            output += '='.repeat(50) + '\n\n';
+
+            for (const [symbol, config] of Object.entries(configs)) {
+                try {
+                    const response = await fetch(`${API_BASE}/binance/set-leverage`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ symbol, leverage: config.leverage })
+                    });
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        output += `✅ ${symbol}: ${config.leverage}x 设置成功\n`;
+                        output += `   最大名义价值：${result.maxNotionalValue} USDT\n\n`;
+                    } else {
+                        output += `❌ ${symbol}: 失败 - ${result.error}\n\n`;
+                    }
+                } catch (error) {
+                    output += `❌ ${symbol}: ${error.message}\n\n`;
+                }
+            }
+
+            resultDiv.textContent = output;
+        }
+
+        // 测试仓位计算
+        async function testPosition() {
+            const resultDiv = document.getElementById('testResult');
+            resultDiv.style.display = 'block';
+
+            const configs = {
+                'ETHUSDT': {
+                    leverage: parseInt(document.getElementById('eth_leverage').value),
+                    amount: parseFloat(document.getElementById('eth_amount').value)
+                },
+                'AVAXUSDT': {
+                    leverage: parseInt(document.getElementById('avax_leverage').value),
+                    amount: parseFloat(document.getElementById('avax_amount').value)
+                },
+                'UNIUSDT': {
+                    leverage: parseInt(document.getElementById('uni_leverage').value),
+                    amount: parseFloat(document.getElementById('uni_amount').value)
+                }
+            };
+
+            // 获取当前价格
+            const prices = {
+                'ETHUSDT': 2275,
+                'AVAXUSDT': 10.0,
+                'UNIUSDT': 7.5
+            };
+
+            let output = '📊 仓位计算结果\n';
+            output += '='.repeat(50) + '\n\n';
+
+            for (const [symbol, config] of Object.entries(configs)) {
+                const price = prices[symbol];
+                const positionValue = config.amount * config.leverage;
+                const quantity = positionValue / price;
+
+                output += `${symbol}:\n`;
+                output += `  投资金额：${config.amount} USDT\n`;
+                output += `  杠杆倍数：${config.leverage}x\n`;
+                output += `  当前价格：$${price}\n`;
+                output += `  仓位价值：${positionValue} USDT\n`;
+                output += `  开仓数量：${quantity.toFixed(4)} ${symbol.replace('USDT', '')}\n\n`;
+            }
+
+            resultDiv.textContent = output;
+        }
+
+        // 显示提示
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            container.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(() => { container.innerHTML = ''; }, 3000);
+        }
+
+        // 页面加载
+        document.addEventListener('DOMContentLoaded', loadConfigs);
+    </script>
+</body>
+</html>

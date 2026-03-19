@@ -83,7 +83,7 @@ self.rsi_sell_threshold = 85     # 平仓阈值（从 80 提高到 85）
 **方案 C: 重置信号计数**
 ```bash
 # 手动重置策略状态文件
-echo '{}' > /home/admin/.openclaw/workspace/quant/v3-architecture/logs/strategy_pids.json
+echo '{}' > /root/.openclaw/workspace/quant/v3-architecture/logs/strategy_pids.json
 # 重启策略
 supervisorctl restart quant-web
 ```

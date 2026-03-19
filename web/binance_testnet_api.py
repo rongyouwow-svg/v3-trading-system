@@ -19,8 +19,8 @@ router = APIRouter(prefix="/api/binance", tags=["币安测试网"])
 
 # 币安测试网配置
 BINANCE_TESTNET_BASE = "https://testnet.binancefuture.com"
-API_KEY = "q3BX9K88wS4Dzco6DxVp5fhkRc5OOUu3tKFK5VBHkpcweVJ1NDDgATDV6Db0TTOg"
-SECRET_KEY = "J3rsWIqPPjdRtXzbBReq24YiKrw03CiHopRxM1B5eUTQ6xZ6pi1jLK1lmiYrqctY"
+API_KEY = "YOUR_API_KEY"
+SECRET_KEY = "YOUR_SECRET_KEY"
 
 
 def generate_signature(params: dict) -> str:
@@ -335,7 +335,7 @@ async def get_stop_loss_orders(symbol: str = None, limit: int = 50):
     
     参考：
     - 币安官方文档：https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-Algo-Order
-    - 历史实现：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+    - 历史实现：/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
     
     测试网 vs 实盘:
     - 测试网：https://demo-fapi.binance.com/fapi/v1/openAlgoOrders
@@ -343,6 +343,59 @@ async def get_stop_loss_orders(symbol: str = None, limit: int = 50):
     - API 端点完全相同，只需切换 base_url（连接器自动处理）
     """
     try:
+        # 从币安 Algo Order API 查询
+        params = {
+            'limit': limit,
+            'timestamp': int(time.time() * 1000)
+        }
+        
+        if symbol:
+            params['symbol'] = symbol
+        
+        # 使用正确的 API 端点：/fapi/v1/openAlgoOrders
+        result = binance_request('GET', '/fapi/v1/openAlgoOrders', params, signed=True)
+        
+        if result.get('success'):
+            orders = result.get('data', [])
+            
+            # 筛选止损单和止盈单
+            stop_orders = []
+            for order in orders:
+                order_type = order.get('orderType', '')
+                if order_type in ['STOP_MARKET', 'TAKE_PROFIT_MARKET', 'STOP', 'TAKE_PROFIT']:
+                    stop_orders.append({
+                        'algo_id': str(order.get('algoId', order.get('orderId', ''))),
+                        'symbol': order.get('symbol', ''),
+                        'side': order.get('side', ''),
+                        'algo_type': order.get('algoType', 'CONDITIONAL'),
+                        'order_type': order_type,
+                        'trigger_price': str(order.get('triggerPrice', order.get('stopPrice', '0'))),
+                        'quantity': str(order.get('quantity', '0')),
+                        'status': order.get('algoStatus', order.get('status', '')),
+                        'create_time': order.get('createTime', order.get('time', 0)),
+                        'reduce_only': order.get('reduceOnly', False),
+                        'close_position': order.get('closePosition', False)
+                    })
+            
+            return {
+                'success': True,
+                'orders': stop_orders,
+                'count': len(stop_orders)
+            }
+        else:
+            return {
+                'success': False,
+                'error': result.get('error', 'Unknown error'),
+                'orders': [],
+                'count': 0
+            }
+    except Exception as e:
+        return {
+            'success': False,
+            'error': str(e),
+            'orders': [],
+            'count': 0
+        }
         # 从币安 Algo Order API 查询
         params = {
             'limit': limit,
@@ -478,7 +531,7 @@ async def create_stop_loss(request: Request):
         quantity_rounded = round(float(quantity), 3)
         trigger_price_rounded = round(float(trigger_price), 2)
         
-        # 参考历史文档：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+        # 参考历史文档：/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
         # 关键参数：algoType=CONDITIONAL, type=STOP_MARKET, triggerPrice（不是 stopPrice）
         params = {
             'symbol': symbol,
@@ -504,16 +557,81 @@ async def create_stop_loss(request: Request):
 
 
 @router.post("/stop-loss/cancel")
-async def cancel_stop_loss(symbol: str, order_id: str = None):
+async def cancel_stop_loss(symbol: str, algo_id: str = None):
     """取消止损单"""
     params = {
         'symbol': symbol,
         'timestamp': int(time.time() * 1000)
     }
     
-    if order_id:
-        params['algoId'] = order_id
+    if algo_id:
+        params['algoId'] = algo_id
     
     result = binance_request('POST', '/fapi/v1/algoOrder', params, signed=True, method_override='DELETE')
     
     return result
+
+
+# ==================== 币种单独配置 ====================
+
+@router.post("/set-leverage")
+async def set_leverage(symbol: str, leverage: int):
+    """设置币种杠杆"""
+    try:
+        # 调用币安 API
+        timestamp = int(time.time() * 1000)
+        params = {
+            'symbol': symbol,
+            'leverage': leverage,
+            'timestamp': timestamp
+        }
+        signature = generate_signature(params, SECRET_KEY)
+        params['signature'] = signature
+        
+        headers = {'X-MBX-APIKEY': API_KEY}
+        response = requests.post(f"{BINANCE_TESTNET_BASE}/fapi/v1/leverage", params=params, headers=headers, timeout=10)
+        
+        if response.status_code == 200:
+            data = response.json()
+            return {
+                'success': True,
+                'symbol': data.get('symbol'),
+                'leverage': data.get('leverage'),
+                'maxNotionalValue': data.get('maxNotionalValue')
+            }
+        else:
+            return {'success': False, 'error': response.text}
+    except Exception as e:
+        return {'success': False, 'error': str(e)}
+
+
+@router.get("/position/{symbol}")
+async def get_position(symbol: str):
+    """获取币种持仓信息"""
+    try:
+        timestamp = int(time.time() * 1000)
+        params = {'timestamp': timestamp}
+        signature = generate_signature(params, SECRET_KEY)
+        params['signature'] = signature
+        
+        headers = {'X-MBX-APIKEY': API_KEY}
+        response = requests.get(f"{BINANCE_TESTNET_BASE}/fapi/v2/positionRisk", params=params, headers=headers, timeout=10)
+        
+        if response.status_code == 200:
+            data = response.json()
+            for pos in data:
+                if pos['symbol'] == symbol:
+                    return {
+                        'success': True,
+                        'symbol': pos['symbol'],
+                        'leverage': pos['leverage'],
+                        'positionAmt': pos['positionAmt'],
+                        'entryPrice': pos['entryPrice'],
+                        'markPrice': pos['markPrice'],
+                        'unRealizedProfit': pos['unRealizedProfit']
+                    }
+            return {'success': True, 'symbol': symbol, 'positionAmt': 0}
+        else:
+            return {'success': False, 'error': response.text}
+    except Exception as e:
+        return {'success': False, 'error': str(e)}

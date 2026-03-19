@@ -175,7 +175,7 @@ INFO: GET /api/binance/positions... 200 OK
 
 1. **重启监测脚本**
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 nohup python3 scripts/monitor_live_test.py > logs/monitor_live.log 2>&1 &
 ```
 
@@ -183,7 +183,7 @@ nohup python3 scripts/monitor_live_test.py > logs/monitor_live.log 2>&1 &
 ```ini
 [program:quant-monitor]
 command=python3 scripts/monitor_live_test.py
-directory=/home/admin/.openclaw/workspace/quant/v3-architecture
+directory=/root/.openclaw/workspace/quant/v3-architecture
 autostart=true
 autorestart=true
 ```

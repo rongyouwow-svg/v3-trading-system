@@ -115,7 +115,7 @@ uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
 ### 检查 2: 查看 Web 日志
 
 ```bash
-tail -20 /home/admin/.openclaw/workspace/quant/v3-architecture/logs/web_dashboard.log
+tail -20 /root/.openclaw/workspace/quant/v3-architecture/logs/web_dashboard.log
 ```
 
 ### 检查 3: 测试本地访问

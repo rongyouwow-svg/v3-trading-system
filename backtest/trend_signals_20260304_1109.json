@@ -1,0 +1,95 @@
+{
+  "timestamp": "2026-03-04T11:09:50.049023",
+  "signals": {
+    "BTCUSDT": {
+      "market_state": "sideways",
+      "trend_score": 15.46,
+      "ma200_signal": "below",
+      "swing_pattern": "mixed",
+      "adx_value": 23.13,
+      "adx_signal": "none",
+      "confidence": 0.65,
+      "timestamp": "2026-03-04 00:00:00"
+    },
+    "ETHUSDT": {
+      "market_state": "sideways",
+      "trend_score": 10.0,
+      "ma200_signal": "below",
+      "swing_pattern": "mixed",
+      "adx_value": 22.42,
+      "adx_signal": "none",
+      "confidence": 0.65,
+      "timestamp": "2026-03-04 00:00:00"
+    },
+    "BNBUSDT": {
+      "market_state": "sideways",
+      "trend_score": 27.68,
+      "ma200_signal": "below",
+      "swing_pattern": "mixed",
+      "adx_value": 26.09,
+      "adx_signal": "strong",
+      "confidence": 0.75,
+      "timestamp": "2026-03-04 00:00:00"
+    },
+    "SOLUSDT": {
+      "market_state": "sideways",
+      "trend_score": 15.0,
+      "ma200_signal": "below",
+      "swing_pattern": "mixed",
+      "adx_value": 13.93,
+      "adx_signal": "weak",
+      "confidence": 0.65,
+      "timestamp": "2026-03-04 00:00:00"
+    },
+    "XRPUSDT": {
+      "market_state": "bear",
+      "trend_score": 0,
+      "ma200_signal": "below",
+      "swing_pattern": "LH_LL",
+      "adx_value": 22.56,
+      "adx_signal": "none",
+      "confidence": 0.65,
+      "timestamp": "2026-03-04 00:00:00"
+    },
+    "DOGEUSDT": {
+      "market_state": "sideways",
+      "trend_score": 10.0,
+      "ma200_signal": "below",
+      "swing_pattern": "mixed",
+      "adx_value": 21.02,
+      "adx_signal": "none",
+      "confidence": 0.65,
+      "timestamp": "2026-03-04 00:00:00"
+    },
+    "ADAUSDT": {
+      "market_state": "bear",
+      "trend_score": 27.5,
+      "ma200_signal": "below",
+      "swing_pattern": "HH_HL",
+      "adx_value": 20.67,
+      "adx_signal": "none",
+      "confidence": 0.65,
+      "timestamp": "2026-03-04 00:00:00"
+    },
+    "AVAXUSDT": {
+      "market_state": "bear",
+      "trend_score": 32.5,
+      "ma200_signal": "below",
+      "swing_pattern": "HH_HL",
+      "adx_value": 16.3,
+      "adx_signal": "weak",
+      "confidence": 0.65,
+      "timestamp": "2026-03-03 00:00:00"
+    },
+    "LINKUSDT": {
+      "market_state": "sideways",
+      "trend_score": 15.0,
+      "ma200_signal": "below",
+      "swing_pattern": "mixed",
+      "adx_value": 15.43,
+      "adx_signal": "weak",
+      "confidence": 0.65,
+      "timestamp": "2026-03-04 00:00:00"
+    }
+  }
+}

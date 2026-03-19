@@ -1,1 +1,18 @@
-{}
+{
+  "AVAXUSDT": {
+    "symbol": "AVAXUSDT",
+    "strategy_id": "rsi1minreversal",
+    "leverage": 4,
+    "amount": 50.0,
+    "status": "running",
+    "start_time": "2026-03-13T12:40:10.447985"
+  },
+  "ETHUSDT": {
+    "symbol": "ETHUSDT",
+    "strategy_id": "autosimstrategy",
+    "leverage": 4,
+    "amount": 500.0,
+    "status": "running",
+    "start_time": "2026-03-13T14:37:56.803195"
+  }
+}

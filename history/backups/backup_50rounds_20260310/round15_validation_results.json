@@ -1,0 +1,1479 @@
+[
+  {
+    "annual": 40.59332606729078,
+    "dd": 9.830320978776278,
+    "win": 31.25,
+    "pf": 22.060784294611967,
+    "trades": 16,
+    "total": 1737.3255704262854,
+    "details": [
+      {
+        "entry_idx": 257,
+        "exit_idx": 1034,
+        "entry_price": 280.14,
+        "exit_price": 719.64,
+        "highest": 1440.0,
+        "pnl": 7841.292139644464,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 1774,
+        "exit_idx": 1778,
+        "entry_price": 569.26449,
+        "exit_price": 540.53086486725,
+        "highest": 574.77,
+        "pnl": -455.62199801617106,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3055,
+        "exit_idx": 3056,
+        "entry_price": 135.51772499999998,
+        "exit_price": 128.67746783062498,
+        "highest": 135.52,
+        "pnl": -443.9865512418332,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3327,
+        "exit_idx": 3329,
+        "entry_price": 140.05999500000001,
+        "exit_price": 132.990466752375,
+        "highest": 141.72,
+        "pnl": -432.64824468949513,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3476,
+        "exit_idx": 4354,
+        "entry_price": 134.64729,
+        "exit_price": 183.3083,
+        "highest": 366.8,
+        "pnl": 2978.198060746066,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 4595,
+        "exit_idx": 4596,
+        "entry_price": 192.75633,
+        "exit_price": 183.02695424324997,
+        "highest": 193.91,
+        "pnl": -497.65522311703984,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5466,
+        "exit_idx": 5521,
+        "entry_price": 249.88487999999998,
+        "exit_price": 237.27194068199998,
+        "highest": 285.88,
+        "pnl": -484.9463528566876,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5590,
+        "exit_idx": 5591,
+        "entry_price": 216.83836499999998,
+        "exit_price": 205.89344852662498,
+        "highest": 218.0,
+        "pnl": -472.56203537061,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5849,
+        "exit_idx": 8212,
+        "entry_price": 167.50370999999998,
+        "exit_price": 2185.2668200000003,
+        "highest": 4372.72,
+        "pnl": 108602.46906274976,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 8877,
+        "exit_idx": 8878,
+        "entry_price": 3751.0545899999997,
+        "exit_price": 3561.7201095697496,
+        "highest": 3774.98,
+        "pnl": -3233.929536082307,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 9177,
+        "exit_idx": 9404,
+        "entry_price": 3994.086045,
+        "exit_price": 3792.484551878625,
+        "highest": 4868.0,
+        "pnl": -3151.343060554602,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11104,
+        "exit_idx": 11116,
+        "entry_price": 1595.247225,
+        "exit_price": 1514.727121318125,
+        "highest": 1655.2,
+        "pnl": -3070.8656371456927,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11405,
+        "exit_idx": 11438,
+        "entry_price": 1536.68796,
+        "exit_price": 1459.123635219,
+        "highest": 1680.0,
+        "pnl": -2992.443405937077,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11557,
+        "exit_idx": 16519,
+        "entry_price": 1173.12627,
+        "exit_price": 2052.87305,
+        "highest": 4107.8,
+        "pnl": 42780.71253839536,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 16664,
+        "exit_idx": 16673,
+        "entry_price": 1911.165105,
+        "exit_price": 1814.6990463251252,
+        "highest": 1925.0,
+        "pnl": -4008.5363289072284,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16864,
+        "exit_idx": 18521,
+        "entry_price": 1765.6223699999998,
+        "exit_price": 2477.150805,
+        "highest": 4956.78,
+        "pnl": 30774.42361501162,
+        "win": "True",
+        "reason": "trail"
+      }
+    ],
+    "config": {
+      "name": "成交量>2.5 + 移动 50%",
+      "vol": 2.5,
+      "trail": 0.5
+    }
+  },
+  {
+    "annual": 40.59332606729078,
+    "dd": 9.830320978776278,
+    "win": 31.25,
+    "pf": 22.060784294611967,
+    "trades": 16,
+    "total": 1737.3255704262854,
+    "details": [
+      {
+        "entry_idx": 257,
+        "exit_idx": 1034,
+        "entry_price": 280.14,
+        "exit_price": 719.64,
+        "highest": 1440.0,
+        "pnl": 7841.292139644464,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 1774,
+        "exit_idx": 1778,
+        "entry_price": 569.26449,
+        "exit_price": 540.53086486725,
+        "highest": 574.77,
+        "pnl": -455.62199801617106,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3055,
+        "exit_idx": 3056,
+        "entry_price": 135.51772499999998,
+        "exit_price": 128.67746783062498,
+        "highest": 135.52,
+        "pnl": -443.9865512418332,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3327,
+        "exit_idx": 3329,
+        "entry_price": 140.05999500000001,
+        "exit_price": 132.990466752375,
+        "highest": 141.72,
+        "pnl": -432.64824468949513,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3476,
+        "exit_idx": 4354,
+        "entry_price": 134.64729,
+        "exit_price": 183.3083,
+        "highest": 366.8,
+        "pnl": 2978.198060746066,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 4595,
+        "exit_idx": 4596,
+        "entry_price": 192.75633,
+        "exit_price": 183.02695424324997,
+        "highest": 193.91,
+        "pnl": -497.65522311703984,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5466,
+        "exit_idx": 5521,
+        "entry_price": 249.88487999999998,
+        "exit_price": 237.27194068199998,
+        "highest": 285.88,
+        "pnl": -484.9463528566876,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5590,
+        "exit_idx": 5591,
+        "entry_price": 216.83836499999998,
+        "exit_price": 205.89344852662498,
+        "highest": 218.0,
+        "pnl": -472.56203537061,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5849,
+        "exit_idx": 8212,
+        "entry_price": 167.50370999999998,
+        "exit_price": 2185.2668200000003,
+        "highest": 4372.72,
+        "pnl": 108602.46906274976,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 8877,
+        "exit_idx": 8878,
+        "entry_price": 3751.0545899999997,
+        "exit_price": 3561.7201095697496,
+        "highest": 3774.98,
+        "pnl": -3233.929536082307,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 9177,
+        "exit_idx": 9404,
+        "entry_price": 3994.086045,
+        "exit_price": 3792.484551878625,
+        "highest": 4868.0,
+        "pnl": -3151.343060554602,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11104,
+        "exit_idx": 11116,
+        "entry_price": 1595.247225,
+        "exit_price": 1514.727121318125,
+        "highest": 1655.2,
+        "pnl": -3070.8656371456927,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11405,
+        "exit_idx": 11438,
+        "entry_price": 1536.68796,
+        "exit_price": 1459.123635219,
+        "highest": 1680.0,
+        "pnl": -2992.443405937077,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11557,
+        "exit_idx": 16519,
+        "entry_price": 1173.12627,
+        "exit_price": 2052.87305,
+        "highest": 4107.8,
+        "pnl": 42780.71253839536,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 16664,
+        "exit_idx": 16673,
+        "entry_price": 1911.165105,
+        "exit_price": 1814.6990463251252,
+        "highest": 1925.0,
+        "pnl": -4008.5363289072284,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16864,
+        "exit_idx": 18521,
+        "entry_price": 1765.6223699999998,
+        "exit_price": 2477.150805,
+        "highest": 4956.78,
+        "pnl": 30774.42361501162,
+        "win": "True",
+        "reason": "trail"
+      }
+    ],
+    "config": {
+      "name": "成交量>2.5+RSI<45 + 移动 50%",
+      "vol": 2.5,
+      "trail": 0.5,
+      "rsi": 45
+    }
+  },
+  {
+    "annual": 40.59332606729078,
+    "dd": 9.830320978776278,
+    "win": 31.25,
+    "pf": 22.060784294611967,
+    "trades": 16,
+    "total": 1737.3255704262854,
+    "details": [
+      {
+        "entry_idx": 257,
+        "exit_idx": 1034,
+        "entry_price": 280.14,
+        "exit_price": 719.64,
+        "highest": 1440.0,
+        "pnl": 7841.292139644464,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 1774,
+        "exit_idx": 1778,
+        "entry_price": 569.26449,
+        "exit_price": 540.53086486725,
+        "highest": 574.77,
+        "pnl": -455.62199801617106,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3055,
+        "exit_idx": 3056,
+        "entry_price": 135.51772499999998,
+        "exit_price": 128.67746783062498,
+        "highest": 135.52,
+        "pnl": -443.9865512418332,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3327,
+        "exit_idx": 3329,
+        "entry_price": 140.05999500000001,
+        "exit_price": 132.990466752375,
+        "highest": 141.72,
+        "pnl": -432.64824468949513,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3476,
+        "exit_idx": 4354,
+        "entry_price": 134.64729,
+        "exit_price": 183.3083,
+        "highest": 366.8,
+        "pnl": 2978.198060746066,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 4595,
+        "exit_idx": 4596,
+        "entry_price": 192.75633,
+        "exit_price": 183.02695424324997,
+        "highest": 193.91,
+        "pnl": -497.65522311703984,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5466,
+        "exit_idx": 5521,
+        "entry_price": 249.88487999999998,
+        "exit_price": 237.27194068199998,
+        "highest": 285.88,
+        "pnl": -484.9463528566876,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5590,
+        "exit_idx": 5591,
+        "entry_price": 216.83836499999998,
+        "exit_price": 205.89344852662498,
+        "highest": 218.0,
+        "pnl": -472.56203537061,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5849,
+        "exit_idx": 8212,
+        "entry_price": 167.50370999999998,
+        "exit_price": 2185.2668200000003,
+        "highest": 4372.72,
+        "pnl": 108602.46906274976,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 8877,
+        "exit_idx": 8878,
+        "entry_price": 3751.0545899999997,
+        "exit_price": 3561.7201095697496,
+        "highest": 3774.98,
+        "pnl": -3233.929536082307,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 9177,
+        "exit_idx": 9404,
+        "entry_price": 3994.086045,
+        "exit_price": 3792.484551878625,
+        "highest": 4868.0,
+        "pnl": -3151.343060554602,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11104,
+        "exit_idx": 11116,
+        "entry_price": 1595.247225,
+        "exit_price": 1514.727121318125,
+        "highest": 1655.2,
+        "pnl": -3070.8656371456927,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11405,
+        "exit_idx": 11438,
+        "entry_price": 1536.68796,
+        "exit_price": 1459.123635219,
+        "highest": 1680.0,
+        "pnl": -2992.443405937077,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11557,
+        "exit_idx": 16519,
+        "entry_price": 1173.12627,
+        "exit_price": 2052.87305,
+        "highest": 4107.8,
+        "pnl": 42780.71253839536,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 16664,
+        "exit_idx": 16673,
+        "entry_price": 1911.165105,
+        "exit_price": 1814.6990463251252,
+        "highest": 1925.0,
+        "pnl": -4008.5363289072284,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16864,
+        "exit_idx": 18521,
+        "entry_price": 1765.6223699999998,
+        "exit_price": 2477.150805,
+        "highest": 4956.78,
+        "pnl": 30774.42361501162,
+        "win": "True",
+        "reason": "trail"
+      }
+    ],
+    "config": {
+      "name": "成交量>2.5+RSI<50 + 移动 50%",
+      "vol": 2.5,
+      "trail": 0.5,
+      "rsi": 50
+    }
+  },
+  {
+    "annual": 42.71360959729482,
+    "dd": 12.13302915678081,
+    "win": 22.727272727272727,
+    "pf": 21.031054614745706,
+    "trades": 22,
+    "total": 1987.9827513461817,
+    "details": [
+      {
+        "entry_idx": 257,
+        "exit_idx": 764,
+        "entry_price": 280.14,
+        "exit_price": 518.68053,
+        "highest": 864.9,
+        "pnl": 4254.523559648747,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 913,
+        "exit_idx": 914,
+        "entry_price": 1138.58901,
+        "exit_price": 1081.11872972025,
+        "highest": 1143.42,
+        "pnl": -364.0248954045292,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 916,
+        "exit_idx": 917,
+        "entry_price": 1000.5,
+        "exit_price": 949.9997625,
+        "highest": 1075.51,
+        "pnl": -354.7286096381369,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 1774,
+        "exit_idx": 1778,
+        "entry_price": 569.26449,
+        "exit_price": 540.53086486725,
+        "highest": 574.77,
+        "pnl": -345.6697277695032,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3055,
+        "exit_idx": 3056,
+        "entry_price": 135.51772499999998,
+        "exit_price": 128.67746783062498,
+        "highest": 135.52,
+        "pnl": -336.8421870965895,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3327,
+        "exit_idx": 3329,
+        "entry_price": 140.05999500000001,
+        "exit_price": 132.990466752375,
+        "highest": 141.72,
+        "pnl": -328.2400797436106,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3476,
+        "exit_idx": 4167,
+        "entry_price": 134.64729,
+        "exit_price": 219.96996000000001,
+        "highest": 366.8,
+        "pnl": 3964.640160354224,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 4595,
+        "exit_idx": 4596,
+        "entry_price": 192.75633,
+        "exit_price": 183.02695424324997,
+        "highest": 193.91,
+        "pnl": -421.1046468022042,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5466,
+        "exit_idx": 5521,
+        "entry_price": 249.88487999999998,
+        "exit_price": 237.27194068199998,
+        "highest": 285.88,
+        "pnl": -410.35068688449223,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5590,
+        "exit_idx": 5591,
+        "entry_price": 216.83836499999998,
+        "exit_price": 205.89344852662498,
+        "highest": 218.0,
+        "pnl": -399.8713562181795,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5849,
+        "exit_idx": 8211,
+        "entry_price": 167.50370999999998,
+        "exit_price": 2622.320184,
+        "highest": 4372.72,
+        "pnl": 111803.10606376403,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 8877,
+        "exit_idx": 8878,
+        "entry_price": 3751.0545899999997,
+        "exit_price": 3561.7201095697496,
+        "highest": 3774.98,
+        "pnl": -3244.8314625621333,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 9177,
+        "exit_idx": 9404,
+        "entry_price": 3994.086045,
+        "exit_price": 3792.484551878625,
+        "highest": 4868.0,
+        "pnl": -3161.9665790869503,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11104,
+        "exit_idx": 11116,
+        "entry_price": 1595.247225,
+        "exit_price": 1514.727121318125,
+        "highest": 1655.2,
+        "pnl": -3081.2178575735215,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11405,
+        "exit_idx": 11438,
+        "entry_price": 1536.68796,
+        "exit_price": 1459.123635219,
+        "highest": 1680.0,
+        "pnl": -3002.53125653573,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11557,
+        "exit_idx": 15253,
+        "entry_price": 1173.12627,
+        "exit_price": 2455.123824,
+        "highest": 4093.92,
+        "pnl": 62567.415538689755,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 15388,
+        "exit_idx": 15390,
+        "entry_price": 2580.58965,
+        "exit_price": 2450.33438741625,
+        "highest": 2591.93,
+        "pnl": -4523.669488891235,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 15505,
+        "exit_idx": 16345,
+        "entry_price": 2279.51919,
+        "exit_price": 2164.46045888475,
+        "highest": 4107.8,
+        "pnl": -4408.146279318678,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16457,
+        "exit_idx": 16476,
+        "entry_price": 2641.510095,
+        "exit_price": 2508.179872954875,
+        "highest": 2857.34,
+        "pnl": -4295.573243710585,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16664,
+        "exit_idx": 16673,
+        "entry_price": 1911.165105,
+        "exit_price": 1814.6990463251252,
+        "highest": 1925.0,
+        "pnl": -4185.875041999317,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16864,
+        "exit_idx": 18071,
+        "entry_price": 1765.6223699999998,
+        "exit_price": 2972.580966,
+        "highest": 4956.78,
+        "pnl": 54545.15845351777,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 18151,
+        "exit_idx": 18515,
+        "entry_price": 2827.1828849999997,
+        "exit_price": 2684.480828879625,
+        "highest": 3447.44,
+        "pnl": -5471.925242120972,
+        "win": "False",
+        "reason": "stop"
+      }
+    ],
+    "config": {
+      "name": "成交量>2.5 + 移动 40%",
+      "vol": 2.5,
+      "trail": 0.4
+    }
+  },
+  {
+    "annual": 29.6527999904596,
+    "dd": 9.830320978776271,
+    "win": 35.714285714285715,
+    "pf": 16.912747555138655,
+    "trades": 14,
+    "total": 819.581056841665,
+    "details": [
+      {
+        "entry_idx": 257,
+        "exit_idx": 1038,
+        "entry_price": 280.14,
+        "exit_price": 575.712,
+        "highest": 1440.0,
+        "pnl": 5272.433711715572,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 1774,
+        "exit_idx": 1778,
+        "entry_price": 569.26449,
+        "exit_price": 540.53086486725,
+        "highest": 574.77,
+        "pnl": -390.01977591293684,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3055,
+        "exit_idx": 3056,
+        "entry_price": 135.51772499999998,
+        "exit_price": 128.67746783062498,
+        "highest": 135.52,
+        "pnl": -380.05964588556026,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3327,
+        "exit_idx": 3329,
+        "entry_price": 140.05999500000001,
+        "exit_price": 132.990466752375,
+        "highest": 141.72,
+        "pnl": -370.3538726787581,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3476,
+        "exit_idx": 4948,
+        "entry_price": 134.64729,
+        "exit_price": 146.64664000000002,
+        "highest": 366.8,
+        "pnl": 625.4604822403514,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 5466,
+        "exit_idx": 5521,
+        "entry_price": 249.88487999999998,
+        "exit_price": 237.27194068199998,
+        "highest": 285.88,
+        "pnl": -376.8686577204366,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5590,
+        "exit_idx": 5591,
+        "entry_price": 216.83836499999998,
+        "exit_price": 205.89344852662498,
+        "highest": 218.0,
+        "pnl": -367.244374373901,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5849,
+        "exit_idx": 8237,
+        "entry_price": 167.50370999999998,
+        "exit_price": 1748.2134560000002,
+        "highest": 4372.72,
+        "pnl": 66116.82563749886,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 8877,
+        "exit_idx": 8878,
+        "entry_price": 3751.0545899999997,
+        "exit_price": 3561.7201095697496,
+        "highest": 3774.98,
+        "pnl": -2046.3243058809555,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 9177,
+        "exit_idx": 9404,
+        "entry_price": 3994.086045,
+        "exit_price": 3792.484551878625,
+        "highest": 4868.0,
+        "pnl": -1994.0662989195187,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11104,
+        "exit_idx": 11116,
+        "entry_price": 1595.247225,
+        "exit_price": 1514.727121318125,
+        "highest": 1655.2,
+        "pnl": -1943.142830810864,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11405,
+        "exit_idx": 11438,
+        "entry_price": 1536.68796,
+        "exit_price": 1459.123635219,
+        "highest": 1680.0,
+        "pnl": -1893.519820769027,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11557,
+        "exit_idx": 16721,
+        "entry_price": 1173.12627,
+        "exit_price": 1642.2984400000003,
+        "highest": 4107.8,
+        "pnl": 14426.535685791625,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 16864,
+        "exit_idx": 18550,
+        "entry_price": 1765.6223699999998,
+        "exit_price": 1981.720644,
+        "highest": 4956.78,
+        "pnl": 5278.449749872055,
+        "win": "True",
+        "reason": "trail"
+      }
+    ],
+    "config": {
+      "name": "成交量>2.5 + 移动 60%",
+      "vol": 2.5,
+      "trail": 0.6
+    }
+  },
+  {
+    "annual": 36.813828089221225,
+    "dd": 18.69428985209488,
+    "win": 20.0,
+    "pf": 26.804694913364486,
+    "trades": 25,
+    "total": 1355.701392996051,
+    "details": [
+      {
+        "entry_idx": 257,
+        "exit_idx": 1034,
+        "entry_price": 280.14,
+        "exit_price": 719.64,
+        "highest": 1440.0,
+        "pnl": 7841.292139644464,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 1120,
+        "exit_idx": 1123,
+        "entry_price": 883.5015299999999,
+        "exit_price": 838.9067902732498,
+        "highest": 895.0,
+        "pnl": -455.6219980161711,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 1500,
+        "exit_idx": 1501,
+        "entry_price": 629.35452,
+        "exit_price": 597.587850603,
+        "highest": 639.99,
+        "pnl": -443.98655124183244,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 1534,
+        "exit_idx": 1668,
+        "entry_price": 642.18093,
+        "exit_price": 609.76684755825,
+        "highest": 839.99,
+        "pnl": -432.6482446894942,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 1774,
+        "exit_idx": 1778,
+        "entry_price": 569.26449,
+        "exit_price": 540.53086486725,
+        "highest": 574.77,
+        "pnl": -421.5994901407368,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 1953,
+        "exit_idx": 2083,
+        "entry_price": 435.39759,
+        "exit_price": 413.42089664475,
+        "highest": 515.47,
+        "pnl": -410.83289316126735,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 2415,
+        "exit_idx": 2510,
+        "entry_price": 207.12351,
+        "exit_price": 196.66895083275003,
+        "highest": 239.0,
+        "pnl": -400.3412481521607,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3055,
+        "exit_idx": 3056,
+        "entry_price": 135.51772499999998,
+        "exit_price": 128.67746783062498,
+        "highest": 135.52,
+        "pnl": -390.11753352747604,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3327,
+        "exit_idx": 3329,
+        "entry_price": 140.05999500000001,
+        "exit_price": 132.990466752375,
+        "highest": 141.72,
+        "pnl": -380.1549070150184,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3476,
+        "exit_idx": 4354,
+        "entry_price": 134.64729,
+        "exit_price": 183.3083,
+        "highest": 366.8,
+        "pnl": 2616.8524216890655,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 4595,
+        "exit_idx": 4596,
+        "entry_price": 192.75633,
+        "exit_price": 183.02695424324997,
+        "highest": 193.91,
+        "pnl": -437.274569796007,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 4722,
+        "exit_idx": 4738,
+        "entry_price": 180.15003,
+        "exit_price": 171.05695723575,
+        "highest": 181.44,
+        "pnl": -426.10767046984057,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 4889,
+        "exit_idx": 4926,
+        "entry_price": 184.962435,
+        "exit_price": 175.62645609337503,
+        "highest": 189.66,
+        "pnl": -415.22594583521595,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5466,
+        "exit_idx": 5521,
+        "entry_price": 249.88487999999998,
+        "exit_price": 237.27194068199998,
+        "highest": 285.88,
+        "pnl": -404.6221132434504,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5590,
+        "exit_idx": 5591,
+        "entry_price": 216.83836499999998,
+        "exit_price": 205.89344852662498,
+        "highest": 218.0,
+        "pnl": -394.2890760264958,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5849,
+        "exit_idx": 8212,
+        "entry_price": 167.50370999999998,
+        "exit_price": 2185.2668200000003,
+        "highest": 4372.72,
+        "pnl": 90614.06540490544,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 8877,
+        "exit_idx": 8878,
+        "entry_price": 3751.0545899999997,
+        "exit_price": 3561.7201095697496,
+        "highest": 3774.98,
+        "pnl": -2698.2766140252434,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 8879,
+        "exit_idx": 8883,
+        "entry_price": 3413.60595,
+        "exit_price": 3241.3041896737504,
+        "highest": 3541.64,
+        "pnl": -2629.3693749945674,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 9177,
+        "exit_idx": 9404,
+        "entry_price": 3994.086045,
+        "exit_price": 3792.484551878625,
+        "highest": 4868.0,
+        "pnl": -2562.2218545806472,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 10145,
+        "exit_idx": 10173,
+        "entry_price": 3226.9426649999996,
+        "exit_price": 3064.0627339841244,
+        "highest": 3314.02,
+        "pnl": -2496.789113969298,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11104,
+        "exit_idx": 11116,
+        "entry_price": 1595.247225,
+        "exit_price": 1514.727121318125,
+        "highest": 1655.2,
+        "pnl": -2433.027361971306,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11405,
+        "exit_idx": 11438,
+        "entry_price": 1536.68796,
+        "exit_price": 1459.123635219,
+        "highest": 1680.0,
+        "pnl": -2370.8939257149577,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11557,
+        "exit_idx": 16519,
+        "entry_price": 1173.12627,
+        "exit_price": 2052.87305,
+        "highest": 4107.8,
+        "pnl": 33894.88713263641,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 16664,
+        "exit_idx": 16673,
+        "entry_price": 1911.165105,
+        "exit_price": 1814.6990463251252,
+        "highest": 1925.0,
+        "pnl": -3175.937902236713,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16864,
+        "exit_idx": 18521,
+        "entry_price": 1765.6223699999998,
+        "exit_price": 2477.150805,
+        "highest": 4956.78,
+        "pnl": 24382.380589537617,
+        "win": "True",
+        "reason": "trail"
+      }
+    ],
+    "config": {
+      "name": "成交量>2.3 + 移动 50%",
+      "vol": 2.3,
+      "trail": 0.5
+    }
+  },
+  {
+    "annual": 3.3480562745595632,
+    "dd": 43.39785619272497,
+    "win": 10.714285714285714,
+    "pf": 11.09945957179515,
+    "trades": 28,
+    "total": 32.494121938902424,
+    "details": [
+      {
+        "entry_idx": 257,
+        "exit_idx": 1034,
+        "entry_price": 280.14,
+        "exit_price": 719.64,
+        "highest": 1440.0,
+        "pnl": 7841.292139644464,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 1774,
+        "exit_idx": 1778,
+        "entry_price": 569.26449,
+        "exit_price": 540.53086486725,
+        "highest": 574.77,
+        "pnl": -455.62199801617106,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3055,
+        "exit_idx": 3056,
+        "entry_price": 135.51772499999998,
+        "exit_price": 128.67746783062498,
+        "highest": 135.52,
+        "pnl": -443.9865512418332,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3327,
+        "exit_idx": 3329,
+        "entry_price": 140.05999500000001,
+        "exit_price": 132.990466752375,
+        "highest": 141.72,
+        "pnl": -432.64824468949513,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 3476,
+        "exit_idx": 4354,
+        "entry_price": 134.64729,
+        "exit_price": 183.3083,
+        "highest": 366.8,
+        "pnl": 2978.198060746066,
+        "win": "True",
+        "reason": "trail"
+      },
+      {
+        "entry_idx": 4595,
+        "exit_idx": 4596,
+        "entry_price": 192.75633,
+        "exit_price": 183.02695424324997,
+        "highest": 193.91,
+        "pnl": -497.65522311703984,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5466,
+        "exit_idx": 5521,
+        "entry_price": 249.88487999999998,
+        "exit_price": 237.27194068199998,
+        "highest": 285.88,
+        "pnl": -484.9463528566876,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 5965,
+        "exit_idx": 5975,
+        "entry_price": 186.022965,
+        "exit_price": 176.633455841625,
+        "highest": 193.5,
+        "pnl": -472.5620353706101,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 6161,
+        "exit_idx": 6182,
+        "entry_price": 232.48618499999998,
+        "exit_price": 220.751444812125,
+        "highest": 239.38,
+        "pnl": -460.49398239233255,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 6833,
+        "exit_idx": 6837,
+        "entry_price": 353.35659,
+        "exit_price": 335.52091611975,
+        "highest": 354.55,
+        "pnl": -448.73411731698866,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 6983,
+        "exit_idx": 7027,
+        "entry_price": 391.75577999999996,
+        "exit_price": 371.98190700449993,
+        "highest": 410.25,
+        "pnl": -437.27456979600674,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 7696,
+        "exit_idx": 7700,
+        "entry_price": 1734.1566449999998,
+        "exit_price": 1646.6250883436248,
+        "highest": 1803.59,
+        "pnl": -426.1076704698404,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 8053,
+        "exit_idx": 8054,
+        "entry_price": 2283.8813699999996,
+        "exit_price": 2168.6024578492497,
+        "highest": 2285.64,
+        "pnl": -415.2259458352167,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 8877,
+        "exit_idx": 8878,
+        "entry_price": 3751.0545899999997,
+        "exit_price": 3561.7201095697496,
+        "highest": 3774.98,
+        "pnl": -404.6221132434504,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 9177,
+        "exit_idx": 9404,
+        "entry_price": 3994.086045,
+        "exit_price": 3792.484551878625,
+        "highest": 4868.0,
+        "pnl": -394.28907602649537,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11104,
+        "exit_idx": 11116,
+        "entry_price": 1595.247225,
+        "exit_price": 1514.727121318125,
+        "highest": 1655.2,
+        "pnl": -384.21991874746925,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11405,
+        "exit_idx": 11438,
+        "entry_price": 1536.68796,
+        "exit_price": 1459.123635219,
+        "highest": 1680.0,
+        "pnl": -374.40790257245493,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 11867,
+        "exit_idx": 12023,
+        "entry_price": 1542.73098,
+        "exit_price": 1464.8616337845,
+        "highest": 1714.68,
+        "pnl": -364.84646076051115,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 12245,
+        "exit_idx": 12750,
+        "entry_price": 1717.6984199999997,
+        "exit_price": 1630.9975922504998,
+        "highest": 2141.54,
+        "pnl": -355.52919426883966,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 12880,
+        "exit_idx": 13129,
+        "entry_price": 1889.614335,
+        "exit_price": 1794.236051440875,
+        "highest": 2029.11,
+        "pnl": -346.4498674701996,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 13825,
+        "exit_idx": 13869,
+        "entry_price": 2252.5557149999995,
+        "exit_price": 2138.8579652853746,
+        "highest": 2332.11,
+        "pnl": -337.602403979679,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 13966,
+        "exit_idx": 15253,
+        "entry_price": 2241.5202,
+        "exit_price": 2128.3794679049997,
+        "highest": 4093.92,
+        "pnl": -328.98088258804864,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 15598,
+        "exit_idx": 15605,
+        "entry_price": 2526.072405,
+        "exit_price": 2398.568900357625,
+        "highest": 2531.4,
+        "pnl": -320.5795332989558,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16014,
+        "exit_idx": 16019,
+        "entry_price": 3713.8559999999998,
+        "exit_price": 3526.3991183999997,
+        "highest": 3780.76,
+        "pnl": -312.3927334673339,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16186,
+        "exit_idx": 16193,
+        "entry_price": 3464.3713199999997,
+        "exit_price": 3289.5071776229997,
+        "highest": 3491.7,
+        "pnl": -304.4150040364117,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16457,
+        "exit_idx": 16476,
+        "entry_price": 2641.510095,
+        "exit_price": 2508.179872954875,
+        "highest": 2857.34,
+        "pnl": -296.641005870832,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16664,
+        "exit_idx": 16673,
+        "entry_price": 1911.165105,
+        "exit_price": 1814.6990463251252,
+        "highest": 1925.0,
+        "pnl": -289.06553618340496,
+        "win": "False",
+        "reason": "stop"
+      },
+      {
+        "entry_idx": 16864,
+        "exit_idx": 18521,
+        "entry_price": 1765.6223699999998,
+        "exit_price": 2477.150805,
+        "highest": 4956.78,
+        "pnl": 2219.220317116017,
+        "win": "True",
+        "reason": "trail"
+      }
+    ],
+    "config": {
+      "name": "成交量>2.7 + 移动 50%",
+      "vol": 2.7,
+      "trail": 0.5
+    }
+  }
+]

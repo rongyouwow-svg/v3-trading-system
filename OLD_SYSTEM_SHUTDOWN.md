@@ -76,7 +76,7 @@ sudo kill -9 191095
 
 **旧系统文件位置**（保留备份）:
 ```
-/home/admin/.openclaw/workspace/quant/
+/root/.openclaw/workspace/quant/
 ├── gateway.py          # 旧网关（已停止）
 ├── api/                # 旧 API 模块
 ├── strategies/         # 旧策略模块
@@ -85,7 +85,7 @@ sudo kill -9 191095
 
 **新系统文件位置**:
 ```
-/home/admin/.openclaw/workspace/quant/v3-architecture/
+/root/.openclaw/workspace/quant/v3-architecture/
 ├── core/               # 核心引擎
 ├── modules/            # 功能模块
 ├── connectors/         # 连接器
@@ -107,7 +107,7 @@ sudo kill -9 191095
 
 3. **如果需要重启新系统**
    ```bash
-   cd /home/admin/.openclaw/workspace/quant/v3-architecture
+   cd /root/.openclaw/workspace/quant/v3-architecture
    nohup uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000 > logs/web.log 2>&1 &
    ```
 

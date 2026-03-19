@@ -10,9 +10,9 @@
 
 ### supervisor 配置
 
-**主配置文件**: `/home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf`
+**主配置文件**: `/root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf`
 
-**Web 服务配置**: `/home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/quant-web.conf`
+**Web 服务配置**: `/root/.openclaw/workspace/quant/v3-architecture/supervisor/quant-web.conf`
 
 **当前状态**:
 ```
@@ -27,47 +27,47 @@ quant-web                        RUNNING   pid 100241, uptime 0:00:15
 
 ```bash
 # 查看所有服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status
 
 # 查看 Web 服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status quant-web
 ```
 
 ### 重启服务
 
 ```bash
 # 重启 Web 服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf restart quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf restart quant-web
 
 # 重启所有服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf restart all
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf restart all
 ```
 
 ### 停止服务
 
 ```bash
 # 停止 Web 服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf stop quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf stop quant-web
 ```
 
 ### 启动服务
 
 ```bash
 # 启动 Web 服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf start quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf start quant-web
 ```
 
 ### 查看日志
 
 ```bash
 # 查看 Web 服务错误日志
-tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
+tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
 
 # 查看 Web 服务输出日志
-tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_out.log
+tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_out.log
 
 # 查看 supervisord 日志
-tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisord.log
+tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/supervisord.log
 ```
 
 ---
@@ -78,8 +78,8 @@ tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisord.l
 
 ```ini
 [program:quant-web]
-command=/home/admin/.pyenv/versions/3.10.0/bin/python3 -m uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
-directory=/home/admin/.openclaw/workspace/quant/v3-architecture
+command=/root/.pyenv/versions/3.10.0/bin/python3 -m uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
+directory=/root/.openclaw/workspace/quant/v3-architecture
 user=admin
 group=admin
 autostart=true          # 开机自启
@@ -111,7 +111,7 @@ stopsignal=TERM         # 使用 TERM 信号停止
 #!/bin/bash
 # check_web_service.sh
 
-SUPERVISOR_CONF="/home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf"
+SUPERVISOR_CONF="/root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf"
 
 echo "=== Web 服务状态 ==="
 supervisorctl -c $SUPERVISOR_CONF status quant-web
@@ -126,7 +126,7 @@ netstat -tlnp 2>/dev/null | grep 3000 || echo "⚠️ 3000 端口未监听"
 
 echo ""
 echo "=== 最新日志 ==="
-tail -20 /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
+tail -20 /root/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
 ```
 
 ---
@@ -138,13 +138,13 @@ tail -20 /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_w
 **检查步骤**:
 ```bash
 # 1. 查看 supervisor 状态
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status quant-web
 
 # 2. 查看错误日志
-tail -100 /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
+tail -100 /root/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
 
 # 3. 手动测试启动
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 python3 -m uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
 ```
 
@@ -152,7 +152,7 @@ python3 -m uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
 
 **启动命令**:
 ```bash
-supervisord -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf
+supervisord -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf
 ```
 
 ### 服务反复重启
@@ -165,13 +165,13 @@ supervisord -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/
 **解决方法**:
 ```bash
 # 查看详细日志
-tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
+tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/supervisor_web_err.log
 
 # 停止服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf stop quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf stop quant-web
 
 # 手动测试
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 python3 -m uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
 ```
 
@@ -195,13 +195,13 @@ python3 -m uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
 
 ```bash
 # 停止服务
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf stop quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf stop quant-web
 
 # 等待 5 秒
 sleep 5
 
 # 检查状态（应该自动重启）
-supervisorctl -c /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status quant-web
+supervisorctl -c /root/.openclaw/workspace/quant/v3-architecture/supervisor/supervisord.conf status quant-web
 ```
 
 **预期结果**:

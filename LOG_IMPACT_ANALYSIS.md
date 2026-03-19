@@ -240,7 +240,7 @@ autorestart=true
 ### 22:13 - 重启监测脚本
 
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 nohup python3 scripts/monitor_live_test.py > logs/monitor_live.log 2>&1 &
 ```
 

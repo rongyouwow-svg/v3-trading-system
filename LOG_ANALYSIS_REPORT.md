@@ -219,7 +219,7 @@ if datetime.now().hour >= 12:
 ### 4. 重启策略 ⏳
 
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 python3 scripts/start_all_strategies.py
 ```
 

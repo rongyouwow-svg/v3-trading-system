@@ -82,7 +82,7 @@ Date:   Sat Mar 14 11:52:00 2026 +0800
 ### 推送命令
 
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 git push origin main
 ```
 
@@ -159,7 +159,7 @@ git push https://<TOKEN>@github.com/rongyouwow-svg/lobster-quant-v3.git main
 
 1. **推送代码到 GitHub**:
    ```bash
-   cd /home/admin/.openclaw/workspace/quant/v3-architecture
+   cd /root/.openclaw/workspace/quant/v3-architecture
    git push origin main
    ```
 

@@ -1,0 +1,33 @@
+[
+  {
+    "timestamp": "2026-03-13T10:38:00.792768",
+    "event_type": "OPEN",
+    "symbol": "AVAXUSDT",
+    "side": "SELL",
+    "quantity": 10.32,
+    "price": 9.68,
+    "order_id": "TEST123",
+    "status": "FILLED"
+  },
+  {
+    "timestamp": "2026-03-13T10:38:00.793133",
+    "event_type": "CLOSE",
+    "symbol": "AVAXUSDT",
+    "side": "BUY",
+    "quantity": 10.32,
+    "price": 9.65,
+    "pnl": 3.1,
+    "order_id": "TEST124",
+    "status": "FILLED"
+  },
+  {
+    "timestamp": "2026-03-13T11:23:58.974920",
+    "event_type": "OPEN",
+    "symbol": "ETHUSDT",
+    "side": "SELL",
+    "quantity": 0.4741853495694397,
+    "price": 0,
+    "order_id": "",
+    "status": "FILLED"
+  }
+]

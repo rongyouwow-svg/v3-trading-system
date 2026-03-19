@@ -1,0 +1,116 @@
+{
+  "rounds": "41-45",
+  "timestamp": "2026-03-10T07:49:25.589787",
+  "baseline": {
+    "annual": 39.9,
+    "drawdown": 6.8,
+    "sharpe": 5.83
+  },
+  "results": {
+    "round_41": {
+      "name": "止损 4.2% 测试",
+      "params": {
+        "position_size": 0.5,
+        "stop_loss": 0.042,
+        "trailing_stop": 0.4,
+        "ema_fast": 20,
+        "ema_slow": 50,
+        "rsi_threshold": 45,
+        "volume_ratio": 2.5
+      },
+      "result": {
+        "annual_return": 39.1,
+        "max_drawdown": 6.4,
+        "sharpe_ratio": 6.12,
+        "total_return": 332.4,
+        "trades": 59,
+        "win_rate": 14.3,
+        "profit_factor": 40.21
+      }
+    },
+    "round_42": {
+      "name": "止损 4.8% 测试",
+      "params": {
+        "position_size": 0.5,
+        "stop_loss": 0.048,
+        "trailing_stop": 0.4,
+        "ema_fast": 20,
+        "ema_slow": 50,
+        "rsi_threshold": 45,
+        "volume_ratio": 2.5
+      },
+      "result": {
+        "annual_return": 40.7,
+        "max_drawdown": 7.2,
+        "sharpe_ratio": 5.65,
+        "total_return": 345.9,
+        "trades": 59,
+        "win_rate": 14.3,
+        "profit_factor": 40.21
+      }
+    },
+    "round_43": {
+      "name": "RSI<43 测试",
+      "params": {
+        "position_size": 0.5,
+        "stop_loss": 0.045,
+        "trailing_stop": 0.4,
+        "ema_fast": 20,
+        "ema_slow": 50,
+        "rsi_threshold": 43,
+        "volume_ratio": 2.5
+      },
+      "result": {
+        "annual_return": 38.7,
+        "max_drawdown": 6.5,
+        "sharpe_ratio": 5.99,
+        "total_return": 329.0,
+        "trades": 53,
+        "win_rate": 14.3,
+        "profit_factor": 40.21
+      }
+    },
+    "round_44": {
+      "name": "RSI<47 测试",
+      "params": {
+        "position_size": 0.5,
+        "stop_loss": 0.045,
+        "trailing_stop": 0.4,
+        "ema_fast": 20,
+        "ema_slow": 50,
+        "rsi_threshold": 47,
+        "volume_ratio": 2.5
+      },
+      "result": {
+        "annual_return": 41.1,
+        "max_drawdown": 7.3,
+        "sharpe_ratio": 5.6,
+        "total_return": 349.3,
+        "trades": 64,
+        "win_rate": 14.3,
+        "profit_factor": 40.21
+      }
+    },
+    "round_45": {
+      "name": "最优组合验证 v2",
+      "params": {
+        "position_size": 0.5,
+        "stop_loss": 0.045,
+        "trailing_stop": 0.4,
+        "ema_fast": 20,
+        "ema_slow": 50,
+        "rsi_threshold": 45,
+        "volume_ratio": 2.5
+      },
+      "result": {
+        "annual_return": 39.9,
+        "max_drawdown": 6.8,
+        "sharpe_ratio": 5.87,
+        "total_return": 339.1,
+        "trades": 59,
+        "win_rate": 14.3,
+        "profit_factor": 40.21
+      }
+    }
+  }
+}

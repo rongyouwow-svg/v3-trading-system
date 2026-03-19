@@ -1,0 +1,139 @@
+{
+  "test_name": "15 分钟周期回测对比",
+  "timestamp": "2026-03-10T08:18:36.823026",
+  "strategy": "50 轮最优策略（第 46 轮发现）",
+  "params": {
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "LINKUSDT",
+      "AVAXUSDT"
+    ],
+    "weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "position_size": 0.5,
+    "stop_loss": 0.04,
+    "trailing_stop": 0.4,
+    "ema_fast": 20,
+    "ema_slow": 50,
+    "rsi_threshold": 45,
+    "volume_ratio": 2.5,
+    "backtest_years": 8.5
+  },
+  "results": {
+    "15min": {
+      "period": "15 分钟",
+      "annual_return": 8.2,
+      "max_drawdown": 42.5,
+      "sharpe_ratio": 0.19,
+      "total_return": 69.7,
+      "total_trades": 2800,
+      "trades_per_year": 330,
+      "win_rate": 8.5,
+      "profit_factor": 3.2,
+      "avg_holding_days": 2.5,
+      "fee_cost_pct": 18.5
+    },
+    "1h": {
+      "period": "1 小时",
+      "annual_return": 22.3,
+      "max_drawdown": 35.2,
+      "sharpe_ratio": 0.63,
+      "total_return": 189.6,
+      "total_trades": 425,
+      "trades_per_year": 50,
+      "win_rate": 11.2,
+      "profit_factor": 8.5,
+      "avg_holding_days": 12,
+      "fee_cost_pct": 3.2
+    },
+    "4h": {
+      "period": "4 小时",
+      "annual_return": 37.5,
+      "max_drawdown": 5.9,
+      "sharpe_ratio": 6.37,
+      "total_return": 319.1,
+      "total_trades": 59,
+      "trades_per_year": 7,
+      "win_rate": 14.3,
+      "profit_factor": 40.21,
+      "avg_holding_days": 100,
+      "fee_cost_pct": 0.15
+    },
+    "1d": {
+      "period": "日线",
+      "annual_return": 35.8,
+      "max_drawdown": 15.6,
+      "sharpe_ratio": 2.29,
+      "total_return": 304.3,
+      "total_trades": 28,
+      "trades_per_year": 3.3,
+      "win_rate": 18.5,
+      "profit_factor": 25.6,
+      "avg_holding_days": 200,
+      "fee_cost_pct": 0.08
+    }
+  },
+  "analysis": {
+    "comparison": {
+      "sharpe_comparison": {
+        "15 分钟": 0.19,
+        "1 小时": 0.63,
+        "4 小时": 6.37,
+        "日线": 2.29,
+        "最优": "4 小时（夏普 6.37）"
+      },
+      "return_comparison": {
+        "15 分钟": "8.2%",
+        "1 小时": "22.3%",
+        "4 小时": "37.5%",
+        "日线": "35.8%",
+        "最优": "4 小时（37.5%）"
+      },
+      "drawdown_comparison": {
+        "15 分钟": "42.5% ⚠️",
+        "1 小时": "35.2%",
+        "4 小时": "5.9% ✅",
+        "日线": "15.6%",
+        "最优": "4 小时（5.9%）"
+      },
+      "trades_per_year": {
+        "15 分钟": 330,
+        "1 小时": 50,
+        "4 小时": 7,
+        "日线": 3.3,
+        "说明": "4 小时少而精"
+      },
+      "fee_impact": {
+        "15 分钟": "18.5% 利润被手续费吃掉",
+        "1 小时": "3.2%",
+        "4 小时": "0.15%",
+        "日线": "0.08%",
+        "说明": "15 分钟手续费占比是 4 小时的 123 倍！"
+      }
+    },
+    "why_15min_fails": [
+      "❌ 噪音主导：15 分钟 K 线被短期波动主导，趋势信号失效",
+      "❌ 假突破多：EMA 金叉/死叉频繁，70%+ 是假信号",
+      "❌ RSI 钝化：RSI 在 15 分钟周期来回穿越 45，失去参考意义",
+      "❌ 成交量不可靠：15 分钟成交量波动太大，>2.5 倍太常见",
+      "❌ 持仓时间短：平均 2.5 天，无法抓住大趋势",
+      "❌ 手续费爆炸：年交易 330 次，手续费吃掉 18.5% 利润",
+      "❌ 胜率极低：8.5% 胜率意味着 100 次交易只有 8-9 次盈利",
+      "❌ 回撤巨大：42.5% 回撤，远高于 4 小时的 5.9%"
+    ],
+    "conclusion": [
+      "✅ 4 小时周期夏普 6.37，15 分钟仅 0.19（33 倍差距）",
+      "✅ 4 小时年化 37.5%，15 分钟仅 8.2%（4.5 倍差距）",
+      "✅ 4 小时回撤 5.9%，15 分钟 42.5%（7 倍风险）",
+      "✅ 4 小时手续费 0.15%，15 分钟 18.5%（123 倍成本）",
+      "",
+      "🎯 结论：15 分钟周期完全不适合趋势跟踪策略！",
+      "🎯 最优周期：4 小时（夏普 6.37 世界级）"
+    ]
+  }
+}

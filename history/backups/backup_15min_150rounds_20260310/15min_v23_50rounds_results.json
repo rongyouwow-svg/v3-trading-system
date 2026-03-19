@@ -1,0 +1,1176 @@
+{
+  "total_rounds": 50,
+  "timestamp": "2026-03-10T08:53:54.323162",
+  "timeframe": "15 分钟",
+  "strategy_type": "RSI 均值回归 + v23 风格网格优化",
+  "baseline": "Round-41 (夏普 7.10)",
+  "results": {
+    "round_1": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 17,
+        "rsi_overbought": 81,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.4,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.65,
+        "total_trades": 212,
+        "win_rate": 74.2,
+        "profit_factor": 23.27
+      }
+    },
+    "round_2": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 17,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 101.7,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.87,
+        "total_trades": 216,
+        "win_rate": 69.1,
+        "profit_factor": 24.05
+      }
+    },
+    "round_3": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 17,
+        "rsi_overbought": 83,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.9,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.67,
+        "total_trades": 200,
+        "win_rate": 71.4,
+        "profit_factor": 23.37
+      }
+    },
+    "round_4": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 18,
+        "rsi_overbought": 81,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.8,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.67,
+        "total_trades": 183,
+        "win_rate": 71.5,
+        "profit_factor": 23.37
+      }
+    },
+    "round_5": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.4,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.78,
+        "total_trades": 208,
+        "win_rate": 74.4,
+        "profit_factor": 23.73
+      }
+    },
+    "round_6": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 18,
+        "rsi_overbought": 83,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 101.1,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.82,
+        "total_trades": 211,
+        "win_rate": 72.2,
+        "profit_factor": 23.89
+      }
+    },
+    "round_7": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 19,
+        "rsi_overbought": 81,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.2,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.7,
+        "total_trades": 185,
+        "win_rate": 73.4,
+        "profit_factor": 23.45
+      }
+    },
+    "round_8": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 19,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.8,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.67,
+        "total_trades": 217,
+        "win_rate": 69.6,
+        "profit_factor": 23.36
+      }
+    },
+    "round_9": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 19,
+        "rsi_overbought": 83,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.8,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.74,
+        "total_trades": 193,
+        "win_rate": 69.7,
+        "profit_factor": 23.58
+      }
+    },
+    "round_10": {
+      "stage": "RSI 深度优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 17,
+        "rsi_overbought": 81,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.2,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.19,
+        "total_trades": 196,
+        "win_rate": 72.9,
+        "profit_factor": 23.68
+      }
+    },
+    "round_11": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 18,
+        "bb_std": 1.8,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.7,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.87,
+        "total_trades": 201,
+        "win_rate": 75.4,
+        "profit_factor": 23.57
+      }
+    },
+    "round_12": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 18,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.8,
+        "max_drawdown": 13.4,
+        "sharpe_ratio": 7.31,
+        "total_trades": 205,
+        "win_rate": 73.5,
+        "profit_factor": 24.83
+      }
+    },
+    "round_13": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 18,
+        "bb_std": 2.2,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.9,
+        "max_drawdown": 13.1,
+        "sharpe_ratio": 7.1,
+        "total_trades": 206,
+        "win_rate": 73.6,
+        "profit_factor": 25.15
+      }
+    },
+    "round_14": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 1.8,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.3,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.78,
+        "total_trades": 207,
+        "win_rate": 73.4,
+        "profit_factor": 23.25
+      }
+    },
+    "round_15": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 101.8,
+        "max_drawdown": 13.4,
+        "sharpe_ratio": 7.45,
+        "total_trades": 179,
+        "win_rate": 74.0,
+        "profit_factor": 25.32
+      }
+    },
+    "round_16": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.2,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.3,
+        "max_drawdown": 13.1,
+        "sharpe_ratio": 7.13,
+        "total_trades": 198,
+        "win_rate": 71.7,
+        "profit_factor": 25.25
+      }
+    },
+    "round_17": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 22,
+        "bb_std": 1.8,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.0,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.89,
+        "total_trades": 211,
+        "win_rate": 75.6,
+        "profit_factor": 23.64
+      }
+    },
+    "round_18": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 22,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.6,
+        "max_drawdown": 13.4,
+        "sharpe_ratio": 7.22,
+        "total_trades": 205,
+        "win_rate": 71.1,
+        "profit_factor": 24.54
+      }
+    },
+    "round_19": {
+      "stage": "布林带优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 22,
+        "bb_std": 2.2,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.6,
+        "max_drawdown": 13.1,
+        "sharpe_ratio": 7.22,
+        "total_trades": 210,
+        "win_rate": 72.4,
+        "profit_factor": 25.57
+      }
+    },
+    "round_21": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 2.5,
+        "stop_loss": 0.007,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.6,
+        "max_drawdown": 12.4,
+        "sharpe_ratio": 7.21,
+        "total_trades": 206,
+        "win_rate": 73.3,
+        "profit_factor": 26.48
+      }
+    },
+    "round_22": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 2.5,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 103.8,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.59,
+        "total_trades": 184,
+        "win_rate": 68.9,
+        "profit_factor": 26.66
+      }
+    },
+    "round_23": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 2.5,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 101.6,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.08,
+        "total_trades": 216,
+        "win_rate": 75.1,
+        "profit_factor": 24.02
+      }
+    },
+    "round_24": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 2.5,
+        "stop_loss": 0.01,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.7,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.02,
+        "total_trades": 212,
+        "win_rate": 70.0,
+        "profit_factor": 23.82
+      }
+    },
+    "round_25": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.007,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.4,
+        "max_drawdown": 12.4,
+        "sharpe_ratio": 7.28,
+        "total_trades": 215,
+        "win_rate": 74.8,
+        "profit_factor": 26.71
+      }
+    },
+    "round_26": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 102.9,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.53,
+        "total_trades": 187,
+        "win_rate": 70.2,
+        "profit_factor": 26.44
+      }
+    },
+    "round_27": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.5,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.0,
+        "total_trades": 207,
+        "win_rate": 75.6,
+        "profit_factor": 23.76
+      }
+    },
+    "round_28": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.01,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.4,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.85,
+        "total_trades": 184,
+        "win_rate": 73.0,
+        "profit_factor": 23.25
+      }
+    },
+    "round_29": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.5,
+        "stop_loss": 0.007,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.1,
+        "max_drawdown": 12.4,
+        "sharpe_ratio": 7.33,
+        "total_trades": 192,
+        "win_rate": 74.8,
+        "profit_factor": 26.89
+      }
+    },
+    "round_30": {
+      "stage": "成交量 + 止损优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.5,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 102.1,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.47,
+        "total_trades": 190,
+        "win_rate": 68.9,
+        "profit_factor": 26.23
+      }
+    },
+    "round_31": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.018,
+        "position_size": 0.2,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.0,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.89,
+        "total_trades": 183,
+        "win_rate": 71.5,
+        "profit_factor": 23.16
+      }
+    },
+    "round_32": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.018,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.2,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.91,
+        "total_trades": 187,
+        "win_rate": 70.9,
+        "profit_factor": 23.22
+      }
+    },
+    "round_33": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.018,
+        "position_size": 0.24,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.2,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.05,
+        "total_trades": 204,
+        "win_rate": 74.6,
+        "profit_factor": 23.68
+      }
+    },
+    "round_34": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.2,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.0,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.25,
+        "total_trades": 202,
+        "win_rate": 74.8,
+        "profit_factor": 23.64
+      }
+    },
+    "round_35": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.1,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.26,
+        "total_trades": 208,
+        "win_rate": 74.1,
+        "profit_factor": 23.66
+      }
+    },
+    "round_36": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.24,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.2,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.19,
+        "total_trades": 218,
+        "win_rate": 75.6,
+        "profit_factor": 23.46
+      }
+    },
+    "round_37": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.022,
+        "position_size": 0.2,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.6,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.08,
+        "total_trades": 182,
+        "win_rate": 73.2,
+        "profit_factor": 23.79
+      }
+    },
+    "round_38": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.022,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.5,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.07,
+        "total_trades": 196,
+        "win_rate": 73.9,
+        "profit_factor": 23.75
+      }
+    },
+    "round_39": {
+      "stage": "止盈 + 仓位优化",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.022,
+        "position_size": 0.24,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 98.7,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.95,
+        "total_trades": 194,
+        "win_rate": 70.1,
+        "profit_factor": 23.34
+      }
+    },
+    "round_41": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 104.4,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.49,
+        "total_trades": 188,
+        "win_rate": 69.9,
+        "profit_factor": 26.83
+      }
+    },
+    "round_42": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 17,
+        "rsi_overbought": 83,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 105.5,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.57,
+        "total_trades": 180,
+        "win_rate": 70.7,
+        "profit_factor": 27.1
+      }
+    },
+    "round_43": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.2,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 103.0,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.39,
+        "total_trades": 206,
+        "win_rate": 69.7,
+        "profit_factor": 26.46
+      }
+    },
+    "round_44": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.019,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.5,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.07,
+        "total_trades": 200,
+        "win_rate": 74.9,
+        "profit_factor": 23.53
+      }
+    },
+    "round_45": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.23,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 99.0,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.04,
+        "total_trades": 198,
+        "win_rate": 69.3,
+        "profit_factor": 23.4
+      }
+    },
+    "round_46": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 6,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 106.5,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.64,
+        "total_trades": 195,
+        "win_rate": 72.9,
+        "profit_factor": 27.37
+      }
+    },
+    "round_47": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 19,
+        "rsi_overbought": 81,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.008,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 104.3,
+        "max_drawdown": 13.0,
+        "sharpe_ratio": 7.48,
+        "total_trades": 196,
+        "win_rate": 72.0,
+        "profit_factor": 26.79
+      }
+    },
+    "round_48": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 2.8,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4
+      },
+      "result": {
+        "annual_return": 100.1,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 7.11,
+        "total_trades": 184,
+        "win_rate": 73.8,
+        "profit_factor": 23.66
+      }
+    },
+    "round_49": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 3
+      },
+      "result": {
+        "annual_return": 98.2,
+        "max_drawdown": 14.1,
+        "sharpe_ratio": 6.98,
+        "total_trades": 195,
+        "win_rate": 69.5,
+        "profit_factor": 23.21
+      }
+    },
+    "round_50": {
+      "stage": "综合微调",
+      "params": {
+        "rsi_period": 7,
+        "rsi_oversold": 18,
+        "rsi_overbought": 82,
+        "bb_period": 20,
+        "bb_std": 2.0,
+        "volume_ratio": 3.0,
+        "stop_loss": 0.009,
+        "take_profit": 0.02,
+        "position_size": 0.22,
+        "max_hold_time": 4,
+        "optimal": true
+      },
+      "result": {
+        "annual_return": 109.9,
+        "max_drawdown": 12.7,
+        "sharpe_ratio": 7.67,
+        "total_trades": 189,
+        "win_rate": 73.3,
+        "profit_factor": 28.86
+      }
+    }
+  },
+  "stage_summaries": {
+    "round_1-10": {
+      "best_round": "round_10",
+      "best_sharpe": 7.19,
+      "best_annual": 100.2,
+      "best_drawdown": 14.1,
+      "stage_name": "RSI 深度优化"
+    },
+    "round_11-20": {
+      "best_round": "round_15",
+      "best_sharpe": 7.45,
+      "best_annual": 101.8,
+      "best_drawdown": 13.4,
+      "stage_name": "布林带优化"
+    },
+    "round_21-30": {
+      "best_round": "round_22",
+      "best_sharpe": 7.59,
+      "best_annual": 103.8,
+      "best_drawdown": 13.0,
+      "stage_name": "成交量 + 止损优化"
+    },
+    "round_31-40": {
+      "best_round": "round_35",
+      "best_sharpe": 7.26,
+      "best_annual": 100.1,
+      "best_drawdown": 14.1,
+      "stage_name": "止盈 + 仓位优化"
+    },
+    "round_41-50": {
+      "best_round": "round_50",
+      "best_sharpe": 7.67,
+      "best_annual": 109.9,
+      "best_drawdown": 12.7,
+      "stage_name": "综合微调"
+    }
+  },
+  "best_overall": {
+    "round": "round_50",
+    "stage": "综合微调",
+    "params": {
+      "rsi_period": 7,
+      "rsi_oversold": 18,
+      "rsi_overbought": 82,
+      "bb_period": 20,
+      "bb_std": 2.0,
+      "volume_ratio": 3.0,
+      "stop_loss": 0.009,
+      "take_profit": 0.02,
+      "position_size": 0.22,
+      "max_hold_time": 4,
+      "optimal": true
+    },
+    "result": {
+      "annual_return": 109.9,
+      "max_drawdown": 12.7,
+      "sharpe_ratio": 7.67,
+      "total_trades": 189,
+      "win_rate": 73.3,
+      "profit_factor": 28.86
+    }
+  }
+}

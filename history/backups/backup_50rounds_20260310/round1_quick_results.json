@@ -1,0 +1,206 @@
+[
+  {
+    "annual_return": 2.273562643098881,
+    "win_rate": 42.1760391198044,
+    "profit_factor": 1.393212029770368,
+    "total_trades": 818,
+    "total_return": 21.15520560995652,
+    "final_capital": 12115.520560995652,
+    "config": {
+      "signal_combo": "3 指标",
+      "wr": -70,
+      "j": 25,
+      "rsi": 40,
+      "adx": 20,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 2.180116306600288,
+    "win_rate": 42.17171717171717,
+    "profit_factor": 1.3945548242442891,
+    "total_trades": 792,
+    "total_return": 20.213510989509814,
+    "final_capital": 12021.351098950981,
+    "config": {
+      "signal_combo": "3 指标",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 25,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 0.5320447840905462,
+    "win_rate": 47.05882352941176,
+    "profit_factor": 1.3917093394579052,
+    "total_trades": 17,
+    "total_return": 4.633747561413766,
+    "final_capital": 10463.374756141377,
+    "config": {
+      "signal_combo": "6 指标",
+      "wr": -70,
+      "j": 25,
+      "rsi": 40,
+      "adx": 20,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 0.4321905780783064,
+    "win_rate": 44.44444444444444,
+    "profit_factor": 1.4000955835982323,
+    "total_trades": 27,
+    "total_return": 3.749909690241984,
+    "final_capital": 10374.990969024198,
+    "config": {
+      "signal_combo": "6 指标",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 25,
+      "time": false,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 0.431434076527748,
+    "win_rate": 42.0,
+    "profit_factor": 1.3982361165381498,
+    "total_trades": 250,
+    "total_return": 3.743238916366172,
+    "final_capital": 10374.323891636617,
+    "config": {
+      "signal_combo": "5 指标",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 30,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 0.40744084818631343,
+    "win_rate": 41.899441340782126,
+    "profit_factor": 1.3980857936772684,
+    "total_trades": 358,
+    "total_return": 3.5318647872035585,
+    "final_capital": 10353.186478720356,
+    "config": {
+      "signal_combo": "5 指标",
+      "wr": -70,
+      "j": 25,
+      "rsi": 40,
+      "adx": 20,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 0.22519297263134952,
+    "win_rate": 41.75675675675676,
+    "profit_factor": 1.3975160377342772,
+    "total_trades": 740,
+    "total_return": 1.9386812057308997,
+    "final_capital": 10193.86812057309,
+    "config": {
+      "signal_combo": "4 指标",
+      "wr": -70,
+      "j": 25,
+      "rsi": 40,
+      "adx": 20,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 0.19402367541201393,
+    "win_rate": 41.75491679273828,
+    "profit_factor": 1.397857426186338,
+    "total_trades": 661,
+    "total_return": 1.668382372972137,
+    "final_capital": 10166.838237297214,
+    "config": {
+      "signal_combo": "6+ 特殊",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 25,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": 0.09410980650292888,
+    "win_rate": 42.857142857142854,
+    "profit_factor": 1.3982803267082409,
+    "total_trades": 14,
+    "total_return": 0.8061935325426385,
+    "final_capital": 10080.619353254264,
+    "config": {
+      "signal_combo": "6 指标",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 25,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": -0.26287205140397285,
+    "win_rate": 41.6195856873823,
+    "profit_factor": 1.3978499833133602,
+    "total_trades": 531,
+    "total_return": -2.221825208255341,
+    "final_capital": 9777.817479174466,
+    "config": {
+      "signal_combo": "4 指标",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 30,
+      "time": true,
+      "dir": "long_only"
+    }
+  },
+  {
+    "annual_return": -10.15789158227911,
+    "win_rate": 35.12544802867383,
+    "profit_factor": 1.4023599568521772,
+    "total_trades": 279,
+    "total_return": -59.92292480391319,
+    "final_capital": 4007.7075196086803,
+    "config": {
+      "signal_combo": "6 指标",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 25,
+      "time": true,
+      "dir": "both"
+    }
+  },
+  {
+    "annual_return": -10.63555195082192,
+    "win_rate": 34.67153284671533,
+    "profit_factor": 1.4097308593160414,
+    "total_trades": 274,
+    "total_return": -61.70576512833688,
+    "final_capital": 3829.423487166313,
+    "config": {
+      "signal_combo": "6 指标",
+      "wr": -80,
+      "j": 20,
+      "rsi": 35,
+      "adx": 25,
+      "time": true,
+      "dir": "short_only"
+    }
+  }
+]

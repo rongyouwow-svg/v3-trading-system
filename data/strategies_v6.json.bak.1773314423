@@ -1,0 +1,12 @@
+[
+  {
+    "symbol": "ETHUSDT",
+    "strategy": "auto_sim",
+    "status": "运行中",
+    "leverage": 3,
+    "amount": 100.0,
+    "side": "long",
+    "entry_price": 0,
+    "quantity": 0
+  }
+]

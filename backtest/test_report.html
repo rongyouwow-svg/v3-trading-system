@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦞 回测报告 - TESTUSDT</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0e27;
+            --card: #1a1f3a;
+            --accent: #ff6b35;
+            --text: #fff;
+            --text2: #94a3b8;
+            --success: #22c55e;
+            --danger: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header { text-align: center; padding: 20px 0; border-bottom: 2px solid var(--accent); margin-bottom: 30px; }
+        h1 { background: linear-gradient(135deg, var(--accent), #f7c59f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card { background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid #2d3748; }
+        .card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.1rem; }
+        .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .stat-item { background: rgba(255,107,53,0.1); padding: 15px; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 1.8rem; font-weight: bold; color: var(--accent); }
+        .stat-label { font-size: 0.85rem; color: var(--text2); margin-top: 5px; }
+        .positive { color: var(--success); }
+        .negative { color: var(--danger); }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #2d3748; }
+        th { color: var(--text2); font-size: 0.85rem; }
+        .chart-container { height: 400px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦞 回测报告 - TESTUSDT</h1>
+            <p style="color: var(--text2); margin-top: 10px;">2026-03-03T21:47:04.972048</p>
+        </header>
+        
+        <div class="grid">
+            <div class="card">
+                <h2>📊 收益概览</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value negative">+0.00%</div>
+                        <div class="stat-label">总收益</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value negative">0.00%</div>
+                        <div class="stat-label">最大回撤</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">0.00</div>
+                        <div class="stat-label">夏普比率</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">0.0%</div>
+                        <div class="stat-label">胜率</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>💰 交易统计</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">总交易数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value positive">0</div>
+                        <div class="stat-label">盈利交易</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value negative">0</div>
+                        <div class="stat-label">亏损交易</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">inf</div>
+                        <div class="stat-label">盈亏比</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📈 权益曲线</h2>
+            <div class="chart-container">
+                <canvas id="equityChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📝 交易明细</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>方向</th>
+                        <th>入场价</th>
+                        <th>出场价</th>
+                        <th>盈亏</th>
+                        <th>盈亏%</th>
+                        <th>出场原因</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        const equityCtx = document.getElementById('equityChart').getContext('2d');
+        new Chart(equityCtx, {
+            type: 'line',
+            data: {
+                labels: ['2024-01-01 01:00:00', '2024-01-01 11:00:00', '2024-01-01 21:00:00', '2024-01-02 07:00:00', '2024-01-02 17:00:00', '2024-01-03 03:00:00', '2024-01-03 13:00:00', '2024-01-03 23:00:00', '2024-01-04 09:00:00', '2024-01-04 19:00:00', '2024-01-05 05:00:00', '2024-01-05 15:00:00', '2024-01-06 01:00:00', '2024-01-06 11:00:00', '2024-01-06 21:00:00', '2024-01-07 07:00:00', '2024-01-07 17:00:00', '2024-01-08 03:00:00', '2024-01-08 13:00:00', '2024-01-08 23:00:00', '2024-01-09 09:00:00', '2024-01-09 19:00:00', '2024-01-10 05:00:00', '2024-01-10 15:00:00', '2024-01-11 01:00:00', '2024-01-11 11:00:00', '2024-01-11 21:00:00', '2024-01-12 07:00:00', '2024-01-12 17:00:00', '2024-01-13 03:00:00', '2024-01-13 13:00:00', '2024-01-13 23:00:00', '2024-01-14 09:00:00', '2024-01-14 19:00:00', '2024-01-15 05:00:00', '2024-01-15 15:00:00', '2024-01-16 01:00:00', '2024-01-16 11:00:00', '2024-01-16 21:00:00', '2024-01-17 07:00:00', '2024-01-17 17:00:00', '2024-01-18 03:00:00', '2024-01-18 13:00:00', '2024-01-18 23:00:00', '2024-01-19 09:00:00', '2024-01-19 19:00:00', '2024-01-20 05:00:00', '2024-01-20 15:00:00', '2024-01-21 01:00:00', '2024-01-21 11:00:00'],
+                datasets: [{
+                    label: '账户净值',
+                    data: [10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0],
+                    borderColor: '#ff6b35',
+                    backgroundColor: 'rgba(255,107,53,0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#94a3b8' }, grid: { color: '#2d3748' } },
+                    y: { ticks: { color: '#94a3b8' }, grid: { color: '#2d3748' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

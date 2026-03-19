@@ -497,7 +497,7 @@ class BinanceUSDTFuturesConnector:
     ) -> Result:
         """
         创建止损单（使用 Algo Order API）
-        参考：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+        参考：/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
 
         Args:
             symbol: 交易对
@@ -547,7 +547,7 @@ class BinanceUSDTFuturesConnector:
     def cancel_algo_order(self, symbol: str, algo_id: str) -> Result:
         """
         取消 Algo 订单（止损单/止盈单）
-        参考：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+        参考：/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
 
         Args:
             symbol: 交易对
@@ -580,7 +580,7 @@ class BinanceUSDTFuturesConnector:
     def get_algo_orders(self, symbol: str = None, limit: int = 50) -> Result:
         """
         获取 Algo 订单列表（止损单/止盈单）
-        参考：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+        参考：/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
         
         测试网 vs 实盘:
         - 测试网：https://demo-fapi.binance.com/fapi/v1/openAlgoOrders
@@ -631,7 +631,7 @@ class BinanceUSDTFuturesConnector:
     def check_stop_loss_exists(self, symbol: str, side: str = None) -> Result:
         """
         检查指定交易对是否已有活跃止损单（查重机制）
-        参考：/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
+        参考：/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md
 
         Args:
             symbol: 交易对

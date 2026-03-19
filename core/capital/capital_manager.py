@@ -81,7 +81,7 @@ class CapitalManager:
         self.peak_capital: Decimal = Decimal('0')
         
         # 持久化文件
-        self.persistence_file = "/home/admin/.openclaw/workspace/quant/v3-architecture/data/capital_manager.json"
+        self.persistence_file = "/root/.openclaw/workspace/quant/v3-architecture/data/capital_manager.json"
         
         # 确保目录存在
         os.makedirs(os.path.dirname(self.persistence_file), exist_ok=True)

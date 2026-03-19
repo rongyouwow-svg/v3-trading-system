@@ -25,10 +25,10 @@
 ps aux | grep supervisord | grep -v grep
 
 # 2. 如果没有运行，启动 Supervisor
-/home/admin/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
+/root/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 # 3. 检查所有服务状态
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 
 # 4. 验证 Web API
 curl http://localhost:3000/api/health
@@ -48,16 +48,16 @@ curl http://localhost:3000/api/health
 
 ```bash
 # 1. 查看策略状态
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 
 # 2. 重启单个策略
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-eth
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-eth
 
 # 3. 重启所有策略
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart all
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart all
 
 # 4. 查看日志
-tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/supervisor_eth_out.log
+tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/supervisor_eth_out.log
 ```
 
 ### 场景 3: Web 服务崩溃
@@ -70,7 +70,7 @@ netstat -tlnp | grep 3000
 pkill -f "uvicorn web.dashboard_api:app"
 
 # 3. 重启 Web 服务
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-web
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-web
 
 # 4. 验证
 curl http://localhost:3000/api/health
@@ -89,18 +89,18 @@ curl http://localhost:3000/api/health
 ps aux | grep supervisord | grep -v grep
 
 # 检查所有服务
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 ```
 
 #### Step 2: 如果 Supervisor 未运行
 
 ```bash
 # 启动 Supervisor
-/home/admin/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
+/root/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 # 验证启动
 sleep 3
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 ```
 
 #### Step 3: 如果配置文件丢失
@@ -110,15 +110,15 @@ sleep 3
 sudo mkdir -p /etc/supervisor/conf.d
 
 # 2. 复制配置文件
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 sudo cp supervisor/*.conf /etc/supervisor/conf.d/
 sudo cp supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 
 # 3. 启动 Supervisor
-/home/admin/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
+/root/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 # 4. 验证
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 ```
 
 #### Step 4: 验证系统功能
@@ -157,7 +157,7 @@ cat strategies/rsi_scale_in_strategy.py | grep -A 5 "quantity.*round"
 # 修复 ETH 精度 (3 位小数)
 
 # 重启策略
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-avax
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-avax
 ```
 
 ### 问题 2: Web 服务端口占用
@@ -176,7 +176,7 @@ lsof -i :3000
 pkill -f "uvicorn web.dashboard_api:app"
 
 # 3. 重启服务
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-web
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-web
 ```
 
 ### 问题 3: 策略无法获取 K 线数据
@@ -192,11 +192,11 @@ pkill -f "uvicorn web.dashboard_api:app"
 curl http://localhost:3000/api/health
 
 # 2. 如果 Web API 未运行，重启
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-web
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-web
 
 # 3. 等待 5 秒后重启策略
 sleep 5
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-eth
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart quant-strategy-eth
 ```
 
 ### 问题 4: Supervisor 配置未加载
@@ -209,15 +209,15 @@ sleep 5
 ls -la /etc/supervisor/conf.d/
 
 # 2. 重新加载配置
-sudo cp /home/admin/.openclaw/workspace/quant/v3-architecture/supervisor/*.conf /etc/supervisor/conf.d/
+sudo cp /root/.openclaw/workspace/quant/v3-architecture/supervisor/*.conf /etc/supervisor/conf.d/
 
 # 3. 重启 Supervisor
 pkill supervisord
 sleep 2
-/home/admin/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
+/root/.pyenv/versions/3.10.0/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 # 4. 验证
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 ```
 
 ---
@@ -263,8 +263,8 @@ sleep 2
 
 | 类型 | 路径 |
 |------|------|
-| 项目根目录 | `/home/admin/.openclaw/workspace/quant/v3-architecture` |
-| 日志目录 | `/home/admin/.openclaw/workspace/quant/v3-architecture/logs` |
+| 项目根目录 | `/root/.openclaw/workspace/quant/v3-architecture` |
+| 日志目录 | `/root/.openclaw/workspace/quant/v3-architecture/logs` |
 | Supervisor 配置 | `/etc/supervisor/conf.d/` |
 | 策略文件 | `strategies/*.py` |
 | Web API | `web/dashboard_api.py` |
@@ -273,13 +273,13 @@ sleep 2
 
 ```bash
 # Supervisor 状态
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf status
 
 # 重启单个服务
-/home/admin/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart <service-name>
+/root/.pyenv/versions/3.10.0/bin/supervisorctl -c /etc/supervisor/supervisord.conf restart <service-name>
 
 # 查看日志
-tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/<log-file>.log
+tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/<log-file>.log
 
 # 验证 API
 curl http://localhost:3000/api/health

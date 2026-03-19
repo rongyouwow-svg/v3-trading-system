@@ -5,8 +5,8 @@
       "name": "测试网主账号",
       "enabled": true,
       "testnet": true,
-      "api_key": "q3BX9K88wS4Dzco6DxVp5fhkRc5OOUu3tKFK5VBHkpcweVJ1NDDgATDV6Db0TTOg",
-      "secret_key": "J3rsWIqPPjdRtXzbBReq24YiKrw03CiHopRxM1B5eUTQ6xZ6pi1jLK1lmiYrqctY"
+      "api_key": "YOUR_API_KEY",
+      "secret_key": "YOUR_SECRET_KEY"
     },
     {
       "id": "mainnet_1",

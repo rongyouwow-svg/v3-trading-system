@@ -167,7 +167,7 @@ strategy.stop_loss_pct = 0.002
 # /etc/supervisor/conf.d/quant-web.conf
 [program:quant-web]
 command=python3 -m uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
-directory=/home/admin/.openclaw/workspace/quant/v3-architecture
+directory=/root/.openclaw/workspace/quant/v3-architecture
 autostart=true
 autorestart=true
 startretries=3

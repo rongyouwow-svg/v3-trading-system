@@ -1,0 +1,2 @@
+admin     103699  0.0  0.0 222372  1808 ?        S    07:41   0:00 /bin/bash -c cd /home/admin/.openclaw/workspace/quant && nohup python3 gateway.py > /tmp/gateway.log 2>&1 & sleep 5 && curl -s http://localhost:8080/api/health
+admin     103701  0.0  2.8 695160 53904 ?        S    07:41   0:01 /home/admin/.pyenv/versions/3.10.0/bin/python3 gateway.py

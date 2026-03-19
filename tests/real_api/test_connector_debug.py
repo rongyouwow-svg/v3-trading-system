@@ -10,8 +10,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from connectors.binance.usdt_futures import BinanceUSDTFuturesConnector
 
 # API 配置
-API_KEY = "q3BX9K88wS4Dzco6DxVp5fhkRc5OOUu3tKFK5VBHkpcweVJ1NDDgATDV6Db0TTOg"
-SECRET_KEY = "J3rsWIqPPjdRtXzbBReq24YiKrw03CiHopRxM1B5eUTQ6xZ6pi1jLK1lmiYrqctY"
+API_KEY = "YOUR_API_KEY"
+SECRET_KEY = "YOUR_SECRET_KEY"
 
 # 创建连接器
 connector = BinanceUSDTFuturesConnector(API_KEY, SECRET_KEY, testnet=True)

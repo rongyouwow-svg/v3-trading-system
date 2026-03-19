@@ -1,0 +1,99 @@
+[
+  {
+    "annual_return": 18.49119089763804,
+    "max_drawdown": 39.76808371994557,
+    "win_rate": 29.45590994371482,
+    "profit_factor": 2.68582596707029,
+    "total_trades": 533,
+    "total_return": 326.1491448671228,
+    "final_capital": 42614.91448671228,
+    "long_win_rate": 31.851851851851855,
+    "short_win_rate": 26.996197718631176,
+    "long_trades": 270,
+    "short_trades": 263,
+    "config": {
+      "name": "MACD+EMA+ 成交量过滤",
+      "type": "macd_ema_volume",
+      "stop_loss": 0.05,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": 17.21865750216964,
+    "max_drawdown": 47.537803567421285,
+    "win_rate": 22.772277227722775,
+    "profit_factor": 4.414199063321624,
+    "total_trades": 202,
+    "total_return": 288.59466272092106,
+    "final_capital": 38859.466272092104,
+    "long_win_rate": 22.772277227722775,
+    "short_win_rate": 0,
+    "long_trades": 202,
+    "short_trades": 0,
+    "config": {
+      "name": "只做多 + 止盈 25%",
+      "type": "long_only",
+      "stop_loss": 0.05,
+      "take_profit": 0.25
+    }
+  },
+  {
+    "annual_return": 11.180697917133898,
+    "max_drawdown": 50.91158714878195,
+    "win_rate": 26.87074829931973,
+    "profit_factor": 2.9395644905320815,
+    "total_trades": 588,
+    "total_return": 147.32475768113008,
+    "final_capital": 24732.475768113007,
+    "long_win_rate": 28.865979381443296,
+    "short_win_rate": 24.915824915824917,
+    "long_trades": 291,
+    "short_trades": 297,
+    "config": {
+      "name": "MACD+EMA+ 止盈 20%",
+      "type": "macd_ema",
+      "stop_loss": 0.05,
+      "take_profit": 0.2
+    }
+  },
+  {
+    "annual_return": 7.201508032027304,
+    "max_drawdown": 48.889189351885335,
+    "win_rate": 31.06382978723404,
+    "profit_factor": 2.5559954441400534,
+    "total_trades": 235,
+    "total_return": 81.14713934172381,
+    "final_capital": 18114.71393417238,
+    "long_win_rate": 31.06382978723404,
+    "short_win_rate": 0,
+    "long_trades": 235,
+    "short_trades": 0,
+    "config": {
+      "name": "只做多 + 移动止损 10%",
+      "type": "long_only_trail",
+      "stop_loss": 0.05,
+      "trail_stop": 0.1,
+      "trail_after": 0.1
+    }
+  },
+  {
+    "annual_return": -18.094121179633504,
+    "max_drawdown": 84.76043615685298,
+    "win_rate": 41.459369817578775,
+    "profit_factor": 1.1656583859837333,
+    "total_trades": 603,
+    "total_return": -81.82902436159159,
+    "final_capital": 1817.0975638408402,
+    "long_win_rate": 40.44117647058824,
+    "short_win_rate": 42.296072507552864,
+    "long_trades": 272,
+    "short_trades": 331,
+    "config": {
+      "name": "MACD+EMA+ 移动止损 8%",
+      "type": "macd_ema_trail",
+      "stop_loss": 0.06,
+      "trail_stop": 0.08,
+      "trail_after": 0.08
+    }
+  }
+]

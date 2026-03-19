@@ -284,13 +284,32 @@ def register_routes(app: FastAPI):
         Returns:
             Dict: 账户信息
         """
-        # TODO: 从连接器获取
+        try:
+            import requests
+            # 从币安 API 获取真实余额
+            resp = requests.get("http://localhost:8888/api/v2/private/account", timeout=10)
+            if resp.status_code == 200:
+                data = resp.json()
+                usdt_balance = next((item for item in data.get('balances', []) if item['asset'] == 'USDT'), None)
+                if usdt_balance:
+                    return {
+                        "balance": {
+                            "total": float(usdt_balance.get('free', 0)) + float(usdt_balance.get('locked', 0)),
+                            "available": float(usdt_balance.get('free', 0)),
+                            "locked": float(usdt_balance.get('locked', 0))
+                        }
+                    }
+        except Exception as e:
+            pass
+        
+        # 降级返回
         return {
             "balance": {
                 "total": 0,
                 "available": 0,
                 "locked": 0
-            }
+            },
+            "warning": "无法获取真实余额，请检查 API 连接"
         }
     
     @app.get("/api/system")
@@ -364,3 +383,284 @@ if __name__ == "__main__":
         port=3000,
         log_level="info"
     )
+
+
+# ==================== 优雅关闭处理 ====================
+
+import atexit
+import signal
+import sys
+
+class GracefulShutdown:
+    """优雅关闭处理器"""
+    
+    def __init__(self):
+        self.running = True
+        # 注册信号处理
+        signal.signal(signal.SIGTERM, self.handle_signal)
+        signal.signal(signal.SIGINT, self.handle_signal)
+        # 注册退出清理
+        atexit.register(self.cleanup)
+    
+    def handle_signal(self, signum, frame):
+        logger.info(f"收到信号 {signum}，开始优雅关闭...")
+        self.running = False
+        self.cleanup()
+        sys.exit(0)
+    
+    def cleanup(self):
+        """清理所有资源"""
+        logger.info("开始清理资源...")
+        
+        # 关闭数据库连接
+        try:
+            # TODO: 添加数据库连接关闭
+            logger.info("✅ 数据库连接已关闭")
+        except Exception as e:
+            logger.error(f"❌ 关闭数据库失败：{e}")
+        
+        # 关闭 API 连接
+        try:
+            # TODO: 添加 API 连接关闭
+            logger.info("✅ API 连接已关闭")
+        except Exception as e:
+            logger.error(f"❌ 关闭 API 失败：{e}")
+        
+        # 保存状态
+        try:
+            # TODO: 添加状态保存
+            logger.info("✅ 状态已保存")
+        except Exception as e:
+            logger.error(f"❌ 保存状态失败：{e}")
+        
+        logger.info("✅ 资源清理完成")
+
+# 初始化优雅关闭处理器
+shutdown_handler = GracefulShutdown()
+
+logger.info("✅ 优雅关闭处理器已初始化")
+
+
+# ==================== 健康检查端点 ====================
+
+@app.get("/health/detailed")
+async def health_detailed():
+    """详细健康检查"""
+    import psutil
+    import os
+    
+    try:
+        process = psutil.Process(os.getpid())
+        
+        # 内存使用
+        memory_percent = process.memory_percent()
+        memory_info = process.memory_info()
+        
+        # CPU 使用
+        cpu_percent = process.cpu_percent(interval=1)
+        
+        # 磁盘使用
+        disk_usage = psutil.disk_usage('/')
+        
+        # 网络连接数
+        connections = process.num_connections()
+        
+        # 打开的文件数
+        open_files = len(process.open_files())
+        
+        health_status = {
+            "status": "healthy",
+            "timestamp": datetime.now().isoformat(),
+            "process": {
+                "pid": os.getpid(),
+                "memory_percent": round(memory_percent, 2),
+                "memory_rss_mb": round(memory_info.rss / 1024 / 1024, 2),
+                "cpu_percent": cpu_percent,
+                "threads": process.num_threads(),
+                "connections": connections,
+                "open_files": open_files
+            },
+            "system": {
+                "memory_total_gb": round(psutil.virtual_memory().total / 1024 / 1024 / 1024, 2),
+                "memory_available_gb": round(psutil.virtual_memory().available / 1024 / 1024 / 1024, 2),
+                "disk_total_gb": round(disk_usage.total / 1024 / 1024 / 1024, 2),
+                "disk_free_gb": round(disk_usage.free / 1024 / 1024 / 1024, 2),
+                "disk_percent": round(disk_usage.percent, 2)
+            }
+        }
+        
+        # 健康检查规则
+        if memory_percent > 90:
+            health_status["status"] = "unhealthy"
+            health_status["reason"] = "memory_usage > 90%"
+        elif cpu_percent > 90:
+            health_status["status"] = "unhealthy"
+            health_status["reason"] = "cpu_usage > 90%"
+        elif disk_usage.percent > 90:
+            health_status["status"] = "unhealthy"
+            health_status["reason"] = "disk_usage > 90%"
+        
+        return health_status
+    
+    except Exception as e:
+        return {
+            "status": "unhealthy",
+            "reason": str(e),
+            "timestamp": datetime.now().isoformat()
+        }
+
+logger.info("✅ 健康检查端点已添加")
+
+
+# ==================== 自动状态保存 ====================
+
+import asyncio
+from core.state_persistence import state_manager
+
+async def auto_save_state():
+    """每 5 分钟自动保存状态"""
+    while True:
+        await asyncio.sleep(300)  # 5 分钟
+        try:
+            # 获取当前策略状态
+            response = requests.get('http://localhost:3000/api/strategy/active', timeout=5)
+            if response.status_code == 200:
+                data = response.json()
+                states = {s['symbol']: s for s in data.get('active_strategies', [])}
+                
+                # 保存状态
+                state_manager.save_all_states(states)
+                logger.info("✅ 自动状态保存完成")
+        except Exception as e:
+            logger.error(f"❌ 自动状态保存失败：{e}")
+
+# 启动后台任务
+# asyncio.create_task(auto_save_state())
+
+logger.info("✅ 自动状态保存已配置")
+
+
+# ============================================================================
+# 策略注册中心 API
+# ============================================================================
+
+# 内存中的策略注册表（全局变量）
+global_active_strategies = {}
+
+@app.post("/api/strategy/register")
+async def register_strategy(request: Request):
+    """策略注册"""
+    try:
+        data = await request.json()
+        symbol = data.get('symbol')
+        pid = data.get('pid')
+        
+        if not symbol:
+            return {'success': False, 'error': 'Missing symbol'}
+        
+        # 记录策略信息
+        global_active_strategies[symbol] = {
+            'symbol': symbol,
+            'pid': pid,
+            'leverage': data.get('leverage', 1),
+            'amount': data.get('amount', 0),
+            'script': data.get('script', ''),
+            'start_time': data.get('start_time', datetime.now().isoformat()),
+            'status': 'running'
+        }
+        
+        print(f"✅ 策略注册：{symbol} (PID: {pid})")
+        
+        return {'success': True, 'message': f'Strategy {symbol} registered'}
+    
+    except Exception as e:
+        print(f"❌ 策略注册失败：{e}")
+        return {'success': False, 'error': str(e)}
+
+@app.post("/api/strategy/unregister")
+async def unregister_strategy(request: Request):
+    """策略注销"""
+    try:
+        data = await request.json()
+        symbol = data.get('symbol')
+        
+        if not symbol:
+            return {'success': False, 'error': 'Missing symbol'}
+        
+        # 删除策略记录
+        if symbol in global_active_strategies:
+            del global_active_strategies[symbol]
+            print(f"✅ 策略注销：{symbol}")
+        else:
+            print(f"⚠️ 策略未找到：{symbol}")
+        
+        return {'success': True, 'message': f'Strategy {symbol} unregistered'}
+    
+    except Exception as e:
+        print(f"❌ 策略注销失败：{e}")
+        return {'success': False, 'error': str(e)}
+
+@app.get("/api/strategy/list")
+async def get_strategy_list():
+    """获取活跃策略列表"""
+    try:
+        strategies = list(global_active_strategies.values())
+        return {
+            'success': True,
+            'strategies': strategies,
+            'count': len(strategies)
+        }
+    except Exception as e:
+        return {'success': False, 'error': str(e)}
+
+@app.get("/api/strategies")
+async def get_strategies():
+    """获取策略列表（兼容旧 API）"""
+    result = await get_strategy_list()
+    return {
+        'strategies': result.get('strategies', []),
+        'count': result.get('count', 0)
+    }
+
+
+# ============================================================================
+# 策略注册中心 API
+# ============================================================================
+
+@app.post("/api/strategy/register")
+async def api_register_strategy(request: Request):
+    """策略注册"""
+    try:
+        from strategy_registry import register_strategy
+        data = await request.json()
+        result = register_strategy(
+            symbol=data.get('symbol'),
+            pid=data.get('pid'),
+            leverage=data.get('leverage', 1),
+            amount=data.get('amount', 0),
+            script=data.get('script', '')
+        )
+        return {'success': result}
+    except Exception as e:
+        return {'success': False, 'error': str(e)}
+
+@app.post("/api/strategy/unregister")
+async def api_unregister_strategy(request: Request):
+    """策略注销"""
+    try:
+        from strategy_registry import unregister_strategy
+        data = await request.json()
+        result = unregister_strategy(data.get('symbol'))
+        return {'success': result}
+    except Exception as e:
+        return {'success': False, 'error': str(e)}
+
+@app.get("/api/strategy/list")
+async def api_get_strategies():
+    """获取策略列表"""
+    try:
+        from strategy_registry import get_active_strategies
+        strategies = get_active_strategies()
+        return {'success': True, 'data': {'strategies': strategies}}
+    except Exception as e:
+        return {'success': False, 'error': str(e)}

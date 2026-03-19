@@ -16,14 +16,14 @@ import os
 from datetime import datetime
 from typing import Dict, List
 
-LOG_FILE = "/home/admin/.openclaw/workspace/quant/v3-architecture/logs/error_detection.log"
-ERROR_REPORT_FILE = "/home/admin/.openclaw/workspace/quant/v3-architecture/logs/error_report.json"
+LOG_FILE = "/root/.openclaw/workspace/quant/v3-architecture/logs/error_detection.log"
+ERROR_REPORT_FILE = "/root/.openclaw/workspace/quant/v3-architecture/logs/error_report.json"
 
 class ErrorDetector:
     """错误检测器"""
     
     def __init__(self):
-        self.api_base = "http://localhost:3000"
+        self.api_base = "http://localhost:8000"
         self.errors = []
         self.load_errors()
     
@@ -190,9 +190,9 @@ class ErrorDetector:
     def get_file_from_endpoint(self, endpoint: str) -> str:
         """从端点获取文件路径"""
         if 'trades' in endpoint:
-            return '/home/admin/.openclaw/workspace/quant/v3-architecture/strategies/trades_refresh_api.py'
+            return '/root/.openclaw/workspace/quant/v3-architecture/strategies/trades_refresh_api.py'
         elif 'strategy' in endpoint:
-            return '/home/admin/.openclaw/workspace/quant/v3-architecture/strategies/strategy_status_api.py'
+            return '/root/.openclaw/workspace/quant/v3-architecture/strategies/strategy_status_api.py'
         return ''
     
     def restart_service(self):
@@ -201,7 +201,7 @@ class ErrorDetector:
             self.log("🔄 重启 Web 服务...")
             os.system("pkill -f 'uvicorn web.dashboard_api:app'")
             time.sleep(2)
-            os.system("cd /home/admin/.openclaw/workspace/quant/v3-architecture && nohup uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000 > logs/web_dashboard.log 2>&1 &")
+            os.system("cd /root/.openclaw/workspace/quant/v3-architecture && nohup uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000 > logs/web_dashboard.log 2>&1 &")
             time.sleep(5)
             self.log("✅ Web 服务已重启")
         except Exception as e:

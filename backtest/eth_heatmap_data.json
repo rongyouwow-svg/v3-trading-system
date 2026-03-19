@@ -1,0 +1,118 @@
+{
+  "heatmap_data": {
+    "15_2.0": {
+      "lookback": 15,
+      "take_profit_ratio": 2.0,
+      "total_return": 4.383390487254624,
+      "win_rate": 34.78260869565217,
+      "max_drawdown": 0,
+      "total_trades": 92
+    },
+    "15_2.5": {
+      "lookback": 15,
+      "take_profit_ratio": 2.5,
+      "total_return": -7.8363065752235315,
+      "win_rate": 27.906976744186046,
+      "max_drawdown": 0,
+      "total_trades": 86
+    },
+    "20_2.0": {
+      "lookback": 20,
+      "take_profit_ratio": 2.0,
+      "total_return": 8.687412002555819,
+      "win_rate": 35.55555555555556,
+      "max_drawdown": 0,
+      "total_trades": 90
+    },
+    "20_2.5": {
+      "lookback": 20,
+      "take_profit_ratio": 2.5,
+      "total_return": -5.955414872677088,
+      "win_rate": 28.235294117647058,
+      "max_drawdown": 0,
+      "total_trades": 85
+    },
+    "25_2.0": {
+      "lookback": 25,
+      "take_profit_ratio": 2.0,
+      "total_return": 6.387551584609892,
+      "win_rate": 35.1063829787234,
+      "max_drawdown": 0,
+      "total_trades": 94
+    },
+    "25_2.5": {
+      "lookback": 25,
+      "take_profit_ratio": 2.5,
+      "total_return": -19.71518261663916,
+      "win_rate": 25.581395348837212,
+      "max_drawdown": 0,
+      "total_trades": 86
+    }
+  },
+  "single_param_tests": {
+    "lookback": {
+      "param_name": "lookback",
+      "best_value": 40,
+      "robust_range": [
+        40,
+        50
+      ],
+      "best_performance": 24.753629606982628,
+      "threshold": 19.802903685586102
+    },
+    "volume_multiplier": {
+      "param_name": "volume_multiplier",
+      "best_value": 1.2,
+      "robust_range": [
+        1.0,
+        1.2
+      ],
+      "best_performance": 21.969220140723504,
+      "threshold": 17.575376112578805
+    },
+    "stop_loss_pct": {
+      "param_name": "stop_loss_pct",
+      "best_value": 0.01,
+      "robust_range": [
+        0.01,
+        0.02
+      ],
+      "best_performance": 18.964747024212347,
+      "threshold": 15.171797619369878
+    },
+    "take_profit_ratio": {
+      "param_name": "take_profit_ratio",
+      "best_value": 2.0,
+      "robust_range": [
+        2.0,
+        2.0
+      ],
+      "best_performance": 17.278096289157215,
+      "threshold": 13.822477031325773
+    }
+  },
+  "best_params": {
+    "lookback": 20,
+    "volume_multiplier": 1.5,
+    "stop_loss_pct": 0.02,
+    "take_profit_ratio": 2.0,
+    "momentum_threshold": -0.03
+  },
+  "market_performance": {
+    "bull": {
+      "total_return": -0.21465263157894743,
+      "win_rate": 7.0175438596491215,
+      "total_trades": 8
+    },
+    "bear": {
+      "total_return": 0.2528498213333333,
+      "win_rate": 16.319444444444443,
+      "total_trades": 69
+    },
+    "sideways": {
+      "total_return": 1.3333333333333333,
+      "win_rate": 33.333333333333336,
+      "total_trades": 1
+    }
+  }
+}

@@ -71,7 +71,7 @@ class StrategyManager(IStrategyEngine):
     """
     
     # 持久化文件路径
-    PERSISTENCE_FILE = "/home/admin/.openclaw/workspace/quant/v3-architecture/data/plugin_strategies.json"
+    PERSISTENCE_FILE = "/root/.openclaw/workspace/quant/v3-architecture/data/plugin_strategies.json"
     
     def __init__(self, connector=None, execution_engine=None):
         """

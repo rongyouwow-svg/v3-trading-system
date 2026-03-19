@@ -19,7 +19,7 @@
 
 **启动命令**:
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
 ```
 
@@ -78,7 +78,7 @@ uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000
 ### 步骤 1: 启动 Web 服务
 
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 
 # 启动服务
 uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000

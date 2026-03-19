@@ -3,7 +3,7 @@
 📱 Telegram 告警通知
 
 配置:
-    Bot Token: 8611422539:AAHK2M7Mt-wfQmf5zz1aZUjnCRpkZT1wmVI
+    Bot Token: YOUR_TELEGRAM_BOT_TOKEN
     Chat ID: 1233887750
     Bot: tongzhi (@rytongzhi_bot)
 
@@ -17,7 +17,7 @@ import json
 from datetime import datetime
 
 # Telegram 配置
-BOT_TOKEN = "8611422539:AAHK2M7Mt-wfQmf5zz1aZUjnCRpkZT1wmVI"
+BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
 CHAT_ID = "1233887750"
 BOT_NAME = "tongzhi (@rytongzhi_bot)"
 

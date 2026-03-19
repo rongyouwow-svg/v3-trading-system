@@ -1,0 +1,142 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "base": "BTC",
+    "price": 68115.75,
+    "change_24h": -1.396,
+    "volume_24h": 1702488641.0475402
+  },
+  {
+    "symbol": "ETHUSDT",
+    "base": "ETH",
+    "price": 1977.38,
+    "change_24h": -2.82,
+    "volume_24h": 976713929.613464
+  },
+  {
+    "symbol": "SOLUSDT",
+    "base": "SOL",
+    "price": 86.65,
+    "change_24h": -0.276,
+    "volume_24h": 347179350.09295
+  },
+  {
+    "symbol": "PAXGUSDT",
+    "base": "PAXG",
+    "price": 5153.0,
+    "change_24h": -3.976,
+    "volume_24h": 241024058.02007
+  },
+  {
+    "symbol": "USD1USDT",
+    "base": "USD1",
+    "price": 0.9992,
+    "change_24h": -0.05,
+    "volume_24h": 207384141.2168
+  },
+  {
+    "symbol": "XRPUSDT",
+    "base": "XRP",
+    "price": 1.3605,
+    "change_24h": -2.157,
+    "volume_24h": 180987718.53991
+  },
+  {
+    "symbol": "UUSDT",
+    "base": "U",
+    "price": 0.9998,
+    "change_24h": -0.05,
+    "volume_24h": 112474981.6494
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "base": "DOGE",
+    "price": 0.08985,
+    "change_24h": -3.914,
+    "volume_24h": 95553260.07591
+  },
+  {
+    "symbol": "BNBUSDT",
+    "base": "BNB",
+    "price": 632.04,
+    "change_24h": -1.33,
+    "volume_24h": 92166158.74258
+  },
+  {
+    "symbol": "NEARUSDT",
+    "base": "NEAR",
+    "price": 1.364,
+    "change_24h": -0.583,
+    "volume_24h": 79090986.8991
+  },
+  {
+    "symbol": "ADAUSDT",
+    "base": "ADA",
+    "price": 0.2624,
+    "change_24h": -4.962,
+    "volume_24h": 52761899.5038
+  },
+  {
+    "symbol": "EURUSDT",
+    "base": "EUR",
+    "price": 1.1594,
+    "change_24h": -0.864,
+    "volume_24h": 52059184.34992
+  },
+  {
+    "symbol": "FDUSDUSDT",
+    "base": "FDUSD",
+    "price": 0.9993,
+    "change_24h": 0.02,
+    "volume_24h": 51926504.9448
+  },
+  {
+    "symbol": "ZECUSDT",
+    "base": "ZEC",
+    "price": 220.69,
+    "change_24h": -0.747,
+    "volume_24h": 47582781.53747
+  },
+  {
+    "symbol": "PEPEUSDT",
+    "base": "PEPE",
+    "price": 3.46e-06,
+    "change_24h": -1.983,
+    "volume_24h": 40480370.82419116
+  },
+  {
+    "symbol": "KITEUSDT",
+    "base": "KITE",
+    "price": 0.2358,
+    "change_24h": 11.966,
+    "volume_24h": 37421113.07964
+  },
+  {
+    "symbol": "SUIUSDT",
+    "base": "SUI",
+    "price": 0.9069,
+    "change_24h": -1.829,
+    "volume_24h": 36036060.81211
+  },
+  {
+    "symbol": "TRXUSDT",
+    "base": "TRX",
+    "price": 0.2791,
+    "change_24h": -1.483,
+    "volume_24h": 30147253.49435
+  },
+  {
+    "symbol": "XPLUSDT",
+    "base": "XPL",
+    "price": 0.115,
+    "change_24h": 10.471,
+    "volume_24h": 27646067.01326
+  },
+  {
+    "symbol": "AAVEUSDT",
+    "base": "AAVE",
+    "price": 110.36,
+    "change_24h": -9.385,
+    "volume_24h": 27528241.07148
+  }
+]

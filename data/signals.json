@@ -1,0 +1,41 @@
+{
+  "sentiment": "BULLISH",
+  "lastUpdate": "2025-03-02T17:30:00+08:00",
+  "signals": [
+    {
+      "pair": "BTCUSDT",
+      "type": "buy",
+      "confidence": 78,
+      "indicator": "MACD金叉",
+      "price": 51234.56
+    },
+    {
+      "pair": "ETHUSDT",
+      "type": "buy",
+      "confidence": 72,
+      "indicator": "RSI超卖",
+      "price": 2987.43
+    },
+    {
+      "pair": "SOLUSDT",
+      "type": "buy",
+      "confidence": 65,
+      "indicator": "突破阻力位",
+      "price": 145.32
+    },
+    {
+      "pair": "DOGEUSDT",
+      "type": "sell",
+      "confidence": 68,
+      "indicator": "RSI超买",
+      "price": 0.0876
+    },
+    {
+      "pair": "XRPUSDT",
+      "type": "sell",
+      "confidence": 62,
+      "indicator": "顶背离",
+      "price": 0.6543
+    }
+  ]
+}

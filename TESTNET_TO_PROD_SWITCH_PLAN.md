@@ -1,7 +1,7 @@
 # 🔄 止损单 API 测试网→实盘无缝切换方案
 
 **创建时间**: 2026-03-14 23:45  
-**参考文档**: `/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`  
+**参考文档**: `/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`  
 **参考项目**: Binance Connector Reference, Freqtrade, Hummingbot
 
 ---

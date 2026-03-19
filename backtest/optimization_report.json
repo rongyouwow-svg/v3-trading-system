@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-03-02T19:07:00.244988",
+  "best_strategy": "breakout",
+  "results_count": 32,
+  "strategies": {
+    "trend_following": {
+      "avg_return": -1.5830549030813597,
+      "avg_win_rate": 31.467404816918314,
+      "avg_drawdown": 14.027908509249215
+    },
+    "mean_reversion": {
+      "avg_return": -12.96490035812435,
+      "avg_win_rate": 28.644584793164917,
+      "avg_drawdown": 19.047565342872204
+    },
+    "breakout": {
+      "avg_return": 13.642814274120326,
+      "avg_win_rate": 45.43745473017582,
+      "avg_drawdown": 6.833388975710996
+    },
+    "multi_timeframe": {
+      "avg_return": -1.5830549030813597,
+      "avg_win_rate": 31.467404816918314,
+      "avg_drawdown": 14.027908509249215
+    }
+  }
+}

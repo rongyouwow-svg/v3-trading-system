@@ -1,0 +1,97 @@
+[
+  {
+    "annual_return": 17.210912889744435,
+    "max_drawdown": 38.830139844665254,
+    "win_rate": 21.58273381294964,
+    "profit_factor": 5.108249272768937,
+    "total_trades": 139,
+    "total_return": 288.3753597917747,
+    "final_capital": 38837.53597917747,
+    "long_win_rate": 21.58273381294964,
+    "short_win_rate": 0,
+    "long_trades": 139,
+    "short_trades": 0,
+    "config": {
+      "name": "BTC 只做多 + 止盈 30%",
+      "type": "long_only",
+      "symbol": "BTC",
+      "stop_loss": 0.05,
+      "take_profit": 0.3
+    }
+  },
+  {
+    "annual_return": 16.53037047203729,
+    "max_drawdown": 32.39991240246009,
+    "win_rate": 20.42042042042042,
+    "profit_factor": 5.193425792429832,
+    "total_trades": 333,
+    "total_return": 269.52598299506604,
+    "final_capital": 36952.5982995066,
+    "config": {
+      "name": "BTC+ETH 各 50% + 止盈 30%",
+      "type": "multi_asset",
+      "stop_loss": 0.05,
+      "take_profit": 0.3
+    }
+  },
+  {
+    "annual_return": 15.818456116904578,
+    "max_drawdown": 36.99142013159575,
+    "win_rate": 19.587628865979383,
+    "profit_factor": 5.236040491198503,
+    "total_trades": 194,
+    "total_return": 250.6766061983574,
+    "final_capital": 35067.66061983574,
+    "long_win_rate": 19.587628865979383,
+    "short_win_rate": 0,
+    "long_trades": 194,
+    "short_trades": 0,
+    "config": {
+      "name": "ETH 只做多 + 止盈 30%",
+      "type": "long_only",
+      "symbol": "ETH",
+      "stop_loss": 0.05,
+      "take_profit": 0.3
+    }
+  },
+  {
+    "annual_return": 15.53726304825207,
+    "max_drawdown": 41.87411137085482,
+    "win_rate": 16.149068322981368,
+    "profit_factor": 6.766200501901156,
+    "total_trades": 161,
+    "total_return": 243.46864868237864,
+    "final_capital": 34346.86486823786,
+    "long_win_rate": 16.149068322981368,
+    "short_win_rate": 0,
+    "long_trades": 161,
+    "short_trades": 0,
+    "config": {
+      "name": "ETH 只做多 + 止盈 40%",
+      "type": "long_only",
+      "symbol": "ETH",
+      "stop_loss": 0.05,
+      "take_profit": 0.4
+    }
+  },
+  {
+    "annual_return": -5.264936652690288,
+    "max_drawdown": 70.14352056961054,
+    "win_rate": 37.7587437544611,
+    "profit_factor": 1.609340543413898,
+    "total_trades": 1401,
+    "total_return": -37.00418368128147,
+    "final_capital": 6299.5816318718535,
+    "long_win_rate": 32.287581699346404,
+    "short_win_rate": 44.339622641509436,
+    "long_trades": 765,
+    "short_trades": 636,
+    "config": {
+      "name": "ETH+MACD+EMA+ 成交量 + 极端",
+      "type": "macd_ema_extreme",
+      "symbol": "ETH",
+      "stop_loss": 0.05,
+      "take_profit": 0.2
+    }
+  }
+]

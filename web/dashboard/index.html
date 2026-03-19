@@ -999,7 +999,7 @@
                                         <td><strong>${s.symbol}</strong></td>
                                         <td><span class="badge badge-success">${s.status}</span></td>
                                         <td>${s.rsi.toFixed(2)}</td>
-                                        <td>${s.position || '-'}</td>
+                                        <td>${s.position ? (s.position.size + ' @ ' + parseFloat(s.position.entry_price).toFixed(2)) : '-'}</td>
                                         <td>${s.entry_price > 0 ? s.entry_price : '-'}</td>
                                         <td>${s.signals_sent}/${s.signals_executed}</td>
                                     </tr>

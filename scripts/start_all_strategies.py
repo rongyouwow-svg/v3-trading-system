@@ -13,7 +13,7 @@
 
 import sys
 import os
-sys.path.insert(0, '/home/admin/.openclaw/workspace/quant/v3-architecture')
+sys.path.insert(0, '/root/.openclaw/workspace/quant/v3-architecture')
 
 from core.strategy.strategy_manager import StrategyManager
 from core.execution.engine import ExecutionEngine
@@ -119,7 +119,7 @@ print("")
 print("="*70)
 print("🎯 监测记录已启动")
 print("="*70)
-print(f"监测文件：/home/admin/.openclaw/workspace/quant/v3-architecture/logs/live_test_monitor.json")
+print(f"监测文件：/root/.openclaw/workspace/quant/v3-architecture/logs/live_test_monitor.json")
 print("")
 print("💡 提示：运行 python3 scripts/monitor_live_test.py 查看实时监测")
 print("")
@@ -131,8 +131,8 @@ monitor_data = {
     'status': 'running'
 }
 
-os.makedirs('/home/admin/.openclaw/workspace/quant/v3-architecture/logs', exist_ok=True)
-with open('/home/admin/.openclaw/workspace/quant/v3-architecture/logs/live_test_config.json', 'w', encoding='utf-8') as f:
+os.makedirs('/root/.openclaw/workspace/quant/v3-architecture/logs', exist_ok=True)
+with open('/root/.openclaw/workspace/quant/v3-architecture/logs/live_test_config.json', 'w', encoding='utf-8') as f:
     json.dump(monitor_data, f, indent=2, ensure_ascii=False)
 
 print("✅ 策略配置已保存")
@@ -152,8 +152,8 @@ processes = []
 print("\n📈 启动 ETH_RSI...")
 proc = subprocess.Popen(
     ['python3', 'strategies/rsi_1min_strategy.py'],
-    cwd='/home/admin/.openclaw/workspace/quant/v3-architecture',
-    env={**os.environ, 'PYTHONPATH': '/home/admin/.openclaw/workspace/quant/v3-architecture'}
+    cwd='/root/.openclaw/workspace/quant/v3-architecture',
+    env={**os.environ, 'PYTHONPATH': '/root/.openclaw/workspace/quant/v3-architecture'}
 )
 processes.append(('ETH_RSI', proc))
 print(f"  ✅ ETH_RSI 已启动 (PID: {proc.pid})")
@@ -162,8 +162,8 @@ print(f"  ✅ ETH_RSI 已启动 (PID: {proc.pid})")
 print("\n📈 启动 LINK_RSI...")
 proc = subprocess.Popen(
     ['python3', 'strategies/link_rsi_detailed_strategy.py'],
-    cwd='/home/admin/.openclaw/workspace/quant/v3-architecture',
-    env={**os.environ, 'PYTHONPATH': '/home/admin/.openclaw/workspace/quant/v3-architecture'}
+    cwd='/root/.openclaw/workspace/quant/v3-architecture',
+    env={**os.environ, 'PYTHONPATH': '/root/.openclaw/workspace/quant/v3-architecture'}
 )
 processes.append(('LINK_RSI', proc))
 print(f"  ✅ LINK_RSI 已启动 (PID: {proc.pid})")
@@ -172,8 +172,8 @@ print(f"  ✅ LINK_RSI 已启动 (PID: {proc.pid})")
 print("\n📈 启动 AVAX_RSI_SCALE...")
 proc = subprocess.Popen(
     ['python3', 'strategies/rsi_scale_in_strategy.py'],
-    cwd='/home/admin/.openclaw/workspace/quant/v3-architecture',
-    env={**os.environ, 'PYTHONPATH': '/home/admin/.openclaw/workspace/quant/v3-architecture'}
+    cwd='/root/.openclaw/workspace/quant/v3-architecture',
+    env={**os.environ, 'PYTHONPATH': '/root/.openclaw/workspace/quant/v3-architecture'}
 )
 processes.append(('AVAX_RSI_SCALE', proc))
 print(f"  ✅ AVAX_RSI_SCALE 已启动 (PID: {proc.pid})")
@@ -198,7 +198,7 @@ pid_data = {
     ]
 }
 
-with open('/home/admin/.openclaw/workspace/quant/v3-architecture/logs/strategy_processes.json', 'w', encoding='utf-8') as f:
+with open('/root/.openclaw/workspace/quant/v3-architecture/logs/strategy_processes.json', 'w', encoding='utf-8') as f:
     json.dump(pid_data, f, indent=2, ensure_ascii=False)
 
 print("✅ 策略进程信息已保存")

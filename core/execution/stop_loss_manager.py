@@ -53,7 +53,7 @@ class StopLossManager:
     """
     
     # 持久化文件路径
-    PERSISTENCE_FILE = "/home/admin/.openclaw/workspace/quant/v3-architecture/data/stop_orders.json"
+    PERSISTENCE_FILE = "/root/.openclaw/workspace/quant/v3-architecture/data/stop_orders.json"
     
     def __init__(self, connector):
         """

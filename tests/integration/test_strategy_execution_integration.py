@@ -46,8 +46,8 @@ def cleanup():
     """清理测试环境"""
     # 清理持久化文件
     files = [
-        "/home/admin/.openclaw/workspace/quant/v3-architecture/data/plugin_strategies.json",
-        "/home/admin/.openclaw/workspace/quant/v3-architecture/data/stop_orders.json"
+        "/root/.openclaw/workspace/quant/v3-architecture/data/plugin_strategies.json",
+        "/root/.openclaw/workspace/quant/v3-architecture/data/stop_orders.json"
     ]
     for f in files:
         if os.path.exists(f):

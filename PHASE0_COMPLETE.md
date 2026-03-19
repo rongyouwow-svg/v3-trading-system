@@ -113,7 +113,7 @@ v3-architecture/
 $ pytest tests/unit/ -v
 ============================= test session starts ==============================
 platform linux -- Python 3.10.0, pytest-9.0.2, pluggy-1.6.0
-rootdir: /home/admin/.openclaw/workspace/quant/v3-architecture
+rootdir: /root/.openclaw/workspace/quant/v3-architecture
 configfile: pyproject.toml
 collected 38 items
 

@@ -1,0 +1,138 @@
+[
+  {
+    "annual_return": -8.208791939371185,
+    "max_drawdown": 66.72267323921356,
+    "win_rate": 16.8,
+    "profit_factor": 4.6130317066884485,
+    "total_trades": 750,
+    "total_return": -51.8647642989194,
+    "final_capital": 4813.52357010806,
+    "long_win_rate": 16.8,
+    "short_win_rate": 0,
+    "long_trades": 750,
+    "short_trades": 0,
+    "config": {
+      "name": "只做多 A 级（WR80+J20+RSI40）",
+      "type": "long_only",
+      "wr": -80,
+      "j": 20,
+      "rsi": 40,
+      "stop_loss": 0.03,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": -12.782552766705557,
+    "max_drawdown": 69.83612628510586,
+    "win_rate": 16.355140186915886,
+    "profit_factor": 4.545782767027218,
+    "total_trades": 856,
+    "total_return": -68.88432287623473,
+    "final_capital": 3111.5677123765267,
+    "long_win_rate": 16.355140186915886,
+    "short_win_rate": 0,
+    "long_trades": 856,
+    "short_trades": 0,
+    "config": {
+      "name": "只做多 + 止损 3%+ 止盈 15%",
+      "type": "long_only",
+      "wr": -70,
+      "j": 25,
+      "rsi": 45,
+      "stop_loss": 0.03,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": -17.437634661727262,
+    "max_drawdown": 87.36783278410962,
+    "win_rate": 11.186440677966102,
+    "profit_factor": 6.99918223926759,
+    "total_trades": 1180,
+    "total_return": -80.51786030214907,
+    "final_capital": 1948.2139697850926,
+    "long_win_rate": 11.186440677966102,
+    "short_win_rate": 0,
+    "long_trades": 1180,
+    "short_trades": 0,
+    "config": {
+      "name": "只做多 + 止损 2%+ 止盈 15%",
+      "type": "long_only",
+      "wr": -70,
+      "j": 25,
+      "rsi": 45,
+      "stop_loss": 0.02,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": -27.577227462957875,
+    "max_drawdown": 97.61341601160632,
+    "win_rate": 15.102770330652367,
+    "profit_factor": 4.992896011351996,
+    "total_trades": 1119,
+    "total_return": -93.63397969881822,
+    "final_capital": 636.6020301181778,
+    "long_win_rate": 0,
+    "short_win_rate": 15.102770330652367,
+    "long_trades": 0,
+    "short_trades": 1119,
+    "config": {
+      "name": "只做空 + 止损 3%+ 止盈 15%",
+      "type": "short_only",
+      "short_wr": -70,
+      "short_j": 75,
+      "short_rsi": 55,
+      "stop_loss": 0.03,
+      "take_profit": 0.15
+    }
+  },
+  {
+    "annual_return": -32.866173406461094,
+    "max_drawdown": 96.86742289943557,
+    "win_rate": 31.990330378726835,
+    "profit_factor": 1.4696412629504112,
+    "total_trades": 1241,
+    "total_return": -96.66773591578675,
+    "final_capital": 333.22640842132444,
+    "long_win_rate": 31.990330378726835,
+    "short_win_rate": 0,
+    "long_trades": 1241,
+    "short_trades": 0,
+    "config": {
+      "name": "只做多 + 移动止损 5%",
+      "type": "long_only_trail",
+      "wr": -70,
+      "j": 25,
+      "rsi": 45,
+      "stop_loss": 0.03,
+      "trail_stop": 0.05,
+      "trail_after": 0.05
+    }
+  },
+  {
+    "annual_return": -57.20172733747402,
+    "max_drawdown": 99.94246123631531,
+    "win_rate": 47.55022048015679,
+    "profit_factor": 0.9017439294923101,
+    "total_trades": 4082,
+    "total_return": -99.92858566558313,
+    "final_capital": 7.141433441688332,
+    "long_win_rate": 53.5645472061657,
+    "short_win_rate": 43.84158415841584,
+    "long_trades": 1557,
+    "short_trades": 2525,
+    "config": {
+      "name": "双向 + 止损 3%+ 止盈 15%",
+      "type": "both",
+      "long_wr": -70,
+      "long_j": 25,
+      "long_rsi": 45,
+      "short_wr": -70,
+      "short_j": 75,
+      "short_rsi": 55,
+      "stop_loss": 0.03,
+      "take_profit": 0.15
+    }
+  }
+]

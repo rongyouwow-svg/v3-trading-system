@@ -2,7 +2,7 @@
 # 🦞 大王量化策略自动恢复脚本
 
 LOG_FILE="/home/admin/.openclaw/workspace/quant/v3-architecture/logs/auto_recovery.log"
-HEALTH_URL="http://localhost:3000/api/strategy/health"
+HEALTH_URL="http://localhost:8000/api/strategy/health"
 STRATEGY_SCRIPT="/home/admin/.openclaw/workspace/quant/v3-architecture/scripts/start_all_strategies.py"
 
 log() {

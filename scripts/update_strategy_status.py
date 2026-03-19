@@ -10,8 +10,8 @@ import time
 import os
 from datetime import datetime
 
-LOG_FILE = "/home/admin/.openclaw/workspace/quant/v3-architecture/logs/strategy_status_update.log"
-API_URL = "http://localhost:3000/api/strategy/update"
+LOG_FILE = "/root/.openclaw/workspace/quant/v3-architecture/logs/strategy_status_update.log"
+API_URL = "http://localhost:8000/api/strategy/update"
 
 def log(message: str):
     """记录日志"""

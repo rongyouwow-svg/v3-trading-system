@@ -57,8 +57,8 @@
 **问题**: 需要使用币安专门的止盈止损 API
 
 **参考文档**:
-- `/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
-- `/home/admin/.openclaw/workspace/quant/history/docs/report/币安期货 API 文档调研.md`
+- `/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
+- `/root/.openclaw/workspace/quant/history/docs/report/币安期货 API 文档调研.md`
 
 **关键参数**（根据历史文档）:
 ```python
@@ -121,9 +121,9 @@ params = {
 ## 📝 参考的服务器文档
 
 已查阅并参考以下文档：
-1. ✅ `/home/admin/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
-2. ✅ `/home/admin/.openclaw/workspace/quant/history/docs/report/币安期货 API 文档调研.md`
-3. ✅ `/home/admin/.openclaw/workspace/quant/设计规范/币安 API 使用手册.md`
+1. ✅ `/root/.openclaw/workspace/quant/history/docs/report/币安 Algo Order API 完全实现.md`
+2. ✅ `/root/.openclaw/workspace/quant/history/docs/report/币安期货 API 文档调研.md`
+3. ✅ `/root/.openclaw/workspace/quant/设计规范/币安 API 使用手册.md`
 4. ✅ Freqtrade/Hummingbot 源码（参考）
 
 ---

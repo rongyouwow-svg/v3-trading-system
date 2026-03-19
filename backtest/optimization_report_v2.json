@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-03-03T22:12:30.900596",
+  "best_strategy": "breakout",
+  "results_count": 4,
+  "stop_loss_pct": 5.0,
+  "take_profit_pct": 15.0,
+  "strategies": {
+    "trend_following": {
+      "avg_return": -7.765523963858434,
+      "avg_win_rate": 22.727272727272727,
+      "avg_drawdown": 13.014860659728702,
+      "total_trades": 44,
+      "stop_loss_hits": 2,
+      "take_profit_hits": 2
+    },
+    "mean_reversion": {
+      "avg_return": -7.439141403488225,
+      "avg_win_rate": 50.0,
+      "avg_drawdown": 16.222497488784487,
+      "total_trades": 28,
+      "stop_loss_hits": 10,
+      "take_profit_hits": 0
+    },
+    "breakout": {
+      "avg_return": 0.9742373640074131,
+      "avg_win_rate": 32.432432432432435,
+      "avg_drawdown": 11.199428954327107,
+      "total_trades": 37,
+      "stop_loss_hits": 0,
+      "take_profit_hits": 1
+    },
+    "multi_timeframe": {
+      "avg_return": -7.765523963858434,
+      "avg_win_rate": 22.727272727272727,
+      "avg_drawdown": 13.014860659728702,
+      "total_trades": 44,
+      "stop_loss_hits": 2,
+      "take_profit_hits": 2
+    }
+  }
+}

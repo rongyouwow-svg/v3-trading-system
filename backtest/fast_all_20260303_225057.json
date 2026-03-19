@@ -1,0 +1,2054 @@
+[
+  {
+    "annual_return": 8.756537983934365,
+    "win_rate": 37.03703703703704,
+    "max_drawdown": 7.876335655021134,
+    "total_trades": 27,
+    "avg_win": 431.8697250000172,
+    "avg_loss": 202.53196774157294,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": 8.756537983934365,
+    "win_rate": 37.03703703703704,
+    "max_drawdown": 7.876335655021134,
+    "total_trades": 27,
+    "avg_win": 431.8697250000172,
+    "avg_loss": 202.53196774157294,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": 8.401466542550562,
+    "win_rate": 34.5679012345679,
+    "max_drawdown": 22.783863726689106,
+    "total_trades": 648,
+    "avg_win": 121.42037017640392,
+    "avg_loss": 62.16513270108355,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": 8.401466542550562,
+    "win_rate": 34.5679012345679,
+    "max_drawdown": 22.783863726689106,
+    "total_trades": 648,
+    "avg_win": 121.42037017640392,
+    "avg_loss": 62.16513270108355,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": 8.356888665934692,
+    "win_rate": 29.411764705882355,
+    "max_drawdown": 14.588655920021774,
+    "total_trades": 17,
+    "avg_win": 611.1031362928161,
+    "avg_loss": 184.98556790588438,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 8.356888665934692,
+    "win_rate": 29.411764705882355,
+    "max_drawdown": 14.588655920021774,
+    "total_trades": 17,
+    "avg_win": 611.1031362928161,
+    "avg_loss": 184.98556790588438,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 8.255712892459544,
+    "win_rate": 64.65863453815261,
+    "max_drawdown": 18.834596656048994,
+    "total_trades": 249,
+    "avg_win": 73.60626885229503,
+    "avg_loss": 125.28452268151752,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": 8.255712892459544,
+    "win_rate": 64.65863453815261,
+    "max_drawdown": 18.834596656048994,
+    "total_trades": 249,
+    "avg_win": 73.60626885229503,
+    "avg_loss": 125.28452268151752,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": 8.111652601328778,
+    "win_rate": 40.909090909090914,
+    "max_drawdown": 14.923697741821446,
+    "total_trades": 22,
+    "avg_win": 378.53024059771894,
+    "avg_loss": 199.66206963435346,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 8.111652601328778,
+    "win_rate": 40.909090909090914,
+    "max_drawdown": 14.923697741821446,
+    "total_trades": 22,
+    "avg_win": 378.53024059771894,
+    "avg_loss": 199.66206963435346,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 5.773201920360038,
+    "win_rate": 28.57142857142857,
+    "max_drawdown": 11.415761913599999,
+    "total_trades": 14,
+    "avg_win": 619.098998131852,
+    "avg_loss": 189.90758004914045,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 5.773201920360038,
+    "win_rate": 28.57142857142857,
+    "max_drawdown": 11.415761913599999,
+    "total_trades": 14,
+    "avg_win": 619.098998131852,
+    "avg_loss": 189.90758004914045,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 5.6667576081465,
+    "win_rate": 34.83670295489891,
+    "max_drawdown": 16.570989403989632,
+    "total_trades": 643,
+    "avg_win": 86.95978720348668,
+    "avg_loss": 45.136793729752654,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": 5.6667576081465,
+    "win_rate": 34.83670295489891,
+    "max_drawdown": 16.570989403989632,
+    "total_trades": 643,
+    "avg_win": 86.95978720348668,
+    "avg_loss": 45.136793729752654,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": 5.168363187722891,
+    "win_rate": 28.888888888888886,
+    "max_drawdown": 15.967248765678525,
+    "total_trades": 45,
+    "avg_win": 526.5152794363537,
+    "avg_loss": 197.74569730938458,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 5.168363187722891,
+    "win_rate": 28.888888888888886,
+    "max_drawdown": 15.967248765678525,
+    "total_trades": 45,
+    "avg_win": 526.5152794363537,
+    "avg_loss": 197.74569730938458,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 2.336290452281675,
+    "win_rate": 31.03448275862069,
+    "max_drawdown": 18.29271931124535,
+    "total_trades": 29,
+    "avg_win": 442.21166668169786,
+    "avg_loss": 187.3137977453554,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 2.336290452281675,
+    "win_rate": 31.03448275862069,
+    "max_drawdown": 18.29271931124535,
+    "total_trades": 29,
+    "avg_win": 442.21166668169786,
+    "avg_loss": 187.3137977453554,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": 1.5919369863480082,
+    "win_rate": 30.0,
+    "max_drawdown": 13.18744667532803,
+    "total_trades": 10,
+    "avg_win": 492.6461220558677,
+    "avg_loss": 188.3920953618289,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 1.5919369863480082,
+    "win_rate": 30.0,
+    "max_drawdown": 13.18744667532803,
+    "total_trades": 10,
+    "avg_win": 492.6461220558677,
+    "avg_loss": 188.3920953618289,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 1.4308140406805947,
+    "win_rate": 34.57943925233645,
+    "max_drawdown": 15.826838082883746,
+    "total_trades": 642,
+    "avg_win": 67.40486541427154,
+    "avg_loss": 35.28761599500051,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": 1.4308140406805947,
+    "win_rate": 34.57943925233645,
+    "max_drawdown": 15.826838082883746,
+    "total_trades": 642,
+    "avg_win": 67.40486541427154,
+    "avg_loss": 35.28761599500051,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": 0.3355031392695551,
+    "win_rate": 62.69230769230769,
+    "max_drawdown": 26.971651834296818,
+    "total_trades": 260,
+    "avg_win": 93.55761337928922,
+    "avg_loss": 156.86949141131132,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": 0.3355031392695551,
+    "win_rate": 62.69230769230769,
+    "max_drawdown": 26.971651834296818,
+    "total_trades": 260,
+    "avg_win": 93.55761337928922,
+    "avg_loss": 156.86949141131132,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": 0.2833158694784066,
+    "win_rate": 27.27272727272727,
+    "max_drawdown": 13.18744667532801,
+    "total_trades": 11,
+    "avg_win": 510.37295584298204,
+    "avg_loss": 187.84841007263827,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 0.2833158694784066,
+    "win_rate": 27.27272727272727,
+    "max_drawdown": 13.18744667532801,
+    "total_trades": 11,
+    "avg_win": 510.37295584298204,
+    "avg_loss": 187.84841007263827,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 0.14933584229663843,
+    "win_rate": 26.666666666666668,
+    "max_drawdown": 7.76318399999999,
+    "total_trades": 15,
+    "avg_win": 548.842854172874,
+    "avg_loss": 198.22162113289394,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": 0.14933584229663843,
+    "win_rate": 26.666666666666668,
+    "max_drawdown": 7.76318399999999,
+    "total_trades": 15,
+    "avg_win": 548.842854172874,
+    "avg_loss": 198.22162113289394,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -0.5545867408413896,
+    "win_rate": 33.33333333333333,
+    "max_drawdown": 7.763184000000001,
+    "total_trades": 6,
+    "avg_win": 390.76572521533114,
+    "avg_loss": 209.24753112870042,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -0.5545867408413896,
+    "win_rate": 33.33333333333333,
+    "max_drawdown": 7.763184000000001,
+    "total_trades": 6,
+    "avg_win": 390.76572521533114,
+    "avg_loss": 209.24753112870042,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -1.5018038902828268,
+    "win_rate": 26.08695652173913,
+    "max_drawdown": 10.606251195477144,
+    "total_trades": 368,
+    "avg_win": 97.70248576449374,
+    "avg_loss": 35.035364053013545,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -1.5018038902828268,
+    "win_rate": 26.08695652173913,
+    "max_drawdown": 10.606251195477144,
+    "total_trades": 368,
+    "avg_win": 97.70248576449374,
+    "avg_loss": 35.035364053013545,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -2.4284676641736613,
+    "win_rate": 32.0,
+    "max_drawdown": 10.632738664809015,
+    "total_trades": 25,
+    "avg_win": 372.6190787036346,
+    "avg_loss": 189.63525859096734,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -2.4284676641736613,
+    "win_rate": 32.0,
+    "max_drawdown": 10.632738664809015,
+    "total_trades": 25,
+    "avg_win": 372.6190787036346,
+    "avg_loss": 189.63525859096734,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -2.675027376618999,
+    "win_rate": 33.04498269896194,
+    "max_drawdown": 23.435894239708627,
+    "total_trades": 578,
+    "avg_win": 111.09720025935121,
+    "avg_loss": 55.52213950180355,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -2.675027376618999,
+    "win_rate": 33.04498269896194,
+    "max_drawdown": 23.435894239708627,
+    "total_trades": 578,
+    "avg_win": 111.09720025935121,
+    "avg_loss": 55.52213950180355,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -2.8735013169934764,
+    "win_rate": 62.980769230769226,
+    "max_drawdown": 20.830694102740722,
+    "total_trades": 208,
+    "avg_win": 74.38162447913463,
+    "avg_loss": 130.27718101903855,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -2.8735013169934764,
+    "win_rate": 62.980769230769226,
+    "max_drawdown": 20.830694102740722,
+    "total_trades": 208,
+    "avg_win": 74.38162447913463,
+    "avg_loss": 130.27718101903855,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -2.9609297811392765,
+    "win_rate": 33.1588132635253,
+    "max_drawdown": 17.654654833267845,
+    "total_trades": 573,
+    "avg_win": 81.45669520723531,
+    "avg_loss": 41.1824153198137,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -2.9609297811392765,
+    "win_rate": 33.1588132635253,
+    "max_drawdown": 17.654654833267845,
+    "total_trades": 573,
+    "avg_win": 81.45669520723531,
+    "avg_loss": 41.1824153198137,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -3.6768914713040224,
+    "win_rate": 58.68055555555556,
+    "max_drawdown": 34.63180874717502,
+    "total_trades": 288,
+    "avg_win": 140.29248577947416,
+    "avg_loss": 202.32873314169348,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -3.6768914713040224,
+    "win_rate": 58.68055555555556,
+    "max_drawdown": 34.63180874717502,
+    "total_trades": 288,
+    "avg_win": 140.29248577947416,
+    "avg_loss": 202.32873314169348,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -4.177990201613335,
+    "win_rate": 26.57894736842105,
+    "max_drawdown": 17.20863057499794,
+    "total_trades": 380,
+    "avg_win": 162.10060125478583,
+    "avg_loss": 60.17906719317103,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -4.177990201613335,
+    "win_rate": 26.57894736842105,
+    "max_drawdown": 17.20863057499794,
+    "total_trades": 380,
+    "avg_win": 162.10060125478583,
+    "avg_loss": 60.17906719317103,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -4.184395539200015,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 9.607920320000012,
+    "total_trades": 6,
+    "avg_win": 542.3524780800001,
+    "avg_loss": 192.15840640000036,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -4.184395539200015,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 9.607920320000012,
+    "total_trades": 6,
+    "avg_win": 542.3524780800001,
+    "avg_loss": 192.15840640000036,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -4.401523242187599,
+    "win_rate": 26.216216216216214,
+    "max_drawdown": 13.577596685930718,
+    "total_trades": 370,
+    "avg_win": 117.43690962711754,
+    "avg_loss": 43.33894709908125,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -4.401523242187599,
+    "win_rate": 26.216216216216214,
+    "max_drawdown": 13.577596685930718,
+    "total_trades": 370,
+    "avg_win": 117.43690962711754,
+    "avg_loss": 43.33894709908125,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -4.418767946474622,
+    "win_rate": 20.0,
+    "max_drawdown": 5.880800000000012,
+    "total_trades": 5,
+    "avg_win": 355.33834260442086,
+    "avg_loss": 199.30378431297035,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -4.418767946474622,
+    "win_rate": 20.0,
+    "max_drawdown": 5.880800000000012,
+    "total_trades": 5,
+    "avg_win": 355.33834260442086,
+    "avg_loss": 199.30378431297035,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -4.914754756918461,
+    "win_rate": 33.04195804195804,
+    "max_drawdown": 16.65329028556152,
+    "total_trades": 572,
+    "avg_win": 64.50190273055124,
+    "avg_loss": 33.11314645369725,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -4.914754756918461,
+    "win_rate": 33.04195804195804,
+    "max_drawdown": 16.65329028556152,
+    "total_trades": 572,
+    "avg_win": 64.50190273055124,
+    "avg_loss": 33.11314645369725,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -5.511010654431415,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 7.763184000000027,
+    "total_trades": 6,
+    "avg_win": 444.1729282555261,
+    "avg_loss": 199.05479873973317,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -5.511010654431415,
+    "win_rate": 16.666666666666664,
+    "max_drawdown": 7.763184000000027,
+    "total_trades": 6,
+    "avg_win": 444.1729282555261,
+    "avg_loss": 199.05479873973317,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -6.100707628416002,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 6.100707628416003,
+    "total_trades": 7,
+    "avg_win": 564.7152000000007,
+    "avg_loss": 195.7976604736002,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -6.100707628416002,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 6.100707628416003,
+    "total_trades": 7,
+    "avg_win": 564.7152000000007,
+    "avg_loss": 195.7976604736002,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -6.153971521975398,
+    "win_rate": 36.36363636363637,
+    "max_drawdown": 13.077361088462123,
+    "total_trades": 22,
+    "avg_win": 259.59401487102934,
+    "avg_loss": 192.29637651184126,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -6.153971521975398,
+    "win_rate": 36.36363636363637,
+    "max_drawdown": 13.077361088462123,
+    "total_trades": 22,
+    "avg_win": 259.59401487102934,
+    "avg_loss": 192.29637651184126,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -6.940546191326124,
+    "win_rate": 62.27106227106227,
+    "max_drawdown": 23.84223679159523,
+    "total_trades": 273,
+    "avg_win": 85.63976589041951,
+    "avg_loss": 148.08558078159155,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -6.940546191326124,
+    "win_rate": 62.27106227106227,
+    "max_drawdown": 23.84223679159523,
+    "total_trades": 273,
+    "avg_win": 85.63976589041951,
+    "avg_loss": 148.08558078159155,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -7.9786934758477095,
+    "win_rate": 12.5,
+    "max_drawdown": 13.18744667532803,
+    "total_trades": 8,
+    "avg_win": 520.8753199480318,
+    "avg_loss": 188.39209536182875,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -7.9786934758477095,
+    "win_rate": 12.5,
+    "max_drawdown": 13.18744667532803,
+    "total_trades": 8,
+    "avg_win": 520.8753199480318,
+    "avg_loss": 188.39209536182875,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -7.9786934758477095,
+    "win_rate": 12.5,
+    "max_drawdown": 11.415761913600022,
+    "total_trades": 8,
+    "avg_win": 587.9999999999998,
+    "avg_loss": 197.98133536925266,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -7.9786934758477095,
+    "win_rate": 12.5,
+    "max_drawdown": 11.415761913600022,
+    "total_trades": 8,
+    "avg_win": 587.9999999999998,
+    "avg_loss": 197.98133536925266,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "BB+MA+VOL"
+  },
+  {
+    "annual_return": -8.203784735794194,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 11.415761913599999,
+    "total_trades": 7,
+    "avg_win": 362.59014551471523,
+    "avg_loss": 197.1614365156894,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -8.203784735794194,
+    "win_rate": 14.285714285714285,
+    "max_drawdown": 11.415761913599999,
+    "total_trades": 7,
+    "avg_win": 362.59014551471523,
+    "avg_loss": 197.1614365156894,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -8.35218549763842,
+    "win_rate": 30.515463917525775,
+    "max_drawdown": 16.605732470564178,
+    "total_trades": 485,
+    "avg_win": 89.80009522698077,
+    "avg_loss": 41.915823867528175,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -8.35218549763842,
+    "win_rate": 30.515463917525775,
+    "max_drawdown": 16.605732470564178,
+    "total_trades": 485,
+    "avg_win": 89.80009522698077,
+    "avg_loss": 41.915823867528175,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -8.811221051508255,
+    "win_rate": 59.03225806451613,
+    "max_drawdown": 30.156155998420083,
+    "total_trades": 310,
+    "avg_win": 121.01660455122837,
+    "avg_loss": 181.3162262836662,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -8.811221051508255,
+    "win_rate": 59.03225806451613,
+    "max_drawdown": 30.156155998420083,
+    "total_trades": 310,
+    "avg_win": 121.01660455122837,
+    "avg_loss": 181.3162262836662,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -9.142599496607673,
+    "win_rate": 30.165289256198346,
+    "max_drawdown": 13.499315216559127,
+    "total_trades": 484,
+    "avg_win": 71.19598753189706,
+    "avg_loss": 33.458207483188595,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -9.142599496607673,
+    "win_rate": 30.165289256198346,
+    "max_drawdown": 13.499315216559127,
+    "total_trades": 484,
+    "avg_win": 71.19598753189706,
+    "avg_loss": 33.458207483188595,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -9.677261733976428,
+    "win_rate": 38.095238095238095,
+    "max_drawdown": 22.79572062094564,
+    "total_trades": 42,
+    "avg_win": 234.08919561087527,
+    "avg_loss": 181.27512704506336,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -9.677261733976428,
+    "win_rate": 38.095238095238095,
+    "max_drawdown": 22.79572062094564,
+    "total_trades": 42,
+    "avg_win": 234.08919561087527,
+    "avg_loss": 181.27512704506336,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -10.377140735200886,
+    "win_rate": 18.51851851851852,
+    "max_drawdown": 18.145733566146095,
+    "total_trades": 27,
+    "avg_win": 580.430573918946,
+    "avg_loss": 179.08486105067365,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -10.377140735200886,
+    "win_rate": 18.51851851851852,
+    "max_drawdown": 18.145733566146095,
+    "total_trades": 27,
+    "avg_win": 580.430573918946,
+    "avg_loss": 179.08486105067365,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -10.518955566293242,
+    "win_rate": 30.223123732251523,
+    "max_drawdown": 21.531255526124752,
+    "total_trades": 493,
+    "avg_win": 126.3150271405136,
+    "avg_loss": 57.76986802490076,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -10.518955566293242,
+    "win_rate": 30.223123732251523,
+    "max_drawdown": 21.531255526124752,
+    "total_trades": 493,
+    "avg_win": 126.3150271405136,
+    "avg_loss": 57.76986802490076,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "MACD+MA"
+  },
+  {
+    "annual_return": -10.995208208870789,
+    "win_rate": 59.54545454545455,
+    "max_drawdown": 29.388074814841342,
+    "total_trades": 220,
+    "avg_win": 91.14477467313831,
+    "avg_loss": 146.51108205694615,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -10.995208208870789,
+    "win_rate": 59.54545454545455,
+    "max_drawdown": 29.388074814841342,
+    "total_trades": 220,
+    "avg_win": 91.14477467313831,
+    "avg_loss": 146.51108205694615,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -11.275507635449667,
+    "win_rate": 15.384615384615385,
+    "max_drawdown": 13.390282469920026,
+    "total_trades": 13,
+    "avg_win": 488.88330670816663,
+    "avg_loss": 191.3924888146639,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -11.275507635449667,
+    "win_rate": 15.384615384615385,
+    "max_drawdown": 13.390282469920026,
+    "total_trades": 13,
+    "avg_win": 488.88330670816663,
+    "avg_loss": 191.3924888146639,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD+VOL"
+  },
+  {
+    "annual_return": -11.872651867059247,
+    "win_rate": 62.5,
+    "max_drawdown": 23.77511350375992,
+    "total_trades": 256,
+    "avg_win": 67.54828478497487,
+    "avg_loss": 124.94782033647819,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -11.872651867059247,
+    "win_rate": 62.5,
+    "max_drawdown": 23.77511350375992,
+    "total_trades": 256,
+    "avg_win": 67.54828478497487,
+    "avg_loss": 124.94782033647819,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -15.527534001901477,
+    "win_rate": 31.372549019607842,
+    "max_drawdown": 22.839400461634757,
+    "total_trades": 51,
+    "avg_win": 296.64833517703744,
+    "avg_loss": 179.97505037207856,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -15.527534001901477,
+    "win_rate": 31.372549019607842,
+    "max_drawdown": 22.839400461634757,
+    "total_trades": 51,
+    "avg_win": 296.64833517703744,
+    "avg_loss": 179.97505037207856,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -15.686487108290347,
+    "win_rate": 39.473684210526315,
+    "max_drawdown": 21.932990658809388,
+    "total_trades": 38,
+    "avg_win": 145.19474542992003,
+    "avg_loss": 162.8943431425148,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -15.686487108290347,
+    "win_rate": 39.473684210526315,
+    "max_drawdown": 21.932990658809388,
+    "total_trades": 38,
+    "avg_win": 145.19474542992003,
+    "avg_loss": 162.8943431425148,
+    "params": {
+      "rsi_os": 30,
+      "rsi_ob": 65,
+      "ma": 20,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -16.385410305386173,
+    "win_rate": 57.41626794258373,
+    "max_drawdown": 27.06662304245387,
+    "total_trades": 209,
+    "avg_win": 72.38340025218109,
+    "avg_loss": 116.006169222476,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -16.385410305386173,
+    "win_rate": 57.41626794258373,
+    "max_drawdown": 27.06662304245387,
+    "total_trades": 209,
+    "avg_win": 72.38340025218109,
+    "avg_loss": 116.006169222476,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -17.81921663808397,
+    "win_rate": 54.19847328244275,
+    "max_drawdown": 37.11111001805939,
+    "total_trades": 262,
+    "avg_win": 130.47692768456926,
+    "avg_loss": 169.24704495847698,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -17.81921663808397,
+    "win_rate": 54.19847328244275,
+    "max_drawdown": 37.11111001805939,
+    "total_trades": 262,
+    "avg_win": 130.47692768456926,
+    "avg_loss": 169.24704495847698,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -18.201130285238463,
+    "win_rate": 22.916666666666664,
+    "max_drawdown": 26.927018252085862,
+    "total_trades": 48,
+    "avg_win": 430.9521236170087,
+    "avg_loss": 177.31314563002536,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -18.201130285238463,
+    "win_rate": 22.916666666666664,
+    "max_drawdown": 26.927018252085862,
+    "total_trades": 48,
+    "avg_win": 430.9521236170087,
+    "avg_loss": 177.31314563002536,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -18.858050956996365,
+    "win_rate": 57.02127659574469,
+    "max_drawdown": 33.39463468717266,
+    "total_trades": 235,
+    "avg_win": 93.54771802025515,
+    "avg_loss": 142.78415158825567,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -18.858050956996365,
+    "win_rate": 57.02127659574469,
+    "max_drawdown": 33.39463468717266,
+    "total_trades": 235,
+    "avg_win": 93.54771802025515,
+    "avg_loss": 142.78415158825567,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -19.592443113265247,
+    "win_rate": 23.52941176470588,
+    "max_drawdown": 22.595728834487144,
+    "total_trades": 34,
+    "avg_win": 308.8216881516895,
+    "avg_loss": 170.37760832846308,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -19.592443113265247,
+    "win_rate": 23.52941176470588,
+    "max_drawdown": 22.595728834487144,
+    "total_trades": 34,
+    "avg_win": 308.8216881516895,
+    "avg_loss": 170.37760832846308,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -21.13835782647353,
+    "win_rate": 31.48148148148148,
+    "max_drawdown": 33.693886934079096,
+    "total_trades": 54,
+    "avg_win": 271.22236416708495,
+    "avg_loss": 181.74637766183233,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -21.13835782647353,
+    "win_rate": 31.48148148148148,
+    "max_drawdown": 33.693886934079096,
+    "total_trades": 54,
+    "avg_win": 271.22236416708495,
+    "avg_loss": 181.74637766183233,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -21.78260503375855,
+    "win_rate": 55.24193548387096,
+    "max_drawdown": 37.01436970515183,
+    "total_trades": 248,
+    "avg_win": 118.44563327885807,
+    "avg_loss": 165.813623987202,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -21.78260503375855,
+    "win_rate": 55.24193548387096,
+    "max_drawdown": 37.01436970515183,
+    "total_trades": 248,
+    "avg_win": 118.44563327885807,
+    "avg_loss": 165.813623987202,
+    "params": {
+      "rsi_os": 25,
+      "rsi_ob": 60,
+      "ma": 10,
+      "bb_low": 0.2,
+      "bb_high": 0.7,
+      "vol": 1.2,
+      "sl": 0.03,
+      "tp": 0.1
+    },
+    "strategy": "RSI+BB"
+  },
+  {
+    "annual_return": -22.17935416912924,
+    "win_rate": 35.41666666666667,
+    "max_drawdown": 28.100020937267107,
+    "total_trades": 48,
+    "avg_win": 182.50829472815693,
+    "avg_loss": 171.63149765456748,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -22.17935416912924,
+    "win_rate": 35.41666666666667,
+    "max_drawdown": 28.100020937267107,
+    "total_trades": 48,
+    "avg_win": 182.50829472815693,
+    "avg_loss": 171.63149765456748,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.25,
+      "bb_high": 0.75,
+      "vol": 1.5,
+      "sl": 0.04,
+      "tp": 0.12
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -22.42131389059522,
+    "win_rate": 22.22222222222222,
+    "max_drawdown": 22.421313890595222,
+    "total_trades": 27,
+    "avg_win": 186.8390904466606,
+    "avg_loss": 160.1507586542612,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -22.42131389059522,
+    "win_rate": 22.22222222222222,
+    "max_drawdown": 22.421313890595222,
+    "total_trades": 27,
+    "avg_win": 186.8390904466606,
+    "avg_loss": 160.1507586542612,
+    "params": {
+      "rsi_os": 40,
+      "rsi_ob": 75,
+      "ma": 50,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -28.73848555005396,
+    "win_rate": 31.818181818181817,
+    "max_drawdown": 30.505922850951794,
+    "total_trades": 44,
+    "avg_win": 131.46868857665828,
+    "avg_loss": 157.1470065026206,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  },
+  {
+    "annual_return": -28.73848555005396,
+    "win_rate": 31.818181818181817,
+    "max_drawdown": 30.505922850951794,
+    "total_trades": 44,
+    "avg_win": 131.46868857665828,
+    "avg_loss": 157.1470065026206,
+    "params": {
+      "rsi_os": 35,
+      "rsi_ob": 70,
+      "ma": 30,
+      "bb_low": 0.3,
+      "bb_high": 0.8,
+      "vol": 1.8,
+      "sl": 0.05,
+      "tp": 0.15
+    },
+    "strategy": "RSI+MACD"
+  }
+]

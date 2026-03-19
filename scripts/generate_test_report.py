@@ -10,8 +10,8 @@ import json
 import os
 from datetime import datetime
 
-BASE_URL = "http://localhost:3000"
-REPORTS_DIR = "/home/admin/.openclaw/workspace/quant/v3-architecture/logs/reports"
+BASE_URL = "http://localhost:8000"
+REPORTS_DIR = "/root/.openclaw/workspace/quant/v3-architecture/logs/reports"
 
 os.makedirs(REPORTS_DIR, exist_ok=True)
 

@@ -38,7 +38,7 @@ sudo kill -9 618733
 
 **解决方案**:
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 nohup uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000 > logs/web_dashboard.log 2>&1 &
 ```
 
@@ -80,7 +80,7 @@ nohup uvicorn web.dashboard_api:app --host 0.0.0.0 --port 3000 > logs/web_dashbo
 
 **检查 Supervisor 配置**:
 ```bash
-ls -la /home/admin/.openclaw/supervisor/conf.d/
+ls -la /root/.openclaw/supervisor/conf.d/
 # ✅ quant-gateway.conf.disabled (已禁用)
 ```
 
@@ -90,14 +90,14 @@ ls -la /home/admin/.openclaw/supervisor/conf.d/
 
 ### 2. 新系统自动重启
 
-**监控脚本**: `/home/admin/.openclaw/workspace/quant/v3-architecture/scripts/web_monitor.sh`
+**监控脚本**: `/root/.openclaw/workspace/quant/v3-architecture/scripts/web_monitor.sh`
 
 **定时任务**: 每分钟检查一次
 
 ```bash
 # 查看定时任务
 crontab -l
-# ✅ */1 * * * * /home/admin/.openclaw/workspace/quant/v3-architecture/scripts/web_monitor.sh
+# ✅ */1 * * * * /root/.openclaw/workspace/quant/v3-architecture/scripts/web_monitor.sh
 ```
 
 ### 3. 端口占用检查
@@ -193,13 +193,13 @@ http://localhost:3000/dashboard/login.html
 1. **检查自动重启**
    ```bash
    # 查看日志
-   tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/web_dashboard.log
+   tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/web_dashboard.log
    ```
 
 2. **监控脚本状态**
    ```bash
    # 查看监控日志
-   tail -f /home/admin/.openclaw/workspace/quant/v3-architecture/logs/web_monitor.log
+   tail -f /root/.openclaw/workspace/quant/v3-architecture/logs/web_monitor.log
    ```
 
 ---

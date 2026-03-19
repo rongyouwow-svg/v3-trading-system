@@ -149,7 +149,7 @@ http://147.139.213.181:3000/dashboard/stop-loss.html
 
 **报告位置**:
 ```
-/home/admin/.openclaw/workspace/quant/v3-architecture/logs/monitoring/v3_monitor_log_YYYY-MM-DD.md
+/root/.openclaw/workspace/quant/v3-architecture/logs/monitoring/v3_monitor_log_YYYY-MM-DD.md
 ```
 
 ---
@@ -252,16 +252,16 @@ http://147.139.213.181:3000/dashboard/stop-loss.html
 
 ```bash
 # 每分钟更新策略状态
-*/1 * * * * cd /home/admin/.openclaw/workspace/quant/v3-architecture && python3 scripts/update_strategy_status.py
+*/1 * * * * cd /root/.openclaw/workspace/quant/v3-architecture && python3 scripts/update_strategy_status.py
 
 # 每 5 分钟错误检测
-*/5 * * * * cd /home/admin/.openclaw/workspace/quant/v3-architecture && python3 scripts/error_detector.py
+*/5 * * * * cd /root/.openclaw/workspace/quant/v3-architecture && python3 scripts/error_detector.py
 
 # 每 30 分钟监测记录
-*/30 * * * * cd /home/admin/.openclaw/workspace/quant/v3-architecture && python3 scripts/v3_monitor.py
+*/30 * * * * cd /root/.openclaw/workspace/quant/v3-architecture && python3 scripts/v3_monitor.py
 
 # 每天 12:00 自动停止策略
-0 12 * * * cd /home/admin/.openclaw/workspace/quant/v3-architecture && python3 scripts/stop_strategies_at_noon.py
+0 12 * * * cd /root/.openclaw/workspace/quant/v3-architecture && python3 scripts/stop_strategies_at_noon.py
 ```
 
 ---
@@ -289,7 +289,7 @@ http://147.139.213.181:3000/dashboard/stop-loss.html
 
 ```bash
 # ETH 策略（0.2% 止损）
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 nohup python3 strategies/rsi_1min_strategy.py > logs/eth_rsi_strategy.log 2>&1 &
 
 # LINK 策略（0.2% 止损）
@@ -323,7 +323,7 @@ ls -la logs/monitoring/v3_monitor_log_*.md
 
 ### 集成测试结果
 ```bash
-cd /home/admin/.openclaw/workspace/quant/v3-architecture
+cd /root/.openclaw/workspace/quant/v3-architecture
 python3 tests/v3_integration_test.py
 ```
 
@@ -377,8 +377,8 @@ python3 tests/v3_integration_test.py
 ## 📞 技术支持
 
 **GitHub Issues**: https://github.com/rongyouwow-svg/lobster-quant-v3/issues
-**文档**: `/home/admin/.openclaw/workspace/quant/v3-architecture/docs/`
-**日志**: `/home/admin/.openclaw/workspace/quant/v3-architecture/logs/`
+**文档**: `/root/.openclaw/workspace/quant/v3-architecture/docs/`
+**日志**: `/root/.openclaw/workspace/quant/v3-architecture/logs/`
 
 ---
 

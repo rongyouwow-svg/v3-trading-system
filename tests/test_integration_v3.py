@@ -19,7 +19,7 @@ import time
 from datetime import datetime
 
 # 添加项目路径
-sys.path.insert(0, '/home/admin/.openclaw/workspace/quant/v3-architecture')
+sys.path.insert(0, '/root/.openclaw/workspace/quant/v3-architecture')
 
 print("="*70)
 print("🧪 v3.1 重构集成测试")
